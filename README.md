@@ -38,7 +38,7 @@ HAYAT is a revolutionary Blood Donation Management System designed to foster sea
 ## Contributors
 
 - Youssef Charif Hamidi : [GitHub](https://github.com/Chareef) | [LinkedIn](https://linkedin.com/in/youssef-charif-hamidi)
-- Blain Muema : [GitHub](https://github.com/octocatblain) | [LinkedIn](https://linkedin.com/in/blain-muema)
+- Blain Muema : [GitHub](https://github.com/octocatblain) | [X](https://twitter.com/birdblain)
 - Kenansa Meseret : [GitHub](https://github.com/Kenc0de)
 
 ## Conclusion
