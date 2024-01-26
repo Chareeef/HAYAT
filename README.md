@@ -24,8 +24,6 @@ HAYAT is a revolutionary Blood Donation Management System designed to foster sea
 
 - **Nginx:** A high-performance web server used for load balancing and efficient distribution of incoming traffic.
 
-- **Domain Name:** Accessible through the domain [https://hayat-blood-donation.tech](https://hayat-blood-donation.tech).
-
 ## Getting Started
 
 1. **Access the Application:**
@@ -39,7 +37,7 @@ HAYAT is a revolutionary Blood Donation Management System designed to foster sea
 
 - Youssef Charif Hamidi : [GitHub](https://github.com/Chareef) | [LinkedIn](https://linkedin.com/in/youssef-charif-hamidi)
 - Blain Muema : [GitHub](https://github.com/octocatblain) | [X](https://twitter.com/birdblain)
-- Kenansa Meseret : [GitHub](https://github.com/Kenc0de)
+- Kenansa Meseret : [GitHub](https://github.com/Kenc0de) | [X](https://twitter.com/KENC0DE)
 
 ## Conclusion
 
