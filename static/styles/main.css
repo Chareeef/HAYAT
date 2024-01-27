@@ -236,7 +236,6 @@ section:nth-child(odd) {
         font-size: 1.5rem;
         cursor: pointer;
         padding: .25rem;
-        border: 1px solid var(--tertiary-clr);
         border-radius: 5px;
         color: var(--tertiary-clr);
     }
@@ -260,11 +259,12 @@ section:nth-child(odd) {
         }
 
         .toggle_btn {
-            display: inherit;
+            position: absolute;
+            top: 20.5rem;
+            right: 1.25rem;
             font-size: 1.5rem;
             cursor: pointer;
             padding: .25rem;
-            border: 1px solid var(--tertiary-clr);
             border-radius: 5px;
             color: var(--tertiary-clr);
         }
