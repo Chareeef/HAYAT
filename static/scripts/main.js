@@ -21,27 +21,22 @@ window.onscroll = () => {
 
 // NAVBAR RESPONSIVENESS TOGGLE
 
-// const toggleButton = document.getElementsByClassName('toggle_btn')
-// const navMenu = document.getElementsByClassName('menu')
-// const header = document.getElementsByTagName('header')
-// const loginBtn = document.getElementsByClassName('toggle_btn')
-
-// toggleButton.addEventListener('click', () => {
-//     navMenu.classList.toggle('responsive')
-//     header.classList.toggle('responsive')
-//     loginBtn.classList.toggle('responsive')
-// })
-
-const toggleButton = document.querySelector('toggle_btn')
-const navMenu = document.querySelector('menu')
+const toggleButton = document.querySelector('.toggle_btn')
 const header = document.querySelector('header')
-const loginBtn = document.gquerySelector('toggle_btn')
+// const toggleBtnIcon = document.querySelector('.toggle_btn')
 
 
 toggleButton.onclick = function () {
-    // navMenu.classList.toggle('responsive')
     header.classList.toggle('responsive')
-    // loginBtn.classList.toggle('responsive')
+    // const isOpen = header.classList.contains('responsive')
+
+    // toggleBtnIcon.classList = isOpen 
+    // ? '&backcong;' 
+    // : '&cross;'
 }
+
+
+
+
 
 
