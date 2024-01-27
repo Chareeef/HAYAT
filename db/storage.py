@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module set the basement of our project database"""
 from db.base import Base
-# import db.models
+import db.models
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
@@ -22,6 +22,9 @@ class Storage():
 
         db_url = f'mysql+mysqldb://{user}:{password}@{host}/{database}'
         self.__engine = create_engine(db_url)
+
+        if database == 'hayat_test_db':
+            Base.metadata.drop_all(bind=self.__engine)
 
     def load_all(self):
         """Create tables and sqlalchemy session"""
