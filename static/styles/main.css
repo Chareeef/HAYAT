@@ -176,6 +176,10 @@ header {
     transition: all 200ms ease;
 }
 
+.toggle_btn {
+    display: none;
+}
+
 /* ====================================
                 SECTIONS
 =======================================*/
@@ -189,4 +193,69 @@ section {
 
 section:nth-child(odd) {
     background: var(--primary-bg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================
+            RESPONSIVE DESIGN
+=======================================*/
+
+@media screen and (max-width: 992px) {
+
+    /* header */
+
+    .menu,
+    .login_btn {
+        display: none;
+    }
+
+    header {
+        padding: 20px;
+        display: flex;
+
+        align-items: center;
+        gap: .75rem;
+
+    }
+
+    header.responsive {
+        height: 50dvh;
+        flex-direction: column;
+    }
+
+    .menu.responsive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .login_btn.responsive {
+        display: block;
+        width: 20dvw;
+    }
+
+    .toggle_btn {
+        display: inherit;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: .25rem;
+        border: 1px solid var(--tertiary-clr);
+        border-radius: 5px;
+        color: var(--primary-clr);
+    }
+
 }
