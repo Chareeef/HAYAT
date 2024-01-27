@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module set the basement of our project database"""
-from db.base import Base
-import db.models
+from db.models import classes_dict
+from db.models.base import Base
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
@@ -32,3 +32,16 @@ class Storage():
 
         session_factory = scoped_session(sessionmaker(bind=self.__engine))
         self.__session = session_factory()
+
+    def all(self, obj_name=None):
+        """Retrieve all database records"""
+        session = self.__session
+
+        if obj_name:
+            obj = classes_dict[obj_name]
+            return session.query(obj).all()
+        else:
+            objs_list = []
+            for obj in classes_dict.values():
+                objs_list += session.query(obj).all()
+            return objs_list

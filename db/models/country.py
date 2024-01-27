@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Country Model"""
-from db.base import BaseModel, Base
+from db.models.base import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 

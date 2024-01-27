@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """City Model"""
-from db.base import BaseModel, Base
+from db.models.base import BaseModel, Base
 from sqlalchemy import Column, Integer, ForeignKey, String
 
 
