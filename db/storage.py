@@ -46,6 +46,11 @@ class Storage():
                 objs_list += session.query(obj).all()
             return objs_list
 
+    def show(self, obj_name=None):
+        """Print all database records"""
+        for obj in self.all(obj_name):
+            print(obj)
+
     def add(self, obj):
         """Add an object to the database"""
         self.__session.add(obj)

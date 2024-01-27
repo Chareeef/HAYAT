@@ -20,7 +20,7 @@ class BaseModel():
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-    def __str__(self):
+    def __repr__(self):
         """String representation of the object"""
         string = f'{self.__class__.__name__} : name -> {self.name} '
         string += f'(created at {self.created_at})'
