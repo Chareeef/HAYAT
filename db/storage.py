@@ -45,3 +45,19 @@ class Storage():
             for obj in classes_dict.values():
                 objs_list += session.query(obj).all()
             return objs_list
+
+    def add(self, obj):
+        """Add an object to the database"""
+        self.__session.add(obj)
+
+    def add_all(self, objs):
+        """Add a list of objects to the database"""
+        self.__session.add_all(objs)
+
+    def delete(self, obj):
+        """Delete an object from the database"""
+        self.__session.delete(obj)
+
+    def commit(self):
+        """Commit a transaction to the database"""
+        self.__session.commit()
