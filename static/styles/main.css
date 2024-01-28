@@ -244,6 +244,10 @@ section:nth-child(odd) {
     width: clamp(50dvw, 500px, 70dvw);
     gap: .5rem;
 
+    legend{
+        text-align: center;
+    }
+
     .full_name,
     .email,
     .phone_number,
