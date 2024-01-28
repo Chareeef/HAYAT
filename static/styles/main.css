@@ -316,9 +316,30 @@ section:nth-child(odd) {
     }
 }
 
+/* ====================================
+        WHY DONATE SECTION
+=======================================*/
+
+.why_donate{
+    padding-block: 6rem;
+    gap: 2rem;
+
+    .title{
+        color: var(--tertiary-clr);
+    }
+
+    .text{
+        font-weight: 100;
+    }
+
+    .text>span{
+        font-weight: 500;
+        background: linear-gradient(to right, var(--primary-clr), transparent);
+        border-inline-start: 1.5px solid var(--tertiary-clr);
+    }
 
 
-
+}
 
 
 
