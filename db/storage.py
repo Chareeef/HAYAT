@@ -63,6 +63,11 @@ class Storage():
         """Delete an object from the database"""
         self.__session.delete(obj)
 
+    def delete_all(self, objs):
+        """Delete a list of objects from the database"""
+        for obj in objs:
+            self.__session.delete(obj)
+
     def commit(self):
         """Commit a transaction to the database"""
         self.__session.commit()
