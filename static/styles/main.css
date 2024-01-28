@@ -185,7 +185,7 @@ header {
 =======================================*/
 
 section {
-    min-height: 100dvh;
+    /* min-height: 100dvh; */
     display: flex;
     align-items: center;
     padding-inline: 3.125rem;
@@ -302,7 +302,7 @@ section:nth-child(odd) {
 
     >img:nth-child(2) {
         top: 12rem;
-        right: 20rem;
+        right: clamp(13rem, 20rem);
         z-index: 9;
     }
 
@@ -392,6 +392,10 @@ section:nth-child(odd) {
         overflow-x: hidden;
     }
 
+    .hero_content{
+        justify-content: center;
+    }
+
     .hero_image{
         gap: .5rem;
         display: flex;
@@ -419,13 +423,18 @@ section:nth-child(odd) {
 @media screen and (max-width: 440px){
 
     .hero{
-        height: 100dvh !important;
+        min-height: 100dvh !important;
         overflow-y: hidden;
         align-items: center;
     }
 
+    .hero_content{
+        justify-content: center;
+    }
+
     .hero_image{
         display: none;
+        visibility: hiddens;
         /* flex-direction: column !important;
         align-items: center;
         justify-content: center; */
