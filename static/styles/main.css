@@ -428,6 +428,10 @@ section:nth-child(odd) {
             border-inline-start: 1.5px solid var(--tertiary-clr);
         }
     }
+
+    .text{
+        line-height: 2rem;
+    }
 }
 
 .footer_links {
