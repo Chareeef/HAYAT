@@ -377,6 +377,7 @@ section:nth-child(odd) {
         align-items: center;
         flex: 6;
 
+
         .map {
             width: 100%;
             background-color: brown;
@@ -619,6 +620,7 @@ section:nth-child(odd) {
 
             .map {
                 min-width: clamp(80dvw, 100%, 100dvw);
+                
             }
         }
     }
