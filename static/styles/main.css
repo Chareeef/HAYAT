@@ -394,6 +394,31 @@ section:nth-child(odd) {
 }
 
 
+/* ====================================
+        BACK TO TOP BUTTON
+=======================================*/
+
+
+#backToTopBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 1.25rem; 
+    right: 1.25rem; 
+    z-index: 99; 
+    color: var(--tertiary-clr); 
+    cursor: pointer; 
+    font-size: 2rem;
+    background: none;
+    transition: all 500ms ease;
+
+  }
+  
+  #backToTopBtn:hover {
+    color: var(--secondary-clr);
+    transform: translateY(-10px);
+    transition: all 200ms ease;
+  }
+
 
 
 /* ====================================
