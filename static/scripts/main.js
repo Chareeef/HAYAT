@@ -21,12 +21,17 @@ window.onscroll = () => {
 
 // NAVBAR RESPONSIVENESS TOGGLE
 
-const toggleButton = document.querySelector('.toggle_btn')
-const header = document.querySelector('header')
+const toggleButton = document.querySelector('.toggle_btn');
+const header = document.querySelector('#header');
+const toggleBtnIcon = document.querySelector('.toggle_btn');
 
 toggleButton.onclick = function () {
-    header.classList.toggle('responsive')
-}
+    header.classList.toggle('responsive');
+    const isOpen = header.classList.contains('responsive');
+
+    toggleBtnIcon.innerHTML = isOpen ? '&cross;' : '&backcong;';
+};
+
 
 
 
