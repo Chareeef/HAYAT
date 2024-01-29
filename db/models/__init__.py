@@ -2,8 +2,11 @@
 """Import our models"""
 from db.models.country import Country
 from db.models.city import City
+from db.models.transfusion_center import TransfusionCenter
 
 classes_dict = {
     'Country': Country,
-    'City': City
+    'City': City,
+    'TransfusionCenter': TransfusionCenter,
+    'TC': TransfusionCenter
 }
