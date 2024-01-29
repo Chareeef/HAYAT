@@ -23,16 +23,9 @@ window.onscroll = () => {
 
 const toggleButton = document.querySelector('.toggle_btn')
 const header = document.querySelector('header')
-// const toggleBtnIcon = document.querySelector('.toggle_btn')
-
 
 toggleButton.onclick = function () {
     header.classList.toggle('responsive')
-    // const isOpen = header.classList.contains('responsive')
-
-    // toggleBtnIcon.classList = isOpen 
-    // ? '&backcong;' 
-    // : '&cross;'
 }
 
 
