@@ -590,6 +590,34 @@ section:nth-child(odd) {
         width: 50dvw;
         height: 50%;
     }
+
+    /* ===== donate section ===== */
+
+    .why_donate{
+        padding-block: 3rem;
+    }
+
+    /* ===== station section ===== */
+
+    .stations_section{
+        padding-block: 3rem;
+    }
+
+    .stations_wrapper{
+        flex-direction: column;
+
+        .subtitle{
+            font-size: 1.75rem;
+        }
+
+        .stations_map{
+                padding-inline-start: 0;
+
+            .map{
+                min-width: clamp(80dvw, 100%, 100dvw) ;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 787px) {
@@ -630,9 +658,6 @@ section:nth-child(odd) {
     .hero_image {
         display: none;
         visibility: hiddens;
-        /* flex-direction: column !important;
-        align-items: center;
-        justify-content: center; */
     }
 
 
