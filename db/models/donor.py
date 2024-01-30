@@ -10,7 +10,7 @@ class Donor(BaseModel, Base):
 
     username = Column(String(50), nullable=False, unique=True)
     email = Column(String(50), nullable=False, unique=True)
-    password_hash = Column(String(50), nullable=False)
+    password_hash = Column(String(80), nullable=False)
     full_name = Column(String(50), nullable=False)
     age = Column(Integer, nullable=False)
     gender = Column(Enum('Male', 'Female'))

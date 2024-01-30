@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """BloodBag Model"""
 from db.models.base import BaseModel, Base
-from sqlalchemy import Column, Enum, Integer, ForeignKey, String
+from sqlalchemy import (Column, CheckConstraint, Enum,
+                        Integer, ForeignKey, String)
 
 
 class BloodBag(BaseModel, Base):
@@ -10,6 +11,10 @@ class BloodBag(BaseModel, Base):
 
     blood_category = Column(Enum('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-',
                                  'O+', 'O-'), nullable=False)
-    quantity = Column(Integer, nullable=False)
-    situation = Column(Enum('Stable', 'Soon Shortage', 'Critic'), nullable=False)
-    center_id = Column(Integer, ForeignKey('centers.id'), nullable=False)
+    quantity = Column(Integer,
+                      CheckConstraint('quantity >= 0', name='minimum_bags'),
+                      nullable=False)
+    situation = Column(Enum('Stable', 'Soon Shortage', 'Critic'),
+                       nullable=False)
+    center_id = Column(Integer, ForeignKey('transfusion_centers.id'),
+                       nullable=False)
