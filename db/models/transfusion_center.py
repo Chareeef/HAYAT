@@ -2,6 +2,7 @@
 """Transfusion Center Model"""
 from db.models.base import BaseModel, Base
 from sqlalchemy import Column, Integer, ForeignKey, String
+from sqlalchemy.orm import relationship
 
 
 class TransfusionCenter(BaseModel, Base):
@@ -13,3 +14,5 @@ class TransfusionCenter(BaseModel, Base):
     password_hash = Column(String(50), nullable=False)
     coordinates = Column(String(50))
     city_id = Column(Integer, ForeignKey('cities.id'), nullable=False)
+    blood_bags = relationship('BloodBag', backref='center',
+                              cascade='all, delete-orphan')

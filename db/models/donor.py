@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Donor Model"""
 from db.models.base import BaseModel, Base
-from sqlalchemy import Column, Enum, Integer, ForeignKey, String
+from sqlalchemy import Column, Enum, Integer, String
 
 
 class Donor(BaseModel, Base):
@@ -14,4 +14,5 @@ class Donor(BaseModel, Base):
     full_name = Column(String(50), nullable=False)
     age = Column(Integer, nullable=False)
     gender = Column(Enum('Male', 'Female'))
-    blood_ = Column(Enum('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'))
+    blood_category = Column(Enum('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-',
+                                 'O+', 'O-'))
