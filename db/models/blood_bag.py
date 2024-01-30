@@ -18,3 +18,12 @@ class BloodBag(BaseModel, Base):
                        nullable=False)
     center_id = Column(Integer, ForeignKey('transfusion_centers.id'),
                        nullable=False)
+
+    def __repr__(self):
+        """String representation of a BloodBag instance"""
+        from db import storage
+
+        TC = storage.get('TC', self.center_id)
+        string = f'({self.blood_category}) Blood Bag from {TC.name} TC '
+        string += f'({self.quantity} bags / {self.situation} situation)'
+        return string

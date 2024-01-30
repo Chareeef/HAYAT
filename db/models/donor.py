@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Donor Model"""
 from db.models.base import BaseModel, Base
+from db.models.donors_centers import donors_centers
 from sqlalchemy import Column, Enum, Integer, String
+from sqlalchemy.orm import relationship
 
 
 class Donor(BaseModel, Base):
@@ -16,3 +18,15 @@ class Donor(BaseModel, Base):
     gender = Column(Enum('Male', 'Female'))
     blood_category = Column(Enum('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-',
                                  'O+', 'O-'))
+    followed_centers = relationship('TransfusionCenter',
+                                    secondary=donors_centers,
+                                    back_populates='donors')
+
+    def __repr__(self):
+        """String representation of a Donor instance"""
+        string = f'Donor: {self.full_name} ({self.age} years old)'
+        if self.followed_centers:
+            string = f'\nFollowed transfusion centers:\n'
+            for center in self.followed_centers:
+                string += '\t' + str(center) + '\n'
+        return string

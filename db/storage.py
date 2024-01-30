@@ -42,7 +42,9 @@ class Storage():
             return session.query(obj).all()
         else:
             objs_list = []
-            for obj in classes_dict.values():
+            classes_map = classes_dict.copy()
+            del classes_map['TC']
+            for obj in classes_map.values():
                 objs_list += session.query(obj).all()
             return objs_list
 
@@ -71,3 +73,8 @@ class Storage():
     def commit(self):
         """Commit a transaction to the database"""
         self.__session.commit()
+
+    def get(self, obj_name, obj_id):
+        """Retrieve an instance by id from the database"""
+        obj = classes_dict[obj_name]
+        return self.__session.query(obj).get(obj_id)

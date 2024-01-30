@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Transfusion Center Model"""
 from db.models.base import BaseModel, Base
-from sqlalchemy import Column, Integer, String
+from db.models.donors_centers import donors_centers
+from sqlalchemy import Column, Integer, ForeignKey, String
 from sqlalchemy.orm import relationship
 
 
@@ -16,3 +17,5 @@ class TransfusionCenter(BaseModel, Base):
     city_id = Column(Integer, ForeignKey('cities.id'), nullable=False)
     blood_bags = relationship('BloodBag', backref='center',
                               cascade='all, delete-orphan')
+    donors = relationship('Donor', secondary=donors_centers,
+                          back_populates='followed_centers')
