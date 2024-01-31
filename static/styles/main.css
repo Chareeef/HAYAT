@@ -667,7 +667,6 @@ section:nth-child(odd) {
 
         .login_page_title {
             font-size: 2rem;
-            text-shadow: 1px 1px 0 var(--secondary-clr);
             text-align: center;
         }
 
@@ -678,7 +677,7 @@ section:nth-child(odd) {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 1rem;
+            gap: .75rem;
 
             border-radius: .75rem;
             border-block: 2px solid var(--tertiary-clr);
@@ -688,7 +687,7 @@ section:nth-child(odd) {
                 border-radius: .2rem;
                 padding: .75rem;
                 font-size: 1.2rem;
-                color: var(--secondary-clr);
+                color: black;
                 background-color: grey;
             }
 
@@ -699,6 +698,7 @@ section:nth-child(odd) {
             .submit {
                 background-color: var(--primary-clr);
                 border: 2px solid var(--tertiary-clr);
+                color: var(--secondary-clr);
                 min-width: 20dvw;
                 font-size: 1.5rem;
                 transition: all 500ms ease;
