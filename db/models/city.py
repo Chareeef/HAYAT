@@ -9,7 +9,7 @@ class City(BaseModel, Base):
     """Class for cities table"""
     __tablename__ = 'cities'
 
-    name = Column(String(20), nullable=False, unique=True)
+    name = Column(String(50), nullable=False)
     country_id = Column(Integer, ForeignKey('countries.id'), nullable=False)
     centers = relationship('TransfusionCenter', backref='city',
                            cascade='all, delete-orphan')

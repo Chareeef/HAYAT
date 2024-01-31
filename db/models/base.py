@@ -15,10 +15,13 @@ class BaseModel():
     updated_at = Column(DateTime(timezone=True), default=datetime.utcnow(),
                         onupdate=datetime.utcnow())
 
-    def __init__(self, **kwargs):
+    def __init__(self, *args, **kwargs):
         """Initialize our models"""
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+        if not kwargs:
+            print('It is better to pass a dictionnary')
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __repr__(self):
         """String representation of the object"""
