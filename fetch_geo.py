@@ -17,7 +17,7 @@ if __name__ == '__main__':
     for african_country in african_countries:
         name = african_country['countryName']
         if name.startswith('The '):
-            name = name[3:]
+            name = name[4:]
         if name == 'Western Sahara':
             continue
         african_countries_names.append(name)
