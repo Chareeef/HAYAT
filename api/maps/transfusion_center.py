@@ -2,19 +2,17 @@
 """
 Manipulate Transfusion center..
 """
-from db import storage
-from db.models import TransfusionCenter
-from flask import abort, jsonify, make_response, request
 from api.maps import blood_map
+from db import storage
+from flask import jsonify
 
 
 @blood_map.route('/transfusion_centers', methods=['GET'], strict_slashes=False)
-def list_donors():
+def list_transfusion_centers():
     """List Transfusion centers"""
     centers_l = []
-    all_objs = storage.all()
+    all_objs = storage.all('TransfusionCenter')
     for obj in all_objs:
-        if isinstance(obj, TransfusionCenter):
-            centers_l.append(obj.__dict__)
+        centers_l.append(obj.to_dict())
 
     return jsonify(centers_l)

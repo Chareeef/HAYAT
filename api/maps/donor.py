@@ -2,38 +2,32 @@
 """
 Manipulate donors.
 """
-from db import storage
-from db.models import Donor
-from flask import abort, jsonify, make_response, request
 from api.maps import blood_map
+from db import storage
+from flask import abort, jsonify, make_response, request
 
 
 @blood_map.route('/donors', methods=['GET'], strict_slashes=False)
 def list_donors():
-    """List Users."""
+    """List Donors"""
     donor_l = []
-    all_objs = storage.all()
+    all_objs = storage.all('Donor')
     for obj in all_objs:
-        if isinstance(obj, Donor):
-            donor_l.append(obj.__dict__)
+        donor_l.append(obj.to_dict())
 
     return jsonify(donor_l)
 
 
-@blood_map.route('/donor/<id>', methods=['GET'], strict_slashes=False)
+@blood_map.route('/donors/<id>', methods=['GET'], strict_slashes=False)
 def get_donor(id):
     """Get specific Donor"""
     donor = []
-    all_objs = storage.all()
-    for obj in all_objs:
-        if isinstance(obj, Donor):
-            if obj.id == id:
-                donor.append(obj.__dict__)
+    donor = storage.get('Donor', id)
 
-    return jsonify(donor)
+    return jsonify(donor.to_dict())
 
 
-@blood_map.route('/donor', methods=['POST'], strict_slashes=False)
+@blood_map.route('/donors', methods=['POST'], strict_slashes=False)
 def create_donor():
     """Register new donor"""
     if not request.get_json():
@@ -47,4 +41,6 @@ def create_donor():
     data = request.get_json()
     donor = Donor(**data)
     storage.add(donor)
-    return make_response(jsonify(donor.__dict__), 201)
+    storage.commit()
+
+    return make_response(jsonify(donor.to_dict()), 201)

@@ -23,6 +23,14 @@ class BaseModel():
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
+    def to_dict(self):
+        """Return a dictionary representation of the instance"""
+        obj_dict = self.__dict__.copy()
+        if '_sa_instance_state' in obj_dict:
+            del obj_dict['_sa_instance_state']
+
+        return obj_dict
+
     def __repr__(self):
         """String representation of the object"""
         string = f'{self.__class__.__name__} : name -> {self.name} '

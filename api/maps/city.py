@@ -2,19 +2,17 @@
 """
 Manipulate city.
 """
-from db import storage
-from db.models import City
-from flask import abort, jsonify, make_response, request
 from api.maps import blood_map
+from db import storage
+from flask import jsonify
 
 
 @blood_map.route('/cities', methods=['GET'], strict_slashes=False)
 def list_city():
     """List Cities"""
     city_l = []
-    all_objs = storage.all()
+    all_objs = storage.all('City')
     for obj in all_objs:
-        if isinstance(obj, City):
-            city_l.append(obj.__dict__)
+        city_l.append(obj.to_dict())
 
     return jsonify(city_l)
