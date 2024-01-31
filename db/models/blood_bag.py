@@ -12,7 +12,6 @@ class BloodBag(BaseModel, Base):
     blood_category = Column(Enum('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-',
                                  'O+', 'O-'), nullable=False)
     quantity = Column(Integer,
-                      CheckConstraint('quantity >= 0', name='minimum_bags'),
                       nullable=False)
     situation = Column(Enum('Stable', 'Soon Shortage', 'Critic'),
                        nullable=False)

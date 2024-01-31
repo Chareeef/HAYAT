@@ -8,7 +8,7 @@ from flask import jsonify
 
 
 @blood_map.route('/transfusion_centers', methods=['GET'], strict_slashes=False)
-def list_transfusion_centers():
+def list_centers():
     """List Transfusion centers"""
     centers_l = []
     all_objs = storage.all('TransfusionCenter')
