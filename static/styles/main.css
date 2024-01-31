@@ -468,11 +468,11 @@ section:nth-child(odd) {
             }
         }
 
-        .contact_image{
-           
+        .contact_image {
 
-            >img{
-                
+
+            >img {
+
                 width: 100%;
                 height: 50dvh;
                 object-fit: cover;
@@ -601,9 +601,118 @@ section:nth-child(odd) {
 }
 
 
+/* ====================================
+        LOGIN PAGE
+=======================================*/
+
+.login {
+    display: flex;
+    justify-content: space-between;
+    columns: 2;
+    height: 100%;
 
 
+    .login_hero_image {
 
+        display: flex;
+        flex: 6;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        margin: 1rem;
+        border-radius: .75rem;
+
+        >img {
+            width: 100%;
+            height: 10-dvh;
+            object-fit: cover;
+            background-repeat: no-repeat;
+            opacity: .75;
+            border-radius: .5rem;
+        }
+    }
+
+    .login_content {
+        flex: 6;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+        padding-inline: 2rem;
+        margin-block: 3rem;
+
+        .login_title {
+            opacity: .5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            .main_login_title,
+            .main_login_subtitle {
+                color: var(--secondary-clr);
+            }
+
+            .main_login_title {
+                font-size: 5rem;
+            }
+
+            .main_login_title::first-letter,
+            span {
+                color: var(--tertiary-clr);
+                text-shadow: 2px 2px 2px var(--secondary-clr);
+            }
+        }
+
+        .login_page_title {
+            font-size: 2rem;
+            text-shadow: 1px 1px 0 var(--secondary-clr);
+            text-align: center;
+        }
+
+        .login_form {
+            min-height: 50dvh;
+            min-width: 35dvw;
+            padding-inline: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+
+            border-radius: .75rem;
+            border-block: 2px solid var(--tertiary-clr);
+
+            >input,
+            .submit {
+                border-radius: .2rem;
+                padding: .75rem;
+                font-size: 1.2rem;
+                color: var(--secondary-clr);
+                background-color: grey;
+            }
+
+            >input::placeholder {
+                color: lightgrey;
+            }
+
+            .submit {
+                background-color: var(--primary-clr);
+                border: 2px solid var(--tertiary-clr);
+                min-width: 20dvw;
+                font-size: 1.5rem;
+                transition: all 500ms ease;
+            }
+
+            .submit:hover {
+                box-shadow: 0 2px 0 var(--secondary-clr);
+                scale: 1.08;
+                transition: all 200ms ease;
+            }
+        }
+    }
+
+}
 
 
 
@@ -745,13 +854,31 @@ section:nth-child(odd) {
 
 @media screen and (max-width: 787px) {
 
+    /* ===== login page ===== */
+
+    .login{
+        overflow-x: hidden;
+        
+
+        .login_hero_image {
+            display: none;
+        }
+
+        .login_content{
+            padding-inline: .5rem;
+        }
+    }
+        
+
+
     /* ===== contact section ===== */
 
-    .contact_wrapper{
+    .contact_wrapper {
         flex-direction: column;
         flex: 1;
 
-        .contact_form, .contact_image{
+        .contact_form,
+        .contact_image {
             flex: 1;
             width: 100%;
         }
