@@ -18,3 +18,33 @@ def list_donors():
             donor_l.append(obj.__dict__)
 
     return jsonify(donor_l)
+
+
+@blood_map.route('/donor/<id>', methods=['GET'], strict_slashes=False)
+def get_donor(id):
+    """Get specific Donor"""
+    donor = []
+    all_objs = storage.all()
+    for obj in all_objs:
+        if isinstance(obj, Donor):
+            if obj.id == id:
+                donor.append(obj.__dict__)
+
+    return jsonify(donor)
+
+
+@blood_map.route('/donor', methods=['POST'], strict_slashes=False)
+def create_donor():
+    """Register new donor"""
+    if not request.get_json():
+        abort(400, description="Not a JSON")
+
+    if 'email' not in request.get_json():
+        abort(400, description="Missing email")
+    if 'password' not in request.get_json():
+        abort(400, description="Missing password")
+
+    data = request.get_json()
+    donor = Donor(**data)
+    storage.add(donor)
+    return make_response(jsonify(donor.__dict__), 201)
