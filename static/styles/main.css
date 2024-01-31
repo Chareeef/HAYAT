@@ -241,7 +241,7 @@ section:nth-child(odd) {
 .donation_form {
     display: flex;
     flex-direction: column;
-    width: clamp(50dvw, 500px, 70dvw);
+    min-width: 35dvw;
     gap: .5rem;
 
     legend {
