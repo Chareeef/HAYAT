@@ -17,11 +17,10 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """Initialize our models"""
-        if not kwargs:
-            print('It is better to pass a dictionnary')
-        else:
+        if kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
 
     def to_dict(self):
         """Return a dictionary representation of the instance"""
