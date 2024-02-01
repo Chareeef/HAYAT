@@ -815,7 +815,7 @@ section:nth-child(odd) {
                 display: flex;
                 flex-direction: column;
 
-                >label{
+                >label {
                     font-weight: 300;
                     padding-block-end: .5rem;
                 }
@@ -843,8 +843,7 @@ section:nth-child(odd) {
             background-color: var(--primary-clr);
             border: 2px solid var(--tertiary-clr);
             color: var(--secondary-clr);
-            min-width: calc(0.5 * 20dvh)
-            transition: all 500ms ease;
+            min-width: calc(0.5 * 20dvh) transition: all 500ms ease;
         }
 
         .submit:hover {
@@ -1010,6 +1009,28 @@ section:nth-child(odd) {
             }
         }
     }
+
+
+    /* register page */
+
+    .register {
+        display: flex;
+        flex-direction: column;
+        margin-inline: 0;
+        padding-inline: 0;
+
+        .register_form {
+            padding-inline: 0rem;
+            flex-direction: column;
+            gap: .75rem;
+            flex: 1;
+        }
+
+        .register_hero_image{
+            scale: .8;
+        }
+    }
+
 }
 
 @media screen and (max-width: 787px) {
@@ -1058,6 +1079,32 @@ section:nth-child(odd) {
         gap: 1rem;
         flex: 1;
     }
+
+
+    /* register page */
+
+    .register {
+        display: flex;
+        flex-direction: column;
+        margin-inline: 0;
+        padding-inline: 0;
+
+        .register_form {
+            min-width: 100%;
+            padding-inline: 0rem;
+            flex-direction: column;
+            gap: .75rem;
+
+            >div {
+                flex-direction: column;
+            }
+        }
+
+        .register_hero_image {
+            display: none;
+        }
+    }
+
 
 
 }
