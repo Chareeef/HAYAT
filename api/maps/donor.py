@@ -4,6 +4,7 @@ Manipulate donors.
 """
 from api.maps import blood_map
 from db import storage
+from db.models import Donor
 from flask import abort, jsonify, make_response, request
 
 
