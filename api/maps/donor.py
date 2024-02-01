@@ -67,6 +67,7 @@ def update_donor(id):
     
     storage.commit()
 
+
 @blood_map.route('/donors/<id>', methods=['DELETE'], strict_slashes=False)
 def delete_donor(id):
     """ Delete donor account. """
