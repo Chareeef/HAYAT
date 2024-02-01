@@ -22,8 +22,9 @@ def list_donors():
 @blood_map.route('/donors/<id>', methods=['GET'], strict_slashes=False)
 def get_donor(id):
     """Get specific Donor"""
-    donor = []
     donor = storage.get('Donor', id)
+    if not donor:
+        abort(404)
 
     return jsonify(donor.to_dict())
 
@@ -36,7 +37,7 @@ def create_donor():
 
     if 'email' not in request.get_json():
         abort(400, description="Missing email")
-    if 'password' not in request.get_json():
+    if 'password_hash' not in request.get_json():
         abort(400, description="Missing password")
 
     data = request.get_json()

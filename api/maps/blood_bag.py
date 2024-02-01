@@ -22,8 +22,9 @@ def list_blood_bags():
 @blood_map.route('/blood_bags/<id>', methods=['GET'], strict_slashes=False)
 def get_blood_bag(id):
     """Get specific blood bags"""
-    bags = []
     bags = storage.get('BloodBag', id)
+    if not bags:
+        abort(404)
 
     return jsonify(bags.to_dict())
 

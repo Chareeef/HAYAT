@@ -23,6 +23,8 @@ def list_city():
 def get_city(id):
     """Get specific City"""
     city = storage.get('City', id)
+    if not city:
+        abort(404)
 
     return jsonify(city.to_dict())
 
