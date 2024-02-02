@@ -8,7 +8,9 @@ from requests import get
 if __name__ == '__main__':
     #  Retrieve countries
 
-    response = get('http://api.geonames.org/countryInfoJSON?formatted=true&lang=en&username=youssef070222&style=full')
+    url = 'http://api.geonames.org/countryInfoJSON?'
+    url += 'formatted=true&lang=en&username=youssef070222&style=full'
+    response = get(url)
     countries = response.json()['geonames']
     african_countries = list(filter(lambda c: c['continent'] == 'AF',
                                     countries))
@@ -45,8 +47,7 @@ if __name__ == '__main__':
                 storage.add(city)
 
     storage.commit()
-#
-#
+
 #    countries = storage.all('Country')
 #
 #    for ctr in countries:
