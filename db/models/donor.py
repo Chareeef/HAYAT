@@ -24,9 +24,10 @@ class Donor(BaseModel, Base):
 
     def __repr__(self):
         """String representation of a Donor instance"""
-        string = f'Donor: {self.full_name} ({self.age} years old)'
+        string = super().__repr__()
+        string += f'\n\t{self.full_name} ({self.age} years old)'
         if self.followed_centers:
-            string = f'\nFollowed transfusion centers:\n'
+            string += f'\n\tFollowed transfusion centers:\n'
             for center in self.followed_centers:
-                string += '\t' + str(center) + '\n'
+                string += '\t\t' + center.name + '\n'
         return string

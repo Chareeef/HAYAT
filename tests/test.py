@@ -36,11 +36,6 @@ storage.add(bag)
 storage.commit()
 
 ych.followed_centers.append(sah)
-print('records :')
-storage.show()
-print()
-print(sah.donors)
-storage.delete(ych)
-storage.commit()
 
-print(sah.donors)
+storage.commit()
+# storage.show()
