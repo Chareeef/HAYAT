@@ -843,7 +843,8 @@ section:nth-child(odd) {
             background-color: var(--primary-clr);
             border: 2px solid var(--tertiary-clr);
             color: var(--secondary-clr);
-            min-width: calc(0.5 * 20dvh) transition: all 500ms ease;
+            min-width: calc(0.5 * 20dvh);
+             transition: all 500ms ease;
         }
 
         .submit:hover {
