@@ -81,4 +81,4 @@ class Storage():
     def get(self, obj_name, obj_id):
         """Retrieve an instance by id from the database"""
         obj = classes_dict[obj_name]
-        return self.__session.query(obj).get(obj_id)
+        return self.__session.get(obj, obj_id)

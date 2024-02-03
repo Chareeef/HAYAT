@@ -387,3 +387,27 @@ class TestStorageDelete(unittest.TestCase):
         self.assertNotIn(country_2, self.storage.all())
         self.assertNotIn(donor_1, self.storage.all())
         self.assertNotIn(donor_2, self.storage.all())
+
+
+class TestStorageGet(unittest.TestCase):
+    """Test Storage get() method"""
+
+    @classmethod
+    def setUpClass(cls):
+        """Runs at class beginning to create tables,
+        sqlalchemy session and some sample data
+        """
+        fill_database(cls)
+
+    @classmethod
+    def tearDownClass(cls):
+        """Runs at class ending to close the sqlalchemy session"""
+        cls.storage.close()
+
+    def test_get_with_country(self):
+        """Test get() method with 'Country'"""
+        morocco = self.storage.get('Country', 1)
+        ethiopia = self.storage.get('Country', 2)
+
+        self.assertEqual(morocco, self.mor)
+        self.assertEqual(ethiopia, self.eth)
