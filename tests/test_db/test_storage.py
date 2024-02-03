@@ -98,7 +98,7 @@ class TestStorageAll(unittest.TestCase):
         self.assertIn(self.sah, all_dict)
         self.assertIn(self.bag, all_dict)
 
-    def test_with_country(self):
+    def test_all_with_country(self):
         """Test all() method with 'Country'"""
         country_dict = self.storage.all('Country')
 
@@ -110,7 +110,7 @@ class TestStorageAll(unittest.TestCase):
         self.assertNotIn(self.sah, country_dict)
         self.assertNotIn(self.bag, country_dict)
 
-    def test_with_city(self):
+    def test_all_with_city(self):
         """Test all() method with 'City'"""
         city_dict = self.storage.all('City')
 
@@ -122,7 +122,7 @@ class TestStorageAll(unittest.TestCase):
         self.assertNotIn(self.sah, city_dict)
         self.assertNotIn(self.bag, city_dict)
 
-    def test_with_donor(self):
+    def test_all_with_donor(self):
         """Test all() method with 'Donor'"""
         donor_dict = self.storage.all('Donor')
 
@@ -134,7 +134,7 @@ class TestStorageAll(unittest.TestCase):
         self.assertNotIn(self.sah, donor_dict)
         self.assertNotIn(self.bag, donor_dict)
 
-    def test_with_transfusion_center(self):
+    def test_all_with_transfusion_center(self):
         """Test all() method with 'TransfusionCenter'"""
         center_dict = self.storage.all('TransfusionCenter')
 
@@ -151,7 +151,7 @@ class TestStorageAll(unittest.TestCase):
         self.assertEqual(len(tc_dict), 1)
         self.assertIn(self.sah, tc_dict)
 
-    def test_with_blood_bag(self):
+    def test_all_with_blood_bag(self):
         """Test all() method with 'BloodBag'"""
         bag_dict = self.storage.all('BloodBag')
 
@@ -165,7 +165,7 @@ class TestStorageAll(unittest.TestCase):
 
 
 class TestStorageAddCommit(unittest.TestCase):
-    """Test Storage add(), add_all(), and commit() method"""
+    """Test Storage add(), add_all(), and commit() methods"""
 
     def setUp(self):
         """Runs before each test to create tables,
@@ -298,3 +298,136 @@ class TestStorageAddCommit(unittest.TestCase):
         self.assertIn(ych, self.storage.all())
         self.assertIn(mol, self.storage.all())
         self.assertIn(bag, self.storage.all())
+
+
+class TestStorageDelete(unittest.TestCase):
+    """Test Storage delete() and delete_all() methods"""
+
+    def setUp(self):
+        """Runs before each test to create tables,
+        sqlalchemy session and some sample data
+        """
+        storage = Storage()
+        storage.load_all()
+
+        self.mor = Country(name='Morrocco')
+        self.chili = Country(name='Chili')
+        storage.add_all([self.mor, self.chili])
+        storage.commit()
+
+        self.err = City(name='Errachidia', country_id=self.mor.id)
+        storage.add(self.err)
+        storage.commit()
+
+        self.sah = TC(name='Sahraoui',
+                      email='sah@ex.com', password_hash='nkmjuh',
+                      phone_number='0334129876', city_id=self.err.id)
+        storage.add(self.sah)
+        storage.commit()
+
+        self.ych = Donor(username='youcha',
+                         email='ych@ex.com', password_hash='poulkll',
+                         phone_number='0607798008',
+                         full_name='Youssef Charif', age=21,
+                         gender='Male', blood_category='O-')
+        storage.add(self.ych)
+        storage.commit()
+
+        self.bag = BloodBag(blood_category='O-', quantity=6, situation='Critic',
+                            center_id=self.sah.id)
+        storage.add(self.bag)
+        storage.commit()
+
+        self.storage = storage
+
+    def tearDown(self):
+        """Runs after each test to close the sqlalchemy session"""
+        self.storage.close()
+
+    def test_delete_blood_bag(self):
+        """Test deleting a BloodBag instance"""
+        self.assertIn(self.bag, self.storage.all())
+
+        self.storage.delete(self.bag)
+        self.storage.commit()
+
+        self.assertNotIn(self.bag, self.storage.all())
+
+    def test_delete_donor(self):
+        """Test deleting a Donor instance"""
+        self.assertIn(self.ych, self.storage.all())
+
+        self.storage.delete(self.ych)
+        self.storage.commit()
+
+        self.assertNotIn(self.ych, self.storage.all())
+
+    def test_delete_transfusion_center(self):
+        """Test deleting a TransfusionCenter instance and verify cascade"""
+        self.assertIn(self.sah, self.storage.all())
+        self.assertIn(self.bag, self.storage.all())
+
+        self.storage.delete(self.sah)
+        self.storage.commit()
+
+        self.assertNotIn(self.sah, self.storage.all())
+        self.assertNotIn(self.bag, self.storage.all())
+
+    def test_delete_city(self):
+        """Test deleting a City instance and verify cascade"""
+        self.assertIn(self.err, self.storage.all())
+        self.assertIn(self.sah, self.storage.all())
+        self.assertIn(self.bag, self.storage.all())
+
+        self.storage.delete(self.err)
+        self.storage.commit()
+
+        self.assertNotIn(self.err, self.storage.all())
+        self.assertNotIn(self.sah, self.storage.all())
+        self.assertNotIn(self.bag, self.storage.all())
+
+    def test_delete_country(self):
+        """Test deleting a Country instance and verify cascade"""
+        self.assertIn(self.mor, self.storage.all())
+        self.assertIn(self.err, self.storage.all())
+        self.assertIn(self.sah, self.storage.all())
+        self.assertIn(self.bag, self.storage.all())
+
+        self.storage.delete(self.mor)
+        self.storage.commit()
+
+        self.assertNotIn(self.mor, self.storage.all())
+        self.assertNotIn(self.err, self.storage.all())
+        self.assertNotIn(self.sah, self.storage.all())
+        self.assertNotIn(self.bag, self.storage.all())
+
+    def test_delete_all(self):
+        """Test delete_all() method"""
+        country_1 = Country(name='Ordinn')
+        country_2 = Country(name='Firone')
+        donor_1 = Donor(username='don_1',
+                       email='d1@ex.com', password_hash='oojho87',
+                       phone_number='0605439008',
+                       full_name='Donor 1', age=28,
+                       gender='Female', blood_category='B-')
+        donor_2 = Donor(username='don_2',
+                       email='d2@ex.com', password_hash='iuyhg60',
+                       phone_number='0406589808',
+                       full_name='Donor 2', age=18,
+                       gender='Male', blood_category='O-')
+
+        self.storage.add_all([country_1, country_2, donor_1, donor_2])
+        self.storage.commit()
+
+        self.assertIn(country_1, self.storage.all())
+        self.assertIn(country_2, self.storage.all())
+        self.assertIn(donor_1, self.storage.all())
+        self.assertIn(donor_2, self.storage.all())
+
+        self.storage.delete_all([country_1, country_2, donor_1, donor_2])
+        self.storage.commit()
+
+        self.assertNotIn(country_1, self.storage.all())
+        self.assertNotIn(country_2, self.storage.all())
+        self.assertNotIn(donor_1, self.storage.all())
+        self.assertNotIn(donor_2, self.storage.all())
