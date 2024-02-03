@@ -3,7 +3,7 @@
 from datetime import datetime
 from db.models.base import Base, BaseModel
 from db.models.country import Country
-from tests.test_db import fill_database
+from sqlalchemy.exc import IntegrityError
 import unittest
 
 
@@ -36,7 +36,7 @@ class TestCountryInstance(unittest.TestCase):
         self.assertTrue(issubclass(Country, BaseModel))
         self.assertTrue(issubclass(Country, Base))
 
-    def test_attributes(self):
+    def test_country_attributes(self):
         """Test country instances attributes"""
         self.assertEqual(self.alg.id, 1)
         self.assertEqual(self.mor.id, 2)
@@ -45,3 +45,10 @@ class TestCountryInstance(unittest.TestCase):
 
         self.assertIs(type(self.alg.created_at), datetime)
         self.assertIs(type(self.alg.updated_at), datetime)
+
+    def test_missing_attributes(self):
+        """Check Integrity Error"""
+        error_country = Country()
+
+        with self.assertRaises(IntegrityError):
+            error_country.save()
