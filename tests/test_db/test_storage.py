@@ -411,3 +411,29 @@ class TestStorageGet(unittest.TestCase):
 
         self.assertEqual(morocco, self.mor)
         self.assertEqual(ethiopia, self.eth)
+
+    def test_get_with_city(self):
+        """Test get() method with 'City'"""
+        errachidia = self.storage.get('City', 1)
+
+        self.assertEqual(errachidia, self.err)
+
+    def test_get_with_donor(self):
+        """Test get() method with 'Donor'"""
+        donor = self.storage.get('Donor', 1)
+
+        self.assertEqual(donor, self.ych)
+
+    def test_get_with_transfusion_center(self):
+        """Test get() method with 'TransfusionCenter'"""
+        sahraoui = self.storage.get('TransfusionCenter', 1)
+        sahraoui_tc = self.storage.get('TC', 1)
+
+        self.assertEqual(sahraoui, self.sah)
+        self.assertEqual(sahraoui_tc, self.sah)
+
+    def test_get_with_blood_bag(self):
+        """Test get() method with 'BloodBag'"""
+        blood_bag = self.storage.get('BloodBag', 1)
+
+        self.assertEqual(blood_bag, self.bag)
