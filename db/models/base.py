@@ -32,6 +32,18 @@ class BaseModel():
                 self.created_at = datetime.utcnow()
                 self.updated_at = datetime.utcnow()
 
+    def save(self):
+        """Add and commit the object to the database"""
+        from db import storage
+        storage.add(self)
+        storage.commit()
+
+    def delete(self):
+        """Delete the object from the database"""
+        from db import storage
+        storage.delete(self)
+        storage.commit()
+
     def to_dict(self):
         """Return a dictionary representation of the instance"""
         obj_dict = self.__dict__.copy()

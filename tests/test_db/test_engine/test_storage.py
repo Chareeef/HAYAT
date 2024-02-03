@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """Unittest module to ensure proper working of our storage"""
 from datetime import datetime
-from db.storage import Storage
+from db.engine.storage import Storage
 from db.models.country import Country
 from db.models.city import City
 from db.models.transfusion_center import TransfusionCenter as TC
 from db.models.donor import Donor
 from db.models.blood_bag import BloodBag
 from db.models.donors_centers import donors_centers
+from tests.test_db import fill_database
 import unittest
 
 
@@ -38,42 +39,6 @@ class TestStorageInstance(unittest.TestCase):
         self.assertEqual(self.storage.all('Donor'), [])
         self.assertEqual(self.storage.all('BloodBag'), [])
         self.assertEqual(self.storage.all(), [])
-
-
-def fill_database(self):
-    """Return a ready test storage"""
-    storage = Storage()
-    storage.load_all()
-
-    self.mor = Country(name='Morrocco')
-    self.eth = Country(name='Ethiopia')
-    storage.add_all([self.mor, self.eth])
-    storage.commit()
-
-    self.err = City(name='Errachidia', country_id=self.mor.id)
-    storage.add(self.err)
-    storage.commit()
-
-    self.sah = TC(name='Sahraoui',
-                  email='sah@ex.com', password_hash='nkmjuh',
-                  phone_number='0334129876', city_id=self.err.id)
-    storage.add(self.sah)
-    storage.commit()
-
-    self.ych = Donor(username='youcha',
-                     email='ych@ex.com', password_hash='poulkll',
-                     phone_number='0607798008',
-                     full_name='Youssef Charif', age=21,
-                     gender='Male', blood_category='O-')
-    storage.add(self.ych)
-    storage.commit()
-
-    self.bag = BloodBag(blood_category='O-', quantity=6, situation='Critic',
-                        center_id=self.sah.id)
-    storage.add(self.bag)
-    storage.commit()
-
-    self.storage = storage
 
 
 class TestStorageAll(unittest.TestCase):
@@ -362,15 +327,15 @@ class TestStorageDelete(unittest.TestCase):
         country_1 = Country(name='Ordinn')
         country_2 = Country(name='Firone')
         donor_1 = Donor(username='don_1',
-                       email='d1@ex.com', password_hash='oojho87',
-                       phone_number='0605439008',
-                       full_name='Donor 1', age=28,
-                       gender='Female', blood_category='B-')
+                        email='d1@ex.com', password_hash='oojho87',
+                        phone_number='0605439008',
+                        full_name='Donor 1', age=28,
+                        gender='Female', blood_category='B-')
         donor_2 = Donor(username='don_2',
-                       email='d2@ex.com', password_hash='iuyhg60',
-                       phone_number='0406589808',
-                       full_name='Donor 2', age=18,
-                       gender='Male', blood_category='O-')
+                        email='d2@ex.com', password_hash='iuyhg60',
+                        phone_number='0406589808',
+                        full_name='Donor 2', age=18,
+                        gender='Male', blood_category='O-')
 
         self.storage.add_all([country_1, country_2, donor_1, donor_2])
         self.storage.commit()

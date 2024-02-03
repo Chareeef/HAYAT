@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Unittest module to ensure proper working of BaseModel class"""
-import unittest
 from datetime import datetime
 from db.models.base import BaseModel
+import unittest
 
 
 class TestBaseModel(unittest.TestCase):
