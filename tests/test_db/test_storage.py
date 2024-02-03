@@ -41,7 +41,7 @@ class TestStorageInstance(unittest.TestCase):
 
 
 class TestStorageAll(unittest.TestCase):
-    """Test Storage all method"""
+    """Test Storage all() method"""
 
     @classmethod
     def setUpClass(cls):
@@ -162,3 +162,139 @@ class TestStorageAll(unittest.TestCase):
         self.assertNotIn(self.ych, bag_dict)
         self.assertNotIn(self.sah, bag_dict)
         self.assertIn(self.bag, bag_dict)
+
+
+class TestStorageAddCommit(unittest.TestCase):
+    """Test Storage add(), add_all(), and commit() method"""
+
+    def setUp(self):
+        """Runs before each test to create tables,
+        sqlalchemy session and some sample data
+        """
+        storage = Storage()
+        storage.load_all()
+
+        self.mor = Country(name='Morrocco')
+        self.eth = Country(name='Ethiopia')
+        storage.add_all([self.mor, self.eth])
+        storage.commit()
+
+        self.err = City(name='Errachidia', country_id=self.mor.id)
+        storage.add(self.err)
+        storage.commit()
+
+        self.sah = TC(name='Sahraoui',
+                      email='sah@ex.com', password_hash='nkmjuh',
+                      phone_number='0334129876', city_id=self.err.id)
+        storage.add(self.sah)
+        storage.commit()
+
+        self.storage = storage
+
+    def tearDown(self):
+        """Runs after each test to close the sqlalchemy session"""
+        self.storage.close()
+
+    def test_add_country(self):
+        """Test adding a country to the database"""
+        ken = Country(name='Kenya')
+
+        self.assertNotIn(ken, self.storage.all())
+        self.assertNotIn(ken, self.storage.all('Country'))
+
+        self.storage.add(ken)
+        self.storage.commit()
+
+        self.assertIn(ken, self.storage.all())
+        self.assertIn(ken, self.storage.all('Country'))
+
+    def test_add_city(self):
+        """Test adding a city to the database"""
+        mek = City(name='Mekele', country_id=self.eth.id)
+
+        self.assertNotIn(mek, self.storage.all())
+        self.assertNotIn(mek, self.storage.all('City'))
+
+        self.storage.add(mek)
+        self.storage.commit()
+
+        self.assertIn(mek, self.storage.all())
+        self.assertIn(mek, self.storage.all('City'))
+
+    def test_add_donor(self):
+        """Test adding a donor to the database"""
+        ych = Donor(username='youcha',
+                    email='ych@ex.com', password_hash='poulkll',
+                    phone_number='0607798008',
+                    full_name='Youssef Charif', age=21,
+                    gender='Male', blood_category='O-')
+
+        self.assertNotIn(ych, self.storage.all())
+        self.assertNotIn(ych, self.storage.all('Donor'))
+
+        self.storage.add(ych)
+        self.storage.commit()
+
+        self.assertIn(ych, self.storage.all())
+        self.assertIn(ych, self.storage.all('Donor'))
+
+    def test_add_transfusion_center(self):
+        """Test adding a transfusion_center to the database"""
+        mol = TC(name='Moulay Ali Chrif',
+                 email='mol@ex.com', password_hash='holatrop',
+                 phone_number='0194129876', city_id=self.err.id)
+
+        self.assertNotIn(mol, self.storage.all())
+        self.assertNotIn(mol, self.storage.all('TransfusionCenter'))
+        self.assertNotIn(mol, self.storage.all('TC'))
+
+        self.storage.add(mol)
+        self.storage.commit()
+
+        self.assertIn(mol, self.storage.all())
+        self.assertIn(mol, self.storage.all('TransfusionCenter'))
+        self.assertIn(mol, self.storage.all('TC'))
+
+    def test_add_blood_bag(self):
+        """Test adding a blood_bag to the database"""
+        bag = BloodBag(blood_category='O-', quantity=6, situation='Critic',
+                       center_id=self.sah.id)
+
+        self.assertNotIn(bag, self.storage.all())
+        self.assertNotIn(bag, self.storage.all('BloodBag'))
+
+        self.storage.add(bag)
+        self.storage.commit()
+
+        self.assertIn(bag, self.storage.all())
+        self.assertIn(bag, self.storage.all('BloodBag'))
+
+    def test_add_all(self):
+        """Test adding multiple entries at once with add_all()"""
+        ken = Country(name='Kenya')
+        mek = City(name='Mekele', country_id=self.eth.id)
+        ych = Donor(username='youcha',
+                    email='ych@ex.com', password_hash='poulkll',
+                    phone_number='0607798008',
+                    full_name='Youssef Charif', age=21,
+                    gender='Male', blood_category='O-')
+        mol = TC(name='Moulay Ali Chrif',
+                 email='mol@ex.com', password_hash='holatrop',
+                 phone_number='0194129876', city_id=self.err.id)
+        bag = BloodBag(blood_category='O-', quantity=6, situation='Critic',
+                       center_id=self.sah.id)
+
+        self.assertNotIn(ken, self.storage.all())
+        self.assertNotIn(mek, self.storage.all())
+        self.assertNotIn(ych, self.storage.all())
+        self.assertNotIn(mol, self.storage.all())
+        self.assertNotIn(bag, self.storage.all())
+
+        self.storage.add_all([ken, mek, ych, mol, bag])
+        self.storage.commit()
+
+        self.assertIn(ken, self.storage.all())
+        self.assertIn(mek, self.storage.all())
+        self.assertIn(ych, self.storage.all())
+        self.assertIn(mol, self.storage.all())
+        self.assertIn(bag, self.storage.all())
