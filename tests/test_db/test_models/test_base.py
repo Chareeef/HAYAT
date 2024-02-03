@@ -5,8 +5,8 @@ from datetime import datetime
 from db.models.base import BaseModel
 
 
-class TestAttributes(unittest.TestCase):
-    """Test Initialization of BaseModel instances"""
+class TestBaseModel(unittest.TestCase):
+    """Test features of BaseModel class"""
 
     def setUp(self):
         """Run before each test function"""
