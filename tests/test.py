@@ -19,12 +19,15 @@ err = City(name='Errachidia', country_id=mor.id)
 storage.add(err)
 storage.commit()
 
-sah = TC(name='Sahraoui', email='sah@ex.com', password_hash='nkmjuh',
-         city_id=err.id)
+sah = TC(name='Sahraoui',
+         email='sah@ex.com', password_hash='nkmjuh',
+         phone_number='0334129876', city_id=err.id)
 storage.add(sah)
 storage.commit()
 
-ych = Donor(username='youcha', email='ych@ex.com', password_hash='poulkll',
+ych = Donor(username='youcha',
+            email='ych@ex.com', password_hash='poulkll',
+            phone_number='0607798008',
             full_name='Youssef Charif', age=21,
             gender='Male', blood_category='O-')
 storage.add(ych)

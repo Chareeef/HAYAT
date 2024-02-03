@@ -33,6 +33,10 @@ class Storage():
         session_factory = scoped_session(sessionmaker(bind=self.__engine))
         self.__session = session_factory()
 
+    def close(self):
+        """Close sqlalchemy session"""
+        self.__session.close()
+
     def all(self, obj_name=None):
         """Retrieve all database records"""
         session = self.__session
