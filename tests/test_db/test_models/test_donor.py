@@ -26,9 +26,9 @@ class TestDonorInstance(unittest.TestCase):
                         full_name='Joe Doe', age=32,
                         gender='Male', blood_category='O-')
         cls.jane = Donor(username='jane94',
-                        email='jane@ex.com', password_hash='jane-hash-645',
-                        full_name='Jane Doe', age=24,
-                        gender='Female')
+                         email='jane@ex.com', password_hash='jane-hash-645',
+                         full_name='Jane Doe', age=24,
+                         gender='Female')
 
         cls.jane.save()
         cls.joe.save()

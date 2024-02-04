@@ -20,3 +20,8 @@ class TransfusionCenter(BaseModel, Base):
                               cascade='all, delete-orphan')
     donors = relationship('Donor', secondary=donors_centers,
                           back_populates='followed_centers')
+
+    def delete(self):
+        """Delete TransfusionCenter instance"""
+        del self.donors
+        super().delete()

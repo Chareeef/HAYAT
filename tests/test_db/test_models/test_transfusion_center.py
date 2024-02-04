@@ -33,7 +33,8 @@ class TestTransfusionCenterInstance(unittest.TestCase):
         cls.err.save()
 
         cls.anb_tc = TC(name="Annaba TC", city_id=cls.anb.id,
-                        email="anb_tc@foo.com", password_hash='anb-hash-446')
+                        email="anb_tc@foo.com", password_hash='anb-hash-446',
+                        map_coordinates='36° 54′ 15″ North, 7° 45′ 07″ East')
         cls.err_tc = TC(name="Errachidia TC", city_id=cls.err.id,
                         email="err_tc@bar.com", password_hash='err-hash-446')
         cls.anb_tc.save()
@@ -60,6 +61,9 @@ class TestTransfusionCenterInstance(unittest.TestCase):
 
         self.assertEqual(self.anb_tc.city_id, 1)
         self.assertEqual(self.err_tc.city_id, 2)
+
+        self.assertEqual(self.anb_tc.map_coordinates,
+                         '36° 54′ 15″ North, 7° 45′ 07″ East')
 
         self.assertIs(type(self.anb_tc.created_at), datetime)
         self.assertIs(type(self.anb_tc.updated_at), datetime)

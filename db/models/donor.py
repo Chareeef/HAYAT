@@ -23,6 +23,11 @@ class Donor(BaseModel, Base):
                                     secondary=donors_centers,
                                     back_populates='donors')
 
+    def delete(self):
+        """Delete Donor instance"""
+        del self.followed_centers
+        super().delete()
+
     def __repr__(self):
         """String representation of a Donor instance"""
         string = super().__repr__()
