@@ -30,6 +30,10 @@ server {
 	location / {
 		proxy_pass http://hayat_servers;
 	}
+
+	location /static {
+		proxy_pass http://hayat_servers;
+	}
 }
 " | sudo tee /etc/nginx/sites-available/default >/dev/null
 
