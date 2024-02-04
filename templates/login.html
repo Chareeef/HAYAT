@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="../static/styles/main.css">
 
 </head>
+
 <body style="margin-block: 0;">
 
     <div class="login">
@@ -46,13 +47,17 @@
             <h1 class="login_page_title">Login</h1>
             <form class="login_form">
                 <label for="name">Username:</label>
-                <input type="text" name="name" id="userName" placeholder="Username" required/>
+                <input type="text" name="name" id="userName" placeholder="Username" required />
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" placeholder="Password" required>
-                <button class="submit" type="submit">Login<i class="bi bi-arrow-right-circle"></i></button>
+                <div class="login_btns">
+                    <button class="submit" type="submit">Login as User<i class="bi bi-arrow-right-circle"></i></button>
+                    <button class="submit" type="submit">Login as Admin<i class="bi bi-arrow-right-circle"></i></button>
+                </div>
             </form>
         </div>
     </div>
-    
+
 </body>
+
 </html>

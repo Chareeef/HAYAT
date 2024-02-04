@@ -720,19 +720,24 @@ section:nth-child(odd) {
                 color: lightgrey;
             }
 
-            .submit {
-                background-color: var(--primary-clr);
-                border: 2px solid var(--tertiary-clr);
-                color: var(--secondary-clr);
-                min-width: 20dvw;
-                font-size: 1.5rem;
-                transition: all 500ms ease;
-            }
+            .login_btns{
+                display: flex;
+                gap: 1rem;
 
-            .submit:hover {
-                box-shadow: 0 2px 0 var(--secondary-clr);
-                scale: 1.08;
-                transition: all 200ms ease;
+                .submit {
+                    background-color: var(--primary-clr);
+                    border: 2px solid var(--tertiary-clr);
+                    color: var(--secondary-clr);
+                    min-width: 15dvw;
+                    font-size: 1.2rem;
+                    transition: all 500ms ease;
+                }
+    
+                .submit:hover {
+                    box-shadow: 0 2px 0 var(--secondary-clr);
+                    scale: 1.08;
+                    transition: all 200ms ease;
+                }
             }
         }
     }
