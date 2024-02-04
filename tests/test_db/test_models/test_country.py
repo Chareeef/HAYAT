@@ -7,8 +7,8 @@ from sqlalchemy.exc import IntegrityError
 import unittest
 
 
-class TestCountryInstance(unittest.TestCase):
-    """Test Country Instance"""
+class TestCountry(unittest.TestCase):
+    """Test Country Model"""
 
     @classmethod
     def setUpClass(cls):

@@ -7,8 +7,8 @@ from sqlalchemy.exc import IntegrityError
 import unittest
 
 
-class TestDonorInstance(unittest.TestCase):
-    """Test Donor Instance"""
+class TestDonor(unittest.TestCase):
+    """Test Donor Model"""
 
     @classmethod
     def setUpClass(cls):

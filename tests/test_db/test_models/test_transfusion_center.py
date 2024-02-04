@@ -9,8 +9,8 @@ from sqlalchemy.exc import IntegrityError
 import unittest
 
 
-class TestTransfusionCenterInstance(unittest.TestCase):
-    """Test TransfusionCenter Instance"""
+class TestTransfusionCenter(unittest.TestCase):
+    """Test TransfusionCenter Model"""
 
     @classmethod
     def setUpClass(cls):
