@@ -13,9 +13,15 @@ class TransfusionCenter(BaseModel, Base):
     name = Column(String(50), nullable=False)
     email = Column(String(50), nullable=False, unique=True)
     password_hash = Column(String(80), nullable=False)
-    coordinates = Column(String(80))
+    phone_number = Column(String(20), unique=True)
+    map_coordinates = Column(String(80))
     city_id = Column(Integer, ForeignKey('cities.id'), nullable=False)
     blood_bags = relationship('BloodBag', backref='center',
                               cascade='all, delete-orphan')
     donors = relationship('Donor', secondary=donors_centers,
                           back_populates='followed_centers')
+
+    def delete(self):
+        """Delete TransfusionCenter instance"""
+        del self.donors
+        super().delete()

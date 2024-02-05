@@ -13,6 +13,7 @@ class Donor(BaseModel, Base):
     username = Column(String(50), nullable=False, unique=True)
     email = Column(String(50), nullable=False, unique=True)
     password_hash = Column(String(80), nullable=False)
+    phone_number = Column(String(20), unique=True)
     full_name = Column(String(50), nullable=False)
     age = Column(Integer, nullable=False)
     gender = Column(Enum('Male', 'Female'))
@@ -22,11 +23,17 @@ class Donor(BaseModel, Base):
                                     secondary=donors_centers,
                                     back_populates='donors')
 
+    def delete(self):
+        """Delete Donor instance"""
+        del self.followed_centers
+        super().delete()
+
     def __repr__(self):
         """String representation of a Donor instance"""
-        string = f'Donor: {self.full_name} ({self.age} years old)'
+        string = super().__repr__()
+        string += f'\n\t{self.full_name} ({self.age} years old)'
         if self.followed_centers:
-            string = f'\nFollowed transfusion centers:\n'
+            string += f'\n\tFollowed transfusion centers:\n'
             for center in self.followed_centers:
-                string += '\t' + str(center) + '\n'
+                string += '\t\t' + center.name + '\n'
         return string

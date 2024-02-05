@@ -22,7 +22,8 @@ class BloodBag(BaseModel, Base):
         """String representation of a BloodBag instance"""
         from db import storage
 
+        string = super().__repr__()
         TC = storage.get('TC', self.center_id)
-        string = f'({self.blood_category}) Blood Bag from {TC.name} TC '
+        string += f'\n\t({self.blood_category}) Blood Bag from {TC.name} TC '
         string += f'({self.quantity} bags / {self.situation} situation)'
         return string

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Initialize database storage"""
-from db.storage import Storage
+from db.engine.storage import Storage
 
 # Create an instance of Storage
 storage = Storage()
