@@ -31,6 +31,10 @@ server {
 	location /static {
 		proxy_pass http://localhost:8000;
 	}
+
+	location /api {
+		proxy_pass http://localhost:8001;
+	}
 }
 " "$(hostname)" | sudo tee /etc/nginx/sites-available/default >/dev/null
 
