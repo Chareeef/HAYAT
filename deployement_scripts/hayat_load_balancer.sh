@@ -17,23 +17,36 @@ fi
 printf "# Load balancer configuration for HAYAT website
 
 upstream hayat_servers {
-	server web-01.hayat-blood-donation.tech;
-	server web-02.hayat-blood-donation.tech;
+        server web-01.hayat-blood-donation.tech;
+        server web-02.hayat-blood-donation.tech;
 }
 
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
 
-	server_name _;
+        server_name hayat-blood-donation.tech www.hayat-blood-donation.tech;
 
-	location / {
-		proxy_pass http://hayat_servers;
-	}
+        ssl_certificate /home/youssef/ssl/hayat-blood-donation_tech_chain.crt;
 
-	location /static {
-		proxy_pass http://hayat_servers;
-	}
+        ssl_certificate_key /home/youssef/server_keys/server.key;
+
+        location / {
+                proxy_pass http://hayat_servers;
+        }
+
+        location /static {
+                proxy_pass http://hayat_servers;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+
+        server_name hayat-blood-donation.tech www.hayat-blood-donation.tech;
+
+        return 301 https:/\$server_name\$request_uri;
 }
 " | sudo tee /etc/nginx/sites-available/default >/dev/null
 
