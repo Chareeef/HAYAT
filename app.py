@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module containing our Flask app"""
 from flask import Flask, render_template
-# from routes.[...] import *
+from routes.routes import *  # Not sure
 
 app = Flask(__name__)
 
