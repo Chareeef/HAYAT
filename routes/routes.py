@@ -2,15 +2,15 @@
 """
 Our Project Flask Routes
 """
-from flask import Flask, render_template, request
+from flask import render_template, request
 from flask_login import LoginManager, login_required
 from api.maps.donor import *
 from api.maps.transfusion_center import *
 from api.maps.blood_bag import *
 from api.maps.city import *
 from api.maps.country import *
+from api.app import app
 
-app = Flask(__name__)
 # Configure SECRET_KEY
 login_manager = LoginManager(app)
 
