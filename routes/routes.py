@@ -42,7 +42,7 @@ def login_donor():
 def login_center():
     """Login as Transfusion Center"""
     if request.method == 'POST':
-        name = request.form.get('username')
+        email = request.form.get('email')
         password = request.form.get('password_hash')
         
         center = None # here, query a center with the above username
