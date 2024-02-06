@@ -4,6 +4,7 @@ Our Project Flask Routes
 """
 from flask import render_template, redirect, request, url_for
 from flask_login import current_user, LoginManager, login_required, login_user, logout
+from flask_bcrypt import Bcrypt
 import secrets
 from db import storage
 from api.maps.donor import *
@@ -15,6 +16,7 @@ from api.app import app
 
 app.config['SECRET_KEY'] = secrets.token_hex(24)
 login_manager = LoginManager(app)
+bcrypt = Bcrypt(app)
 
 
 @app.route('/', strict_slashes=False)
@@ -43,12 +45,12 @@ def login_donor():
 
     donor = None
     for d in donors:
-        if d.username == username and bcrypt.check_password_hash(c.password_hash, # TODO
+        if d.username == username and bcrypt.check_password_hash(d.password_hash, # TODO
                                                                  password):
-    
+            donor = d
     if donor:
-        login_user(donor, remember=True)
-        return redirect(url_for('donor_dashboard'))
+                login_user(donor, remember=True)
+                return redirect(url_for('donor_dashboard'))
     else:
         # flash error
         return render_template('login.html')
@@ -82,16 +84,13 @@ def login_center():
 @app.route('/register_center', methods=['POST'], strict_slashes=False)
 def register_center():
     """Register New Transfusion Center"""
-    # Create via api
-    pass
+    register_transfusion_center(request.get_json())
 
 
 @app.route('/register_donor', methods=['POST'], strict_slashes=False)
 def register_donor():
     """Register New Donor"""
-    # Create via api
-    pass
-
+    create_donor(request.get_json())
 
 @app.route('/center_dashboard', strict_slashes=False)
 @login_required
