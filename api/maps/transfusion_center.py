@@ -70,6 +70,8 @@ def update_transfusion_center(id):
     
     storage.commit()
 
+    return make_response(jsonify(transfusion_center.to_dict()), 201)
+
 
 @blood_map.route('/transfusion_centers/<id>', methods=['DELETE'], strict_slashes=False)
 def delete_transfusion_center(id):
@@ -80,3 +82,5 @@ def delete_transfusion_center(id):
     
     storage.delete(transfusion_center)
     storage.commit()
+
+    return make_response(jsonify({'Deleted': 'Done'}), 200)

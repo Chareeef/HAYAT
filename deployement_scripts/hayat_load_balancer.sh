@@ -31,6 +31,10 @@ server {
 
         ssl_certificate_key /home/youssef/server_keys/server.key;
 
+        location /api {
+                proxy_pass http://web-01.hayat-blood-donation.tech;
+        }
+
         location / {
                 proxy_pass http://hayat_servers;
         }

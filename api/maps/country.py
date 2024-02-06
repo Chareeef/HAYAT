@@ -19,7 +19,7 @@ def list_country():
     return jsonify(country_l)
 
 
-@blood_map.route('/country/<id>', methods=['GET'], strict_slashes=False)
+@blood_map.route('/countries/<id>', methods=['GET'], strict_slashes=False)
 def get_country(id):
     """Get specific country"""
     country = storage.get('Country', id)
@@ -29,7 +29,7 @@ def get_country(id):
     return jsonify(country.to_dict())
 
 
-@blood_map.route('/country', methods=['POST'], strict_slashes=False)
+@blood_map.route('/countries', methods=['POST'], strict_slashes=False)
 def register_country():
     """Register new country"""
     if not request.get_json():
@@ -46,7 +46,7 @@ def register_country():
     return make_response(jsonify(country.to_dict()), 201)
 
 
-@blood_map.route('/country/<id>', methods=['PUT'], strict_slashes=False)
+@blood_map.route('/countries/<id>', methods=['PUT'], strict_slashes=False)
 def update_country(id):
     """ Updates country information. """
     country = storage.get('Country', id)
@@ -66,8 +66,10 @@ def update_country(id):
     
     storage.commit()
 
+    return make_response(jsonify(country.to_dict()), 201)
 
-@blood_map.route('/country/<id>', methods=['DELETE'], strict_slashes=False)
+
+@blood_map.route('/countries/<id>', methods=['DELETE'], strict_slashes=False)
 def remove_country(id):
     """ remove country. """
     country = storage.get('Country', id)
@@ -76,3 +78,5 @@ def remove_country(id):
     
     storage.delete(country)
     storage.commit()
+
+    return make_response(jsonify({'Deleted': 'Done'}), 200)
