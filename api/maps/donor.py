@@ -30,17 +30,20 @@ def get_donor(id):
 
 
 @blood_map.route('/donors', methods=['POST'], strict_slashes=False)
-def create_donor():
+def create_donor(route_data=None):
     """Register new donor"""
-    if not request.get_json():
-        abort(400, description="Not a JSON")
+    if not route_data:
+        if not request.get_json():
+            abort(400, description="Not a JSON")
 
-    if 'email' not in request.get_json():
-        abort(400, description="Missing email")
-    if 'password_hash' not in request.get_json():
-        abort(400, description="Missing password")
+        if 'email' not in request.get_json():
+            abort(400, description="Missing email")
+        if 'password_hash' not in request.get_json():
+            abort(400, description="Missing password")
+        data = request.get_json()
+    else:
+        data = route_data
 
-    data = request.get_json()
     donor = Donor(**data)
     storage.add(donor)
     storage.commit()
