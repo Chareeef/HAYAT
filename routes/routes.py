@@ -82,7 +82,7 @@ def login_center():
 @app.route('/register_center', methods=['POST'], strict_slashes=False)
 def register_center():
     """Register New Transfusion Center"""
-    Register_transfusion_center(request.get_json())
+    register_transfusion_center(request.get_json())
 
 
 @app.route('/register_donor', methods=['POST'], strict_slashes=False)
