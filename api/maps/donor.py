@@ -68,6 +68,8 @@ def update_donor(id):
     
     storage.commit()
 
+    return make_response(jsonify(donor.to_dict()), 201)
+
 
 @blood_map.route('/donors/<id>', methods=['DELETE'], strict_slashes=False)
 def delete_donor(id):
@@ -78,3 +80,5 @@ def delete_donor(id):
     
     storage.delete(donor)
     storage.commit()
+
+    return make_response(jsonify({'Deleted': 'Done'}), 200)

@@ -19,7 +19,7 @@ def list_city():
     return jsonify(city_l)
 
 
-@blood_map.route('/city/<id>', methods=['GET'], strict_slashes=False)
+@blood_map.route('/cities/<id>', methods=['GET'], strict_slashes=False)
 def get_city(id):
     """Get specific City"""
     city = storage.get('City', id)
@@ -29,7 +29,7 @@ def get_city(id):
     return jsonify(city.to_dict())
 
 
-@blood_map.route('/city', methods=['POST'], strict_slashes=False)
+@blood_map.route('/cities', methods=['POST'], strict_slashes=False)
 def register_city():
     """Register new city"""
     if not request.get_json():
@@ -48,7 +48,7 @@ def register_city():
     return make_response(jsonify(city.to_dict()), 201)
 
 
-@blood_map.route('/city/<id>', methods=['PUT'], strict_slashes=False)
+@blood_map.route('/cities/<id>', methods=['PUT'], strict_slashes=False)
 def update_city(id):
     """ Updates City information. """
     city = storage.get('City', id)
@@ -68,8 +68,10 @@ def update_city(id):
     
     storage.commit()
 
+    return make_response(jsonify(city.to_dict()), 201)
 
-@blood_map.route('/city/<id>', methods=['DELETE'], strict_slashes=False)
+
+@blood_map.route('/cities/<id>', methods=['DELETE'], strict_slashes=False)
 def remove_city(id):
     """ Remove City """
     city = storage.get('City', id)
@@ -78,3 +80,5 @@ def remove_city(id):
     
     storage.delete(city)
     storage.commit()
+
+    return make_response(jsonify({'Deleted': 'Done'}), 200)
