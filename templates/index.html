@@ -15,6 +15,10 @@
     <title>Home | Hayat</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +43,10 @@
             <a href="#stations" class="menu_item">Stations</a>
             <a href="#contact" class="menu_item">Contact</a>
         </nav>
-        <button class="login_btn" type="button">Login</button>
+        <div class="buttons">
+            <button class="login_btn" type="button"><a href="login.html">Login</a></button>
+        <button class="register_btn" type="button"><a href="register.html">Register</a></button>
+        </div>
         <div class="toggle_btn">
             &backcong;
         </div>
@@ -54,11 +61,11 @@
             </div>
             <form class="donation_form" action="">
                 <legend>Submit a Donation Request &Downarrow;</legend>
-                <input class="full_name" type="text" name="full_name" id="fullName" placeholder="Enter your Name">
-                <input class="email" type="email" name="email" id="email" placeholder="Enter your Email">
+                <input class="full_name" type="text" name="full_name" id="fullName" placeholder="Enter your Name" required>
+                <input class="email" type="email" name="email" id="email" placeholder="Enter your Email" required>
                 <input class="phone_number" type="tel" name="phone_number" id="phoneNumber"
-                    placeholder="Enter your Phone Number">
-                <select class="blood_type" name="" id="bloodType" aria-placeholder="Select your Blood Type">
+                    placeholder="Enter your Phone Number" required>
+                <select class="blood_type" name="" id="bloodType" aria-placeholder="Select your Blood Type" required>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
                     <option value="B+">B+</option>
@@ -103,25 +110,30 @@
                 </ul>
             </div>
             <div class="stations_map">
-               <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65347848.10247231!2d-26.170389651487593!3d1.4639015247631741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10a06c0a948cf5d5%3A0x108270c99e90f0b3!2sAfrica!5e0!3m2!1sen!2ske!4v1706526138087!5m2!1sen!2ske"  style="border:0; border-radius: .2rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe class="map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65347848.10247231!2d-26.170389651487593!3d1.4639015247631741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10a06c0a948cf5d5%3A0x108270c99e90f0b3!2sAfrica!5e0!3m2!1sen!2ske!4v1706526138087!5m2!1sen!2ske"
+                    style="border:0; border-radius: .2rem;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
     <!-- contact-->
     <section class="contact_section" id="contact">
+        <h3 class="subtitle">Talk To Us</h3>
         <div class="contact_wrapper">
-            <h3 class="subtitle">Talk To Us</h3>
-            <div>
-                <p class="text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, sint? Tempore distinctio maiores
-                    veritatis
-                    in, necessitatibus earum ipsum odio praesentium aut suscipit mollitia nulla consequuntur rem.
-                    Veritatis
-                    rerum eos deserunt.
-                </p>
+            
+            <div class="contact_wrapper">
+                <form class="contact_form">
+                    <input type="text" name="name" id="contactName" placeholder="Name" required/>
+                    <input type="email" name="email" id="contactEmail" placeholder="Email" required/>
+                    <textarea name="message" id="contactMessage" placeholder="Your Message" required></textarea>
+                    <button class="submit" type="submit">Send Message <i class="bi bi-telegram"></i></button>
+                </form>
+                <div class="contact_image">
+                    <img src="../static/images/validation.png" alt="contact section image">
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- back to top btn -->
