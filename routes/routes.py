@@ -45,10 +45,10 @@ def login_donor():
     for d in donors:
         if d.username == username and bcrypt.check_password_hash(c.password_hash, # TODO
                                                                  password):
-    
+            donor = d
     if donor:
-        login_user(donor, remember=True)
-        return redirect(url_for('donor_dashboard'))
+                login_user(donor, remember=True)
+                return redirect(url_for('donor_dashboard'))
     else:
         # flash error
         return render_template('login.html')
@@ -82,16 +82,13 @@ def login_center():
 @app.route('/register_center', methods=['POST'], strict_slashes=False)
 def register_center():
     """Register New Transfusion Center"""
-    # Create via api
-    pass
+    Register_transfusion_center(request.get_json())
 
 
 @app.route('/register_donor', methods=['POST'], strict_slashes=False)
 def register_donor():
     """Register New Donor"""
-    # Create via api
-    pass
-
+    create_donor(request.get_json())
 
 @app.route('/center_dashboard', strict_slashes=False)
 @login_required
