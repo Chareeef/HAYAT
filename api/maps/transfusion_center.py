@@ -30,19 +30,22 @@ def get_transfusion_center(id):
 
 
 @blood_map.route('/transfusion_centers', methods=['POST'], strict_slashes=False)
-def Register_transfusion_center():
+def Register_transfusion_center(route_data=None):
     """Register new transfusion center"""
-    if not request.get_json():
-        abort(400, description="Not a JSON")
+    if not route_data:
+        if not request.get_json():
+            abort(400, description="Not a JSON")
 
-    if 'email' not in request.get_json():
-        abort(400, description="Missing email")
-    if 'password_hash' not in request.get_json():
-        abort(400, description="Missing password")
-    if 'coordinates' not in request.get_json():
-        abort(400, description="Missing coordinates")
+        if 'email' not in request.get_json():
+            abort(400, description="Missing email")
+        if 'password_hash' not in request.get_json():
+            abort(400, description="Missing password")
+        if 'coordinates' not in request.get_json():
+            abort(400, description="Missing coordinates")
+        data = request.get_json()
+    else:
+        data = route_data
 
-    data = request.get_json()
     transfusion_center = TransfusionCenter(**data)
     storage.add(transfusion_center)
     storage.commit()
