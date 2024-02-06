@@ -4,6 +4,7 @@ Our Project Flask Routes
 """
 from flask import render_template, redirect, request, url_for
 from flask_login import current_user, LoginManager, login_required, login_user, logout
+from flask_bcrypt import Bcrypt
 import secrets
 from db import storage
 from api.maps.donor import *
@@ -15,6 +16,7 @@ from api.app import app
 
 app.config['SECRET_KEY'] = secrets.token_hex(24)
 login_manager = LoginManager(app)
+bcrypt = Bcrypt(app)
 
 
 @app.route('/', strict_slashes=False)
@@ -43,7 +45,7 @@ def login_donor():
 
     donor = None
     for d in donors:
-        if d.username == username and bcrypt.check_password_hash(c.password_hash, # TODO
+        if d.username == username and bcrypt.check_password_hash(d.password_hash, # TODO
                                                                  password):
             donor = d
     if donor:
