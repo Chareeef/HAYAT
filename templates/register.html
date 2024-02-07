@@ -1,240 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 
-		<head>
-				<meta charset="UTF-8">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<meta http-equiv="X-UA-Compatible" content="IE=7">
-				<meta http-equiv="X-UA-Compatible" content="ie=edge">
-				<!-- <meta http-equiv="refresh" content="0; url=http://example.com"> -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=7">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<!-- <meta http-equiv="refresh" content="0; url=http://example.com"> -->
 
 
-				<meta name="description" content="">
-				<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
 
-				<title>Hayat - Register</title>
-				<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<title>Hayat - Register</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-				<!-- icons -->
-				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<!-- icons -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
-				<!-- font -->
-				<link rel="preconnect" href="https://fonts.googleapis.com">
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-				<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-						rel="stylesheet">
+		<!-- font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"	rel="stylesheet">
 
-				<!-- icons -->
-				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<!-- icons -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-				<!-- css -->
-				<link rel="stylesheet" href="../static/styles/main.css">
+		<!-- css -->
+		<link rel="stylesheet" href="../static/styles/main.css">
 
-				<!-- js -->
-				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		</head>
+		<!-- js -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	</head>
 
-		<body style="margin-block: 0;">
+	<body style="margin-block: 0;">
 
-				<div class="register">
+		<div class="register">
 
-						<div class="register_content">
-								<div class="register_title">
-										<h1 class="main_register_title">HAYAT<span>.</span></h1>
-										<h3 class="main_register_subtitle">donate blood. save lives</h3>
-								</div>
-
-								<!-- Register as Donor -->
-								<h1 class="register_page_title">Register as Donor</h1>
-								<form class="register_form" method="POST">
-										{{ donor_form.hidden_tag() }} <!-- Include CSRF token -->
-										<div>
-												<div class="group">
-														{{ donor_form.username.label }}
-														{{ donor_form.username(size=20) }}
-														{% for error in donor_form.username.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-												<div class="group">
-														{{ donor_form.email.label }}
-														{{ donor_form.email(size=20) }}
-														{% for error in donor_form.email.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<div>
-												<div class="group">
-														{{ donor_form.password.label }}
-														{{ donor_form.password(size=20) }}
-														{% for error in donor_form.password.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-												<div class="group">
-														{{ donor_form.confirm_password.label }}
-														{{ donor_form.confirm_password(size=20) }}
-														{% for error in donor_form.confirm_password.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<div>
-												<div class="group">
-														{{ donor_form.phone_number.label }}
-														{{ donor_form.phone_number(size=20) }}
-														{% for error in donor_form.phone_number.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-												<div class="group">
-														{{ donor_form.full_name.label }}
-														{{ donor_form.full_name(size=20) }}
-														{% for error in donor_form.full_name.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<div>
-												<div class="group">
-														{{ donor_form.age.label }}
-														{{ donor_form.age(size=20) }}
-														{% for error in donor_form.age.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<div>
-												<div class="group">
-														{{ donor_form.gender.label }}
-														{{ donor_form.gender(size=20) }}
-														{% for error in donor_form.gender.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-												<div class="group">
-														{{ donor_form.blood_category.label }}
-														{{ donor_form.blood_category(size=20) }}
-														{% for error in donor_form.blood_category.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<button class="submit" type="submit">Register as Donor<i class="bi bi-arrow-right-circle"></i></button>
-								</form>
-
-								<!-- Register as Transfusion Center -->
-								<h1 class="register_page_title">Register as Transfusion Center</h1>
-								<form class="register_form" method="POST">
-										{{ tc_form.hidden_tag() }} <!-- Include CSRF token -->
-										<div>
-												<div class="group">
-														{{ tc_form.name.label }}
-														{{ tc_form.name(size=20) }}
-														{% for error in tc_form.name.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-												<div class="group">
-														{{ tc_form.email.label }}
-														{{ tc_form.email(size=20) }}
-														{% for error in tc_form.email.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<div>
-												<div class="group">
-														{{ tc_form.password.label }}
-														{{ tc_form.password(size=20) }}
-														{% for error in tc_form.password.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-												<div class="group">
-														{{ tc_form.confirm_password.label }}
-														{{ tc_form.confirm_password(size=20) }}
-														{% for error in tc_form.confirm_password.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<div>
-												<div class="group">
-														{{ tc_form.phone_number.label }}
-														{{ tc_form.phone_number(size=20) }}
-														{% for error in tc_form.phone_number.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-												<div class="group">
-														{{ tc_form.map_coordinates.label }}
-														{{ tc_form.map_coordinates(size=20) }}
-														{% for error in tc_form.map_coordinates.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<div>
-												<div class="group">
-														{{ tc_form.country.label }}
-														{{ tc_form.country() }}
-														{% for error in tc_form.country.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-												<div class="group">
-														{{ tc_form.city.label }}
-														<select name="city" id="city">
-																<option value="">Select City</option>
-														</select>
-														{% for error in tc_form.city.errors %}
-																<span style="color: red;">{{ error }}</span>
-														{% endfor %}
-												</div>
-										</div>
-
-										<button class="submit" type="submit">Register as Transfusion Center<i class="bi bi-arrow-right-circle"></i></button>
-								</form>
-				</div>
-				<div class="register_hero_image">
-						<img src="../static/images/doctors.jpg" alt="">
-				</div>
+			<div class="register_content">
+				<div class="register_title">
+					<h1 class="main_register_title">HAYAT<span>.</span></h1>
+					<h3 class="main_register_subtitle">donate blood. save lives</h3>
 				</div>
 
-				<script>
-						$(document).ready(function() {
-								$('#country').change(function() {
-										var countryId = $(this).val();
-										if (countryId) {
-												$.ajax({
-														url: '/get_cities/' + countryId,
-														type: 'GET',
-														success: function(response) {
-																var cities = response.cities;
-																var options = '<option value="">Select City</option>';
-																for (var i = 0; i < cities.length; i++) {
-																		options += '<option value="' + cities[i].id + '">' + cities[i].name + '</option>';
-																}
-																$('#city').html(options);
-														}
-												});
-										} else {
-												$('#city').html('<option value="">Select City</option>');
-										}
-								});
+				<!-- Register as Donor -->
+				<h1 class="register_page_title">Register as Donor</h1>
+				<form class="register_form" method="POST">
+					{{ donor_form.hidden_tag() }} <!-- Include CSRF token -->
+					<div>
+						<div class="group">
+							{{ donor_form.username.label }}
+							{{ donor_form.username(size=20) }}
+							{% for error in donor_form.username.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+						<div class="group">
+							{{ donor_form.email.label }}
+							{{ donor_form.email(size=20) }}
+							{% for error in donor_form.email.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div>
+						<div class="group">
+							{{ donor_form.password.label }}
+							{{ donor_form.password(size=20) }}
+							{% for error in donor_form.password.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+						<div class="group">
+							{{ donor_form.confirm_password.label }}
+							{{ donor_form.confirm_password(size=20) }}
+							{% for error in donor_form.confirm_password.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div>
+						<div class="group">
+							{{ donor_form.phone_number.label }}
+							{{ donor_form.phone_number(size=20) }}
+							{% for error in donor_form.phone_number.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+						<div class="group">
+							{{ donor_form.full_name.label }}
+							{{ donor_form.full_name(size=20) }}
+							{% for error in donor_form.full_name.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div>
+						<div class="group">
+							{{ donor_form.age.label }}
+							{{ donor_form.age(size=20) }}
+							{% for error in donor_form.age.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div>
+						<div class="group">
+							{{ donor_form.gender.label }}
+							{{ donor_form.gender(size=20) }}
+							{% for error in donor_form.gender.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+						<div class="group">
+							{{ donor_form.blood_category.label }}
+							{{ donor_form.blood_category(size=20) }}
+							{% for error in donor_form.blood_category.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<button class="submit" type="submit">Register as Donor<i class="bi bi-arrow-right-circle"></i></button>
+				</form>
+
+				<!-- Register as Transfusion Center -->
+				<h1 class="register_page_title">Register as Transfusion Center</h1>
+				<form class="register_form" method="POST">
+					{{ tc_form.hidden_tag() }} <!-- Include CSRF token -->
+					<div>
+						<div class="group">
+							{{ tc_form.name.label }}
+							{{ tc_form.name(size=20) }}
+							{% for error in tc_form.name.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+						<div class="group">
+							{{ tc_form.email.label }}
+							{{ tc_form.email(size=20) }}
+							{% for error in tc_form.email.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div>
+						<div class="group">
+							{{ tc_form.password.label }}
+							{{ tc_form.password(size=20) }}
+							{% for error in tc_form.password.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+						<div class="group">
+							{{ tc_form.confirm_password.label }}
+							{{ tc_form.confirm_password(size=20) }}
+							{% for error in tc_form.confirm_password.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div>
+						<div class="group">
+							{{ tc_form.phone_number.label }}
+							{{ tc_form.phone_number(size=20) }}
+							{% for error in tc_form.phone_number.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+						<div class="group">
+							{{ tc_form.map_coordinates.label }}
+							{{ tc_form.map_coordinates(size=20) }}
+							{% for error in tc_form.map_coordinates.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div>
+						<div class="group">
+							{{ tc_form.country.label }}
+							{{ tc_form.country() }}
+							{% for error in tc_form.country.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+						<div class="group">
+							{{ tc_form.city.label }}
+							<select name="city" id="city">
+								<option value="">Select City</option>
+							</select>
+							{% for error in tc_form.city.errors %}
+							<span style="color: red;">{{ error }}</span>
+							{% endfor %}
+						</div>
+					</div>
+
+					<button class="submit" type="submit">Register as Transfusion Center<i class="bi bi-arrow-right-circle"></i></button>
+				</form>
+			</div>
+			<div class="register_hero_image">
+				<img src="../static/images/doctors.jpg" alt="">
+			</div>
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				$('#country').change(function() {
+					var countryId = $(this).val();
+					if (countryId) {
+						$.ajax({
+							url: '/get_cities/' + countryId,
+							type: 'GET',
+							success: function(response) {
+								var cities = response.cities;
+								var options = '<option value="">Select City</option>';
+								for (var i = 0; i < cities.length; i++) {
+									options += '<option value="' + cities[i].id + '">' + cities[i].name + '</option>';
+								}
+								$('#city').html(options);
+							}
 						});
-				</script>
-		</body>
+					} else {
+						$('#city').html('<option value="">Select City</option>');
+					}
+				});
+			});
+		</script>
+	</body>
 
 </html>
