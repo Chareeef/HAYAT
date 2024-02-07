@@ -35,6 +35,10 @@ server {
                 proxy_pass http://web-01.hayat-blood-donation.tech;
         }
 
+        location /register {
+                proxy_pass http://web-01.hayat-blood-donation.tech;
+        }
+
         location / {
                 proxy_pass http://hayat_servers;
         }

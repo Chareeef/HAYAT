@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Module containing our Flask app"""
+from db import storage
 from db.models.donor import Donor
 from db.models.transfusion_center import TransfusionCenter
 from flask import Flask
@@ -14,6 +15,7 @@ bcrypt = Bcrypt(app)
 
 login_manager = LoginManager(app)
 
+
 @login_manager.user_loader
 def user_loader(user_id):
     """Load the current user"""
@@ -24,7 +26,14 @@ def user_loader(user_id):
 
     return user
 
+
+@app.teardown_appcontext
+def close_db(error):
+    """ Close Storage """
+    storage.close()
+
+
 from routes.routes import *
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, threaded=True)

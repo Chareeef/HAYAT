@@ -2,18 +2,12 @@
 """
 Our Project Flask Routes
 """
-from api.maps.donor import *
-from api.maps.transfusion_center import *
-from api.maps.blood_bag import *
-from api.maps.city import *
-from api.maps.country import *
 from app import app, bcrypt
-from db import storage
+from db.models.donor import Donor
+from db.models.transfusion_center import TransfusionCenter
 from flask import flash, render_template, redirect, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from forms.registration import DonorRegistrationForm
-import json
-import requests
 
 
 @app.route('/', strict_slashes=False)
@@ -25,58 +19,27 @@ def home_page():
 
 @app.route('/login', strict_slashes=False)
 def login():
-    """Render Login page for both Donor and Transfusion Center"""
+    """Login page for both Donor and Transfusion Center"""
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+# 
+#     username = request.form.get('username')
+#     password = request.form.get('password')
+#     
+#     donors = storage.all('Donor')
+# 
+#     donor = None
+#     for d in donors:
+#         if d.username == username and bcrypt.check_password_hash(d.password_hash, # TODO
+#                                                                  password):
+#             donor = d
+# 
+#     if donor:
+#         login_user(donor, remember=True)
+#         return redirect(url_for('donor_dashboard'))
+#     else:
+#         # flash error
     return render_template('login.html')
-
-
-@app.route('/login_donor', methods=['POST'], strict_slashes=False)
-def login_donor():
-    """Render login page"""
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-
-    username = request.form.get('username')
-    password = request.form.get('password')
-    
-    donors = storage.all('Donor')
-
-    donor = None
-    for d in donors:
-        if d.username == username and bcrypt.check_password_hash(d.password_hash, # TODO
-                                                                 password):
-            donor = d
-
-    if donor:
-        login_user(donor, remember=True)
-        return redirect(url_for('donor_dashboard'))
-    else:
-        # flash error
-        return render_template('login.html')
-
-
-@app.route('/login_center', methods=['POST'], strict_slashes=False)
-def login_center():
-    """Login as Transfusion Center"""
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-
-    email = request.form.get('email')
-    password = request.form.get('password')
-    
-    centers = storage.all('TransfusionCenter')
-
-    center = None
-    for c in centers:
-        if c.email == email and bcrypt.check_password_hash(c.password_hash, # TODO
-                                                           password):
-            center = c
-    
-    if center:
-        login_user(center, remember=True)
-        return redirect(url_for('center_dashboard'))
-    else:
-        # flash error
-        return render_template('login.html')
 
 
 @app.route('/register', methods=['GET', 'POST'], strict_slashes=False)
@@ -86,9 +49,7 @@ def register():
         return redirect(url_for('home'))
 
     donor_form = DonorRegistrationForm()
-    print(1)
     if donor_form.validate_on_submit():
-        print(2)
         # If donor_form data is valid, process it
         username = donor_form.username.data
         full_name = donor_form.full_name.data
@@ -114,21 +75,12 @@ def register():
             'blood_category': blood_category
         }
 
-        json_data = json.dumps(donor_dict)
-
-        url = "https://hayat-blood-donation.tech/api/donors"
-
-        headers = {
-            "Content-Type": "application/json"
-        }
-
-        response = requests.post(url, data=json_data, headers=headers)
-        print(donor_dict)
-        print(response.__dict__)
-
-        if response.status_code == 201:
-            flash('Registration successful! Welcome, {}!'.donor_format(name), 'success')
-            return redirect(url_for('login'))
+        donor = Donor(**donor_dict)
+        donor.save()
+ 
+        flash(f'Registration successful! Welcome, {full_name}!', 'success')
+        return redirect(url_for('login'))
+ 
     return render_template('register.html', donor_form=donor_form)
 
 

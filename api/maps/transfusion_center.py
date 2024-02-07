@@ -30,7 +30,7 @@ def get_transfusion_center(id):
 
 
 @blood_map.route('/transfusion_centers', methods=['POST'], strict_slashes=False)
-def register_transfusion_center(route_data=None):
+def create_transfusion_center(route_data=None):
     """Register new transfusion center"""
     if not route_data:
         if not request.get_json():
