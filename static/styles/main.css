@@ -509,7 +509,7 @@ section:nth-child(odd) {
 
 
             >img {
-
+border-radius: .5rem;
                 width: 100%;
                 height: 50dvh;
                 object-fit: cover;
