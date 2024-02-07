@@ -119,10 +119,7 @@ header {
     height: 50px;
     padding: 20px 120px;
 
-    /* height: 6.25rem;
-     */
-
-    background-color: var(--primary-bg);
+    background-color: var(--secondary-bg);
     filter: blur(50%);
 }
 
@@ -140,21 +137,36 @@ header {
     .menu_item {
         color: var(--primary-clr);
         font-size: 1.2rem;
+        position: relative;
         cursor: pointer;
         transition: all 200ms ease linear;
     }
 
     .menu_item:hover {
         transform: translateY(-5px);
-        color: var(--secondary-clr);
-        text-shadow: 0 0 10px var(--primary-clr);
+        color: var(--tertiary-bg);
         transition: all 200ms ease;
     }
 
-    .menu_item.active {
-        color: var(--secondary-clr);
-        text-shadow: 0 0px 10px var(--tertiary-bg);
+    .menu_item:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary-clr);
+        transition: all 200ms ease;
+        transform: scaleX(0);
+        transform-origin: left;
     }
+    
+    .menu_item:hover:before {
+        transform: scaleX(1);
+    }
+
+
+
 }
 
 .buttons {
@@ -280,10 +292,10 @@ section:nth-child(odd) {
         border-radius: .375rem;
         padding: .75rem;
         border: 1px solid var(--tertiary-clr);
-        background: var(--tertiary-bg);
+        background: var(--secondary-bg);
 
         font-size: 1.2rem;
-        color: var(--secondary-clr);
+        color: var(--tertiary-bg);
     }
 
     .blood_type>option {
@@ -720,24 +732,19 @@ section:nth-child(odd) {
                 color: lightgrey;
             }
 
-            .login_btns{
-                display: flex;
-                gap: 1rem;
+            .submit {
+                background-color: var(--primary-clr);
+                border: 2px solid var(--tertiary-clr);
+                color: var(--secondary-clr);
+                min-width: 20dvw;
+                font-size: 1.5rem;
+                transition: all 500ms ease;
+            }
 
-                .submit {
-                    background-color: var(--primary-clr);
-                    border: 2px solid var(--tertiary-clr);
-                    color: var(--secondary-clr);
-                    min-width: 15dvw;
-                    font-size: 1.2rem;
-                    transition: all 500ms ease;
-                }
-    
-                .submit:hover {
-                    box-shadow: 0 2px 0 var(--secondary-clr);
-                    scale: 1.08;
-                    transition: all 200ms ease;
-                }
+            .submit:hover {
+                box-shadow: 0 2px 0 var(--secondary-clr);
+                scale: 1.08;
+                transition: all 200ms ease;
             }
         }
     }
