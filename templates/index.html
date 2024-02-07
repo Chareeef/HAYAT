@@ -13,7 +13,18 @@
     <meta name="keywords" content="">
 
     <title>Home | Hayat</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- For Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="../static/images/SiteIcons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/SiteIcons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/SiteIcons/favicon-16x16.png">
+    <link rel="shortcut icon" href="../static/images/SiteIcons/favicon.ico">
+
+    <!-- For Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="../static/images/SiteIcons/apple-touch-icon.png">
+
+    <!-- For Web Manifest -->
+    <link rel="manifest" href="../static/images/SiteIcons/site.webmanifest">
+
 
     <!-- icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -45,7 +56,7 @@
         </nav>
         <div class="buttons">
             <button class="login_btn" type="button"><a href="login.html">Login</a></button>
-        <button class="register_btn" type="button"><a href="register.html">Register</a></button>
+            <button class="register_btn" type="button"><a href="register.html">Register</a></button>
         </div>
         <div class="toggle_btn">
             &backcong;
@@ -61,16 +72,20 @@
             </div>
             <form class="donation_form" action="">
                 <legend>Submit a Donation Request &Downarrow;</legend>
-                <input class="full_name" type="text" name="full_name" id="fullName" placeholder="Enter your Name" required>
+                <input class="full_name" type="text" name="full_name" id="fullName" placeholder="Enter your Name"
+                    required>
                 <input class="email" type="email" name="email" id="email" placeholder="Enter your Email" required>
                 <input class="phone_number" type="tel" name="phone_number" id="phoneNumber"
                     placeholder="Enter your Phone Number" required>
                 <select class="blood_type" name="" id="bloodType" aria-placeholder="Select your Blood Type" required>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O">O</option>
+                    <option value="A+">A RhD positive (A+)</option>
+                    <option value="A-">A RhD negative (A-)</option>
+                    <option value="B+">B RhD positive (B+)</option>
+                    <option value="B-">B RhD negative (B-)</option>
+                    <option value="O+">O RhD positive (O+)</option>
+                    <option value="O-">O RhD negative (O-)</option>
+                    <option value="AB+">AB RhD positive (AB+)</option>
+                    <option value="AB-">AB RhD negative (AB-)</option>
                 </select>
 
                 <button class="submit_form" type="submit">Submit Request</button>
@@ -122,11 +137,11 @@
     <section class="contact_section" id="contact">
         <h3 class="subtitle">Talk To Us</h3>
         <div class="contact_wrapper">
-            
+
             <div class="contact_wrapper">
                 <form class="contact_form">
-                    <input type="text" name="name" id="contactName" placeholder="Name" required/>
-                    <input type="email" name="email" id="contactEmail" placeholder="Email" required/>
+                    <input type="text" name="name" id="contactName" placeholder="Name" required />
+                    <input type="email" name="email" id="contactEmail" placeholder="Email" required />
                     <textarea name="message" id="contactMessage" placeholder="Your Message" required></textarea>
                     <button class="submit" type="submit">Send Message <i class="bi bi-telegram"></i></button>
                 </form>
