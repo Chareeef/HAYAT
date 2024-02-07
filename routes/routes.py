@@ -3,11 +3,12 @@
 Our Project Flask Routes
 """
 from app import app, bcrypt
+from db import storage
 from db.models.donor import Donor
 from db.models.transfusion_center import TransfusionCenter
-from flask import flash, render_template, redirect, request, url_for
+from flask import flash, render_template, jsonify, redirect, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
-from forms.registration import DonorRegistrationForm
+from forms.registration import DonorRegistrationForm, TCRegistrationForm
 
 
 @app.route('/', strict_slashes=False)
@@ -42,11 +43,47 @@ def login():
     return render_template('login.html')
 
 
+@app.route('/get_cities/<int:country_id>')
+def get_cities(country_id):
+    country = storage.get('Country', country_id)
+    cities = [{'id': city.id, 'name': city.name} for city in country.cities]
+    cities.sort(key=lambda city: city['name'])
+    return jsonify({'cities': cities})
+
+
 @app.route('/register', methods=['GET', 'POST'], strict_slashes=False)
 def register():
     """Register page for both Donor and Transfusion Center"""
     if current_user.is_authenticated:
         return redirect(url_for('home'))
+
+    tc_form = TCRegistrationForm()
+    if tc_form.validate_on_submit():
+        # If tc_form data is valid, process it
+        name = tc_form.name.data
+        email = tc_form.email.data
+        phone_number = tc_form.phone_number.data
+        password = tc_form.password.data
+        country_id = tc_form.country.data 
+        city_id = tc_form.city.data 
+
+        # Hash the password
+        hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
+
+        # Create a dictionary with tc data
+        tc_dict = {
+            'name': name,
+            'email': email,
+            'phone_number': phone_number,
+            'password_hash': hashed_pw,
+            'city_id': city_id
+        }
+
+        tc = TransfusionCenter(**tc_dict)
+        tc.save()
+ 
+        flash('Registration successful! Welcome !', 'success')
+        return redirect(url_for('login'))
 
     donor_form = DonorRegistrationForm()
     if donor_form.validate_on_submit():
@@ -62,6 +99,12 @@ def register():
 
         # Hash the password
         hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
+
+        if gender == 'None':
+            gender = None
+
+        if blood_category == 'None':
+            blood_category = None
 
         # Create a dictionary with donor data
         donor_dict = {
@@ -81,7 +124,8 @@ def register():
         flash(f'Registration successful! Welcome, {full_name}!', 'success')
         return redirect(url_for('login'))
  
-    return render_template('register.html', donor_form=donor_form)
+    return render_template('register.html', donor_form=donor_form,
+                           tc_form=tc_form)
 
 
 @app.route('/center_dashboard', strict_slashes=False)

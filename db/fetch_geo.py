@@ -46,12 +46,17 @@ if __name__ == '__main__':
                 city = City(name=city_name, country_id=country.id)
                 storage.add(city)
 
+    for ctr in storage.all('Country'):
+        if ctr.name == 'Morocco':
+            print(ctr) 
+            err = City(name='Errachidia', country_id=ctr.id)
+            storage.add(err)
     storage.commit()
 
-#    countries = storage.all('Country')
-#
-#    for ctr in countries:
-#        print('Country :', ctr.name, '->')
-#        for city in ctr.cities:
-#            print('\t', city.name)
-#        print()
+    countries = storage.all('Country')
+
+    for ctr in countries:
+        print('Country :', ctr.name, '->')
+        for city in ctr.cities:
+            print('\t', city.name)
+        print()
