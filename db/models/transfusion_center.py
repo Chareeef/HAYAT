@@ -2,11 +2,12 @@
 """Transfusion Center Model"""
 from db.models.base import BaseModel, Base
 from db.models.donors_centers import donors_centers
+from flask_login import UserMixin
 from sqlalchemy import Column, Integer, ForeignKey, String
 from sqlalchemy.orm import relationship
 
 
-class TransfusionCenter(BaseModel, Base):
+class TransfusionCenter(BaseModel, Base, UserMixin):
     """Class for transfusion_enters table"""
     __tablename__ = 'transfusion_centers'
 
