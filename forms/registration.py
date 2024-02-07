@@ -18,7 +18,7 @@ class TCRegistrationForm(FlaskForm):
 
     def __init__(self, *args, **kwargs):
         super(TCRegistrationForm, self).__init__(*args, **kwargs)
-        self.country.choices = [(country.id, country.name) for country in storage.all('Country')]
+        self.country.choices = [(0, '---')] + [(country.id, country.name) for country in storage.all('Country')]
         self.city.choices = [(city.id, city.name) for city in storage.all('City')]
 
 
