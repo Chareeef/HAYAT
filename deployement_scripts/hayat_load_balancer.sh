@@ -17,6 +17,7 @@ fi
 printf "# Load balancer configuration for HAYAT website
 
 upstream hayat_servers {
+	ip_hash;
         server web-01.hayat-blood-donation.tech;
         server web-02.hayat-blood-donation.tech;
 }
