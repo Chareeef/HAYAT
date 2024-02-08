@@ -4,6 +4,7 @@ Our Project Flask Routes
 """
 from app import app, bcrypt
 from db import storage
+from db.models.blood_bag import BloodBag
 from db.models.donor import Donor
 from db.models.transfusion_center import TransfusionCenter
 from flask import flash, render_template, jsonify, redirect, request, url_for
@@ -96,6 +97,16 @@ def register():
 
         tc = TransfusionCenter(**tc_dict)
         tc.save()
+
+        # Assign blood bags
+        categories = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+
+        for blood_category in categories:
+            bag = BloodBag(blood_category=blood_category,
+                           quantity=30,
+                           situation='Stable',
+                           center_id=tc.id)
+            bag.save()
  
         flash('Registration successful! Welcome !', 'info')
         return redirect(url_for('login'))
