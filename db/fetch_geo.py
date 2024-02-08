@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     for ctr in storage.all('Country'):
         if ctr.name == 'Morocco':
-            print(ctr) 
+            print(ctr)
             err = City(name='Errachidia', country_id=ctr.id)
             storage.add(err)
     storage.commit()

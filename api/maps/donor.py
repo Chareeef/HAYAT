@@ -52,20 +52,20 @@ def create_donor(route_data=None):
 def update_donor(id):
     """ Updates Donor information. """
     donor = storage.get('Donor', id)
-    
+
     if not donor:
         abort(404)
-        
+
     if not request.get_json():
         abort(400, description='Not a JSON')
-        
+
     ignore = ['id', 'email', 'create_at', 'updated_at']
-    
+
     data = request.get_json()
     for key, val in data.items():
         if key not in ignore:
             setattr(donor, key, val)
-    
+
     storage.commit()
 
     return make_response(jsonify(donor.to_dict()), 201)
@@ -77,7 +77,7 @@ def delete_donor(id):
     donor = storage.get('Donor', id)
     if not donor:
         abort(404)
-    
+
     storage.delete(donor)
     storage.commit()
 

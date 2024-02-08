@@ -17,6 +17,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
+
 @login_manager.user_loader
 def user_loader(user_id):
     """Load the current user"""
@@ -33,8 +34,8 @@ def close_db(error):
     """ Close Storage """
     storage.close()
 
-
 from routes.routes import *
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, threaded=True)
