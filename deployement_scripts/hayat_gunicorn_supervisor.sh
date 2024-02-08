@@ -27,7 +27,7 @@ printf "# Supervisor config file to ensure our flask web app is always run by gu
 
 [program:HAYAT-web]
 directory=/home/youssef/HAYAT/
-command=/home/%s/HAYAT/venv/bin/gunicorn -b localhost:8000 -w 3 app:app
+command=/home/%s/HAYAT/venv/bin/gunicorn -b 0.0.0.0:8000 -w 3 app:app
 environment = HAYAT_USER=crimson, HAYAT_PWD=hayat_for_all, HAYAT_HOST=localhost, HAYAT_DB=hayat_prod_db
 user=%s
 autostart=true
@@ -42,7 +42,7 @@ printf "# Supervisor config file to ensure our flask API is always run by gunico
 
 [program:HAYAT-API]
 directory=/home/youssef/HAYAT/
-command=/home/%s/HAYAT/venv/bin/gunicorn -b localhost:8001 -w 3 api.app:app
+command=/home/%s/HAYAT/venv/bin/gunicorn -b 0.0.0.0:8001 -w 3 api.app:app
 environment = HAYAT_USER=crimson, HAYAT_PWD=hayat_for_all, HAYAT_HOST=localhost, HAYAT_DB=hayat_prod_db
 user=%s
 autostart=true
