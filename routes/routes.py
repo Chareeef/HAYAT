@@ -20,48 +20,42 @@ def home():
     return render_template('index.html', title='Home')
 
 
-@app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
-def login():
-    """Login page for both Donor and Transfusion Center"""
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-
-    tc_form = TCLoginForm()
-    donor_form = DonorLoginForm()
-
-    if tc_form.validate_on_submit():
-        email = tc_form.email.data
-        password = tc_form.password.data
-        tc = storage.session.query(TransfusionCenter).filter_by(email=email).first()
-
-        if tc and bcrypt.check_password_hash(tc.password_hash, password):
-            login_user(tc)
-            flash('Logged in successfully !', 'info')
-            return redirect(url_for('home'))
-        else:
-            flash('Invalid email or password. Please try again.', 'danger')
-
-    elif donor_form.validate_on_submit():
-        username = donor_form.username.data
-        donor = storage.session.query(Donor).filter_by(username=username).first()
-
-        if donor and bcrypt.check_password_hash(donor.password_hash, donor_form.password.data):
-            login_user(donor)
-            flash('Logged in successfully !', 'info')
-            return redirect(url_for('home'))
-        else:
-            flash('Invalid username or password. Please try again.', 'danger')
-
-    return render_template('login.html', title='Login', tc_form=tc_form,
-                           donor_form=donor_form)
-
-
 @app.route('/get_cities/<int:country_id>')
 def get_cities(country_id):
     country = storage.get('Country', country_id)
-    cities = [{'id': city.id, 'name': city.name} for city in country.cities]
-    cities.sort(key=lambda city: city['name'])
+
+    cities = []
+    if country:
+        cities = [{'id': city.id, 'name': city.name}
+                  for city in country.cities]
+        cities.sort(key=lambda city: city['name'])
+
     return jsonify({'cities': cities})
+
+
+@app.route('/get_centers/<int:city_id>')
+def get_centers(city_id):
+    city = storage.get('City', city_id)
+
+    centers = []
+    if city:
+        centers = [{'id': center.id, 'name': center.name}
+                   for center in city.centers]
+        centers.sort(key=lambda center: center['name'])
+
+    return jsonify({'centers': centers})
+
+
+@app.route('/get_bags/<int:center_id>')
+def get_bags(center_id):
+    center = storage.get('TransfusionCenter', center_id)
+
+    bags = []
+    if center:
+        bags = [bag.to_dict() for bag in center.blood_bags]
+        bags.sort(key=lambda bag: bag['blood_category'])
+
+    return jsonify({'bags': bags})
 
 
 @app.route('/register', methods=['GET', 'POST'], strict_slashes=False)
@@ -77,8 +71,8 @@ def register():
         email = tc_form.email.data
         phone_number = tc_form.phone_number.data
         password = tc_form.password.data
-        country_id = tc_form.country.data 
-        city_id = tc_form.city.data 
+        country_id = tc_form.country.data
+        city_id = tc_form.city.data
 
         # Hash the password
         hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
@@ -107,7 +101,7 @@ def register():
                            situation='Stable',
                            center_id=tc.id)
             bag.save()
- 
+
         flash('Registration successful! Welcome !', 'info')
         return redirect(url_for('login'))
 
@@ -149,12 +143,54 @@ def register():
 
         donor = Donor(**donor_dict)
         donor.save()
- 
+
         flash(f'Registration successful! Welcome, {full_name}!', 'info')
         return redirect(url_for('login'))
- 
-    return render_template('register.html', title='Register', donor_form=donor_form,
-                           tc_form=tc_form)
+
+    return render_template(
+        'register.html',
+        title='Register',
+        donor_form=donor_form,
+        tc_form=tc_form)
+
+
+@app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
+def login():
+    """Login page for both Donor and Transfusion Center"""
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+
+    tc_form = TCLoginForm()
+    donor_form = DonorLoginForm()
+
+    if tc_form.validate_on_submit():
+        email = tc_form.email.data
+        password = tc_form.password.data
+        tc = storage.session.query(
+            TransfusionCenter).filter_by(email=email).first()
+
+        if tc and bcrypt.check_password_hash(tc.password_hash, password):
+            login_user(tc)
+            flash('Logged in successfully !', 'info')
+            return redirect(url_for('home'))
+        else:
+            flash('Invalid email or password. Please try again.', 'danger')
+
+    elif donor_form.validate_on_submit():
+        username = donor_form.username.data
+        donor = storage.session.query(
+            Donor).filter_by(username=username).first()
+
+        if donor and bcrypt.check_password_hash(
+                donor.password_hash, donor_form.password.data):
+            login_user(donor)
+            flash('Logged in successfully !', 'info')
+            return redirect(url_for('home'))
+        else:
+            flash('Invalid username or password. Please try again.', 'danger')
+
+    return render_template('login.html', title='Login', tc_form=tc_form,
+                           donor_form=donor_form)
 
 
 @app.route('/center_dashboard', strict_slashes=False)
