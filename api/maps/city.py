@@ -52,20 +52,20 @@ def register_city():
 def update_city(id):
     """ Updates City information. """
     city = storage.get('City', id)
-    
+
     if not city:
         abort(404)
-        
+
     if not request.get_json():
         abort(400, description='Not a JSON')
-        
+
     ignore = ['id', 'email', 'create_at', 'updated_at', 'name', 'country_id']
-    
+
     data = request.get_json()
     for key, val in data.items():
         if key not in ignore:
             setattr(city, key, val)
-    
+
     storage.commit()
 
     return make_response(jsonify(city.to_dict()), 201)
@@ -77,7 +77,7 @@ def remove_city(id):
     city = storage.get('City', id)
     if not city:
         abort(404)
-    
+
     storage.delete(city)
     storage.commit()
 

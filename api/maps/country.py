@@ -50,20 +50,20 @@ def register_country():
 def update_country(id):
     """ Updates country information. """
     country = storage.get('Country', id)
-    
+
     if not country:
         abort(404)
-        
+
     if not request.get_json():
         abort(400, description='Not a JSON')
-        
-    ignore = ['id', 'email', 'create_at', 'updated_at',]
-    
+
+    ignore = ['id', 'email', 'create_at', 'updated_at', ]
+
     data = request.get_json()
     for key, val in data.items():
         if key not in ignore:
             setattr(country, key, val)
-    
+
     storage.commit()
 
     return make_response(jsonify(country.to_dict()), 201)
@@ -75,7 +75,7 @@ def remove_country(id):
     country = storage.get('Country', id)
     if not country:
         abort(404)
-    
+
     storage.delete(country)
     storage.commit()
 

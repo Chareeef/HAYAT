@@ -78,6 +78,11 @@ class Storage():
         """Commit a transaction to the database"""
         self.__session.commit()
 
+    @property
+    def session(self):
+        """Get session"""
+        return self.__session
+
     def get(self, obj_name, obj_id):
         """Retrieve an instance by id from the database"""
         obj = classes_dict[obj_name]

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=7">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+
+		<title>Hayat - {{ title }}</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+		<!-- font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+					rel="stylesheet">
+
+		<!-- icons -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+		<!-- css -->
+		<link rel="stylesheet" href="../static/styles/main.css">
+
+    <!-- jquery -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	</head>
+
+	<body>
+		<!-- header -->
+		<header id="header">
+			<a href="{{ url_for('home') }}" class="logo">Hayat.</a>
+			<div class="buttons">
+    		{% if current_user.is_authenticated %}
+				<button class="log_btn" type="button"><a href="{{ url_for('logout') }}">Logout</a></button>
+				{% else %}
+				<button class="log_btn" type="button"><a href="{{ url_for('login') }}">Login</a></button>
+				<button class="register_btn" type="button"><a href="{{ url_for('register') }}">Register</a></button>
+				{% endif %}
+			</div>
+			<div class="toggle_btn">
+				&backcong;
+			</div>
+		</header>
+
+		<main>
+			{% block main %}
+			{% endblock %}
+		</main>
+		<!-- Why Donate Blood -->
+		<section class="why_donate" id="donate">
+			<h2 class="title">Why Donate Blood?</h2>
+			<p class="text">
+			Blood donation is a noble cause that helps <span>save lives.</span> Your contribution can make a significant
+			impact on	those in need.
+			</p>
+		</section>
+
+		<!-- back to top btn -->
+		<button id="backToTopBtn" title="Go to top"><i class="bi bi-arrow-up-circle"></i></button>
+
+
+		<!-- footer -->
+		<footer class="footer" id="footer">
+			<div class="footer_wrapper">
+				<div class="footer_about">
+					<h3 class="title">About <span>Hayat.</span></h3>
+					<p class="text">HAYAT stands as a testament to the power of technology in enhancing the blood donation
+					process. By leveraging a robust tech stack, we've created a platform that not only empowers blood
+					donors with real-time information but also enables transfusion centers to optimize their operations.
+					</p>
+				</div>
+				<div class="footer_links">
+					<h3 class="title">Important Links</h3>
+					<a href="#about" class="footer_link">About Us</a>
+					<a href="#" class="footer_link">Our Partners</a>
+					<a href="#donate" class="footer_link">Donate Blood</a>
+					<a href="#stations" class="footer_link">Our Locations</a>
+					<a href="#contact" class="footer_link">Contact Us</a>
+					<a href="#" target="_blank" class="footer_link">Blog</a>
+					<a href="#" target="_blank" class="footer_link">Careers</a>
+				</div>
+				<div class="footer_socials">
+					<h3 class="title">Our Socials</h3>
+					<div>
+						<i class="bi bi-instagram"></i>
+						<i class="bi bi-facebook"></i>
+						<i class="bi bi-twitter-x"></i>
+						<i class="bi bi-whatsapp"></i>
+						<i class="bi bi-envelope-at"></i>
+						<i class="bi bi-threads"></i>
+					</div>
+
+				</div>
+			</div>
+			<hr>
+			<div class="copyright">
+				<p> &copy; 2024 &mdash; Hayat Health Services Co.</p>
+				<a href="https://github.com/Chareeef/HAYAT"><i class="bi bi-github"></i></p>
+			</div>
+		</footer>
+
+		<!-- script -->
+		<script src="../static/scripts/main.js"></script>
+		<script src="../static/scripts/get_cities.js"></script>
+	</body>
+
+</html>

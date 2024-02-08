@@ -58,9 +58,15 @@ def update_blood_bag(id):
 
     if not request.get_json():
         abort(400, description='Not a JSON')
-        
-    ignore = ['id', 'email', 'create_at', 'updated_at', 'center_id', 'blood_category']
-    
+
+    ignore = [
+        'id',
+        'email',
+        'create_at',
+        'updated_at',
+        'center_id',
+        'blood_category']
+
     data = request.get_json()
     for key, val in data.items():
         if key not in ignore:
@@ -77,7 +83,7 @@ def delete_bags(id):
     bag = storage.get('BloodBag', id)
     if not bag:
         abort(404)
-    
+
     storage.delete(bag)
     storage.commit()
 

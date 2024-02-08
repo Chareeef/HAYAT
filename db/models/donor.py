@@ -2,11 +2,12 @@
 """Donor Model"""
 from db.models.base import BaseModel, Base
 from db.models.donors_centers import donors_centers
+from flask_login import UserMixin
 from sqlalchemy import Column, Enum, Integer, String
 from sqlalchemy.orm import relationship
 
 
-class Donor(BaseModel, Base):
+class Donor(BaseModel, Base, UserMixin):
     """Class for donors table"""
     __tablename__ = 'donors'
 
