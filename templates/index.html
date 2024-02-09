@@ -1,7 +1,5 @@
 {% extends 'layout.html' %}
 {% block main %}
-		<!-- hero -->
-		<section class="hero" id="home">
 
 			<!-- Render flashed messages -->
 			{% with messages = get_flashed_messages(with_categories=true) %}
@@ -13,29 +11,5 @@
 			{% endfor  %}
 			{% endif %}
 			{% endwith %}
-
-			<div class="hero_content">
-				<div class="hero_title">
-					<h1 class="title">HAYAT<span>.</span></h1>
-					<h3 class="subtitle">donate blood. save lives</h3>
-				</div>
-				<form class="donation_form" action="">
-					<legend>Submit a Donation Request &Downarrow;</legend>
-					<input class="full_name" type="text" name="full_name" id="fullName" placeholder="Enter your Name" required>
-					<input class="email" type="email" name="email" id="email" placeholder="Enter your Email" required>
-					<input class="phone_number" type="tel" name="phone_number" id="phoneNumber"
-																																		 placeholder="Enter your Phone Number" required>
-					<select class="blood_type" name="" id="bloodType" aria-placeholder="Select your Blood Type" required>
-						<option value="A+">A+</option>
-						<option value="A-">A-</option>
-						<option value="B+">B+</option>
-						<option value="B-">B-</option>
-						<option value="O">O</option>
-					</select>
-
-					<button class="submit_form" type="submit">Submit Request</button>
-				</form>
-			</div>
-		</section>
 
 {% endblock main %}
