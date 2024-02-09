@@ -26,11 +26,14 @@
 		<!-- icons -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 		<!-- css -->
 		<link rel="stylesheet" href="../static/styles/main.css">
 
     <!-- jquery -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	</head>
 
@@ -50,7 +53,7 @@
 
 		<main>
 			{% block main %}
-			{% endblock %}
+			{% endblock main %}
 		</main>
 		<!-- Why Donate Blood -->
 		<section class="why_donate" id="donate">
@@ -101,13 +104,15 @@
 			<hr>
 			<div class="copyright">
 				<p> &copy; 2024 &mdash; Hayat Health Services Co.</p>
-				<a href="https://github.com/Chareeef/HAYAT"><i class="bi bi-github"></i></p>
+				<a href="https://github.com/Chareeef/HAYAT"><i class="bi bi-github"></i></a>
 			</div>
 		</footer>
 
 		<!-- script -->
 		<script src="../static/scripts/main.js"></script>
 		<script src="../static/scripts/get_cities.js"></script>
+		{% block script %}
+		{% endblock script%}
 	</body>
 
 </html>
