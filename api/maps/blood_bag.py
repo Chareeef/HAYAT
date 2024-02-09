@@ -14,7 +14,7 @@ def list_blood_bags():
     blood_bags = []
     all_objs = storage.all('BloodBag')
     for obj in all_objs:
-        blood_bags.append(obj.to_dict)
+        blood_bags.append(obj.to_dict())
 
     return jsonify(blood_bags)
 
