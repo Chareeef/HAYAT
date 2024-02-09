@@ -67,10 +67,10 @@ def register():
     tc_form = TCRegistrationForm()
     if tc_form.validate_on_submit():
         # If tc_form data is valid, process it
-        name = tc_form.name.data
-        email = tc_form.email.data
-        phone_number = tc_form.phone_number.data
-        password = tc_form.password.data
+        name = tc_form.name.data.strip()
+        email = tc_form.email.data.strip()
+        phone_number = tc_form.phone_number.data.strip()
+        password = tc_form.password.data.strip()
         country_id = tc_form.country.data
         city_id = tc_form.city.data
 
@@ -108,10 +108,10 @@ def register():
     donor_form = DonorRegistrationForm()
     if donor_form.validate_on_submit():
         # If donor_form data is valid, process it
-        username = donor_form.username.data
-        full_name = donor_form.full_name.data
-        email = donor_form.email.data
-        phone_number = donor_form.phone_number.data
+        username = donor_form.username.data.strip()
+        full_name = donor_form.full_name.data.strip()
+        email = donor_form.email.data.strip()
+        phone_number = donor_form.phone_number.data.strip()
         password = donor_form.password.data
         age = donor_form.age.data
         gender = donor_form.gender.data
@@ -164,7 +164,7 @@ def login():
     donor_form = DonorLoginForm()
 
     if tc_form.validate_on_submit():
-        email = tc_form.email.data
+        email = tc_form.email.data.strip()
         password = tc_form.password.data
         tc = storage.session.query(
             TransfusionCenter).filter_by(email=email).first()
@@ -177,7 +177,7 @@ def login():
             flash('Invalid email or password. Please try again.', 'danger')
 
     elif donor_form.validate_on_submit():
-        username = donor_form.username.data
+        username = donor_form.username.data.strip()
         donor = storage.session.query(
             Donor).filter_by(username=username).first()
 
