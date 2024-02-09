@@ -17,7 +17,6 @@ fi
 printf "# Load balancer configuration for HAYAT website
 
 upstream hayat_servers {
-	ip_hash;
         server web-01.hayat-blood-donation.tech;
         server web-02.hayat-blood-donation.tech;
 }
@@ -31,14 +30,6 @@ server {
         ssl_certificate /home/youssef/ssl/hayat-blood-donation_tech_chain.crt;
 
         ssl_certificate_key /home/youssef/server_keys/server.key;
-
-        location /api {
-                proxy_pass http://web-01.hayat-blood-donation.tech;
-        }
-
-        location /register {
-                proxy_pass http://web-01.hayat-blood-donation.tech;
-        }
 
         location / {
                 proxy_pass http://hayat_servers;

@@ -27,7 +27,7 @@ After=network.target
 User=%s
 Group=%s
 WorkingDirectory=/home/youssef/HAYAT/
-Environment=\"HAYAT_USER=crimson\" \"HAYAT_PWD=hayat_for_all\" \"HAYAT_HOST=localhost\" \"HAYAT_DB=hayat_prod_db\"
+Environment=\"HAYAT_USER=crimson\" \"HAYAT_PWD=hayat_for_all\" \"HAYAT_HOST=web-01.hayat-blood-donation.tech\" \"HAYAT_DB=hayat_prod_db\"
 ExecStart=/home/%s/HAYAT/venv/bin/gunicorn -b 0.0.0.0:8000 -w 3 app:app
 Restart=always
 StandardOutput=file:/var/log/HAYAT/HAYAT-web.out.log
@@ -45,7 +45,7 @@ After=network.target
 User=%s
 Group=%s
 WorkingDirectory=/home/youssef/HAYAT/
-Environment=\"HAYAT_USER=crimson\" \"HAYAT_PWD=hayat_for_all\" \"HAYAT_HOST=localhost\" \"HAYAT_DB=hayat_prod_db\"
+Environment=\"HAYAT_USER=crimson\" \"HAYAT_PWD=hayat_for_all\" \"HAYAT_HOST=web-01.hayat-blood-donation.tech\" \"HAYAT_DB=hayat_prod_db\"
 ExecStart=/home/%s/HAYAT/venv/bin/gunicorn -b 0.0.0.0:8001 -w 3 api.app:app
 Restart=always
 StandardOutput=file:/var/log/HAYAT/HAYAT-api.out.log
