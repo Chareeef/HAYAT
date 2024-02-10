@@ -1,0 +1,122 @@
+/* General styles */
+body {
+  background-color: white;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+h3 {
+  color: red;
+  text-align: center;
+}
+
+/* Filter section styles */
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: auto;
+}
+
+label {
+  color: red;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin: 5px;
+}
+
+input {
+  width: 200px;
+  margin: 5px;
+}
+
+select {
+  width: 200px;
+  height: 30px;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+input[type=submit] {
+  grid-column: span 2;
+  width: 100px;
+  height: 40px;
+  background-color: red;
+  color: white;
+  border: none;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  transform: scale(1.1);
+}
+
+/* Blood Bags Section styles */
+section.section_bags {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.blood_bags {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  grid-gap: 10px;
+}
+
+.bag {
+  border: 2px solid black;
+  padding: 10px;
+  background-color: white;
+}
+
+.blood_category {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  text-align: center;
+  padding: 5px;
+}
+
+.quantity {
+  font-size: 18px;
+  color: black;
+  margin-top: 10px;
+}
+
+.situation {
+  font-size: 16px;
+  color: green;
+  margin-top: 10px;
+}
+
+.updated_at {
+  font-size: 14px;
+  color: gray;
+  margin-top: 10px;
+}
+

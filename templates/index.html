@@ -1,15 +1,67 @@
 {% extends 'layout.html' %}
+{% block style %}
+		<link rel="stylesheet" href="../static/styles/filter.css">		
+{% endblock style %}
+
 {% block main %}
 
 			<!-- Render flashed messages -->
-			{% with messages = get_flashed_messages(with_categories=true) %}
-			{% if messages %}
-			{% for category, message in messages %}
-			<div class="alert alert-{{ category }}">
-				{{ message }}
+			<div>
+				{% with messages = get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+				{% for category, message in messages %}
+				<div class="alert alert-{{ category }}">
+					{{ message }}
+				</div>
+				{% endfor  %}
+				{% endif %}
+				{% endwith %}
 			</div>
-			{% endfor  %}
-			{% endif %}
-			{% endwith %}
 
+			<!-- Filter section -->
+			<h3>Transfusion Center Filter</h3>
+			<section>
+				<div class="filter">
+					<form method="POST" action="">
+						{{ tc_filter.hidden_tag() }}
+						<div>
+							<label for="country">Country</label>
+							{{ tc_filter.country }}
+						</div>
+						<div>
+							<label for="city">City</label>
+							{{ tc_filter.city }}
+						</div>
+						<div>
+							<label for="center">Center</label>
+							{{ tc_filter.center }}
+						</div>
+
+						<div>
+							{{ tc_filter.search }}
+						</div>
+					</form>
+				</div>
+			</section>
+
+			{% if center %}
+			<!-- Blood Bags Section -->
+			<h3>{{ center.name }}'s Blood Bags :</h3>
+			<section class="section_bags">
+				<div class="blood_bags">
+					{% for bag in center.blood_bags %}
+					<article class="bag">
+						<div class="blood_category">{{ bag.blood_category }}</div>
+						<div class="quantity">{{ bag.quantity }} Bags in stock.</div>
+						<div class="situation">
+							<p>{{ bag.situation }}</p>
+						</div>
+						<div class="updated_at">
+							<p>Updated at : {{ bag.updated_at.strftime('%Y/%m/%d') }}</p>
+						</div>
+					</article>
+					{% endfor %}
+				</div>
+			<section>
+			{% endif %}
 {% endblock main %}

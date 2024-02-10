@@ -9,15 +9,29 @@ from db.models.donor import Donor
 from db.models.transfusion_center import TransfusionCenter
 from flask import flash, render_template, jsonify, redirect, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
-from forms.registration import DonorRegistrationForm, TCRegistrationForm
+from forms.tc_filter import TCFilter
 from forms.login import DonorLoginForm, TCLoginForm
+from forms.registration import DonorRegistrationForm, TCRegistrationForm
 
 
-@app.route('/', strict_slashes=False)
-@app.route('/home', strict_slashes=False)
+@app.route('/', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/home', methods=['GET', 'POST'], strict_slashes=False)
 def home():
-    """Render Home page"""
-    return render_template('index.html', title='Home')
+    """Render Home page with the transfusion centers filter"""
+
+    tc_filter = TCFilter()
+    center = None
+
+
+    if request.method == 'POST':
+        center_id = dict(request.form).get('center')
+        center = storage.get('TransfusionCenter', center_id)
+
+
+    return render_template('index.html',
+                           title='Home',
+                           tc_filter=tc_filter,
+                           center=center)
 
 
 @app.route('/get_cities/<int:country_id>')
