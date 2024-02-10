@@ -26,32 +26,31 @@ if __name__ == '__main__':
 
     african_countries_names.sort()
 
-    for name in african_countries_names:
-        country = Country(name=name)
-        storage.add(country)
-
-    storage.commit()
 
     #  Retrieve cities
 
     response = get('https://countriesnow.space/api/v0.1/countries')
     countries_and_cities = response.json()['data']
     for ctr in countries_and_cities:
-        if ctr['country'] in african_countries_names:
-            country = list(filter(lambda c: c.name == ctr['country'],
-                                  storage.all('Country')))[0]
+        name = ctr['country']
+
+        if name in african_countries_names:
+            country = Country(name=name)
+            storage.add(country)
+
+            storage.commit()
+
+            if country.name == 'Morocco':
+                err = City(name='Errachidia', country_id=country.id)
+                storage.add(err)
+
             for city_name in list(set(ctr['cities'])):
                 if len(city_name) > 49:
                     continue
                 city = City(name=city_name, country_id=country.id)
                 storage.add(city)
 
-    for ctr in storage.all('Country'):
-        if ctr.name == 'Morocco':
-            print(ctr)
-            err = City(name='Errachidia', country_id=ctr.id)
-            storage.add(err)
-    storage.commit()
+                storage.commit()
 
     countries = storage.all('Country')
 

@@ -9,15 +9,34 @@ from db.models.donor import Donor
 from db.models.transfusion_center import TransfusionCenter
 from flask import flash, render_template, jsonify, redirect, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
-from forms.registration import DonorRegistrationForm, TCRegistrationForm
+from forms.tc_filter import TCFilter
 from forms.login import DonorLoginForm, TCLoginForm
+from forms.registration import DonorRegistrationForm, TCRegistrationForm
 
 
-@app.route('/', strict_slashes=False)
-@app.route('/home', strict_slashes=False)
+@app.route('/', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/home', methods=['GET', 'POST'], strict_slashes=False)
 def home():
-    """Render Home page"""
-    return render_template('index.html', title='Home')
+    """Render Home page with the transfusion centers filter"""
+
+    tc_filter = TCFilter()
+    center = None
+
+    colors = {
+        'Stable': 'green',
+        'Soon Shortage': 'orange',
+        'Critic': 'red'
+    }
+
+    if request.method == 'POST':
+        center_id = dict(request.form).get('center')
+        center = storage.get('TransfusionCenter', center_id)
+
+    return render_template('index.html',
+                           title='Home',
+                           tc_filter=tc_filter,
+                           colors=colors,
+                           center=center)
 
 
 @app.route('/get_cities/<int:country_id>')
@@ -67,10 +86,10 @@ def register():
     tc_form = TCRegistrationForm()
     if tc_form.validate_on_submit():
         # If tc_form data is valid, process it
-        name = tc_form.name.data
-        email = tc_form.email.data
-        phone_number = tc_form.phone_number.data
-        password = tc_form.password.data
+        name = tc_form.name.data.strip()
+        email = tc_form.email.data.strip()
+        phone_number = tc_form.phone_number.data.strip()
+        password = tc_form.password.data.strip()
         country_id = tc_form.country.data
         city_id = tc_form.city.data
 
@@ -108,10 +127,10 @@ def register():
     donor_form = DonorRegistrationForm()
     if donor_form.validate_on_submit():
         # If donor_form data is valid, process it
-        username = donor_form.username.data
-        full_name = donor_form.full_name.data
-        email = donor_form.email.data
-        phone_number = donor_form.phone_number.data
+        username = donor_form.username.data.strip()
+        full_name = donor_form.full_name.data.strip()
+        email = donor_form.email.data.strip()
+        phone_number = donor_form.phone_number.data.strip()
         password = donor_form.password.data
         age = donor_form.age.data
         gender = donor_form.gender.data
@@ -164,7 +183,7 @@ def login():
     donor_form = DonorLoginForm()
 
     if tc_form.validate_on_submit():
-        email = tc_form.email.data
+        email = tc_form.email.data.strip()
         password = tc_form.password.data
         tc = storage.session.query(
             TransfusionCenter).filter_by(email=email).first()
@@ -177,7 +196,7 @@ def login():
             flash('Invalid email or password. Please try again.', 'danger')
 
     elif donor_form.validate_on_submit():
-        username = donor_form.username.data
+        username = donor_form.username.data.strip()
         donor = storage.session.query(
             Donor).filter_by(username=username).first()
 

@@ -31,6 +31,8 @@
 
 		<!-- css -->
 		<link rel="stylesheet" href="../static/styles/main.css">
+		{% block style %}
+		{% endblock style %}
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -43,10 +45,10 @@
 			<a href="{{ url_for('home') }}" class="logo">Hayat.</a>
 			<div class="buttons">
     		{% if current_user.is_authenticated %}
-				<button class="log_btn" type="button"><a href="{{ url_for('logout') }}">Logout</a></button>
+				<a href="{{ url_for('logout') }}"><button class="log_btn" type="button">Logout</button></a>
 				{% else %}
-				<button class="log_btn" type="button"><a href="{{ url_for('login') }}">Login</a></button>
-				<button class="register_btn" type="button"><a href="{{ url_for('register') }}">Register</a></button>
+				<a href="{{ url_for('login') }}"><button class="log_btn" type="button">Login</button></a>
+				<a href="{{ url_for('register') }}"><button class="register_btn" type="button">Register</button></a>
 				{% endif %}
 			</div>
 		</header>
@@ -59,8 +61,9 @@
 		<section class="why_donate" id="donate">
 			<h2 class="title">Why Donate Blood?</h2>
 			<p class="text">
-			Blood donation is a noble cause that helps <span>save lives.</span> Your contribution can make a significant
-			impact on	those in need.
+			Blood donation is a noble cause that helps save lives.
+			</br>
+			Your contribution can make a significant impact on	those in need.
 			</p>
 		</section>
 
@@ -81,36 +84,28 @@
 				<div class="footer_links">
 					<h3 class="title">Important Links</h3>
 					<a href="#about" class="footer_link">About Us</a>
-					<a href="#" class="footer_link">Our Partners</a>
-					<a href="#donate" class="footer_link">Donate Blood</a>
-					<a href="#stations" class="footer_link">Our Locations</a>
 					<a href="#contact" class="footer_link">Contact Us</a>
 					<a href="#" target="_blank" class="footer_link">Blog</a>
-					<a href="#" target="_blank" class="footer_link">Careers</a>
 				</div>
 				<div class="footer_socials">
 					<h3 class="title">Our Socials</h3>
 					<div>
-						<i class="bi bi-instagram"></i>
-						<i class="bi bi-facebook"></i>
 						<i class="bi bi-twitter-x"></i>
-						<i class="bi bi-whatsapp"></i>
 						<i class="bi bi-envelope-at"></i>
-						<i class="bi bi-threads"></i>
 					</div>
 
 				</div>
 			</div>
 			<hr>
 			<div class="copyright">
-				<p> &copy; 2024 &mdash; Hayat Health Services Co.</p>
-				<a href="https://github.com/Chareeef/HAYAT"><i class="bi bi-github"></i></a>
+				<p>Github Repository : <a href="https://github.com/Chareeef/HAYAT"><i class="bi bi-github"></i></a></p>
+				<p> &copy; 2024 &mdash; Hayat Project</p>
 			</div>
 		</footer>
 
 		<!-- script -->
 		<script src="../static/scripts/main.js"></script>
-		<script src="../static/scripts/get_cities.js"></script>
+		<script src="../static/scripts/dynamic_select.js"></script>
 		{% block script %}
 		{% endblock script%}
 	</body>
