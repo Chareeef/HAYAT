@@ -1,5 +1,5 @@
 :root {
-    --primary-clr: darkred;
+    --primary-clr: #B22222;
     --secondary-clr: white;
     --tertiary-clr: crimson;
 
@@ -162,43 +162,25 @@ header {
     gap: 1rem;
 
 
-    .log_btn {
+    .log_btn, .register_btn {
         padding: .2rem;
         border: 2px solid var(--tertiary-clr);
         border-radius: .375rem;
         background-color: var(--primary-clr);
         width: 10dvw;
         font-size: 1.2rem;
-        font-weight: 100;
+        font-weight: bold;
         color: var(--secondary-clr);
 
         cursor: pointer;
         transition: all 500ms ease;
     }
 
-    .log_btn:hover {
+    .log_btn:hover , .register_btn:hover {
         scale: 1.1;
         transition: all 200ms ease;
     }
 
-    .register_btn {
-        padding: .2rem;
-        border: 2px solid var(--tertiary-clr);
-        border-radius: .375rem;
-        background-color: var(--primary-clr);
-        width: 10dvw;
-        font-size: 1.2rem;
-        font-weight: 100;
-        color: var(--secondary-clr);
-
-        cursor: pointer;
-        transition: all 500ms ease;
-    }
-
-    .register_btn:hover {
-        scale: 1.1;
-        transition: all 200ms ease;
-    }
 }
 
 .toggle_btn {
@@ -241,59 +223,6 @@ section:nth-child(odd) {
     .text>span {
         font-weight: 500;
     }
-}
-
-
-/* ====================================
-        STATIONS SECTION
-=======================================*/
-
-.stations_section {
-    padding-block: 6rem;
-
-    .stations_wrapper {
-        display: flex;
-        align-items: flex-start;
-        gap: 2rem;
-        flex: 1 0 0;
-    }
-
-    .subtitle {
-        background: linear-gradient(to left, var(--secondary-clr), var(--tertiary-clr));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        padding-block-end: 1rem;
-        font-size: 2rem;
-    }
-
-    .stations_list {
-        line-height: 2rem;
-        list-style: circle;
-        padding-inline-start: 1rem;
-        text-transform: capitalize;
-    }
-
-    .stations_map {
-        padding: 1rem;
-        display: flex;
-        align-items: center;
-        flex: 6;
-
-
-        .map {
-            width: 100%;
-            background-color: brown;
-            height: 50dvh;
-            padding: .5rem;
-            border-radius: .2rem;
-            display: grid;
-            place-items: center;
-            box-shadow: 5px 5px 0px var(--secondary-clr);
-        }
-    }
-
-
 }
 
 /* ====================================
@@ -423,26 +352,6 @@ section:nth-child(odd) {
     height: 100%;
 
 
-    .login_hero_image {
-
-        display: flex;
-        flex: 6;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        margin: 1rem;
-        border-radius: .75rem;
-
-        >img {
-            width: 100%;
-            height: 10-dvh;
-            object-fit: cover;
-            background-repeat: no-repeat;
-            opacity: .75;
-            border-radius: .5rem;
-        }
-    }
-
     .login_content {
         flex: 6;
         display: flex;
@@ -489,7 +398,6 @@ section:nth-child(odd) {
 	    flex-direction: column;
 	    justify-content: center;
 	    gap: .75rem;
-
 	    border-radius: .75rem;
 	    border-block: 2px solid var(--tertiary-clr);
 
@@ -498,7 +406,6 @@ section:nth-child(odd) {
 	        flex: 1 0 0;
 	        gap: .5rem;
 	        justify-content: space-between;
-	        /* align-items: center; */
 
 	        .group {
 	    	display: flex;
@@ -520,8 +427,6 @@ section:nth-child(odd) {
 	    	>input::placeholder {
 	    	    color: lightgrey;
 	    	}
-	        }
-
 	    }
 
 	    .submit {
@@ -545,144 +450,6 @@ section:nth-child(odd) {
     }
 
 }
-
-
-/* ====================================
-        REGISTER PAGE
-=======================================*/
-
-
-.register {
-    display: flex;
-    justify-content: space-between;
-    columns: 2;
-    height: 100%;
-
-    .register_content {
-        flex: 6;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 2rem;
-        padding-inline: 2rem;
-        margin-block: 3rem;
-
-        .register_title {
-            opacity: .5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-
-            .main_register_title,
-            .main_register_subtitle {
-                color: var(--secondary-clr);
-            }
-
-            .main_register_title {
-                font-size: 5rem;
-            }
-
-            .main_register_title::first-letter,
-            span {
-                color: var(--tertiary-clr);
-                text-shadow: 2px 2px 2px var(--secondary-clr);
-            }
-        }
-
-        .register_page_title {
-            font-size: 2rem;
-            text-align: center;
-        }
-
-
-    }
-
-    .register_form {
-        min-width: 35dvw;
-        padding-inline: 2rem;
-        padding-block: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: .75rem;
-
-        border-radius: .75rem;
-        border-block: 2px solid var(--tertiary-clr);
-
-        >div {
-            display: flex;
-            flex: 1 0 0;
-            gap: .5rem;
-            justify-content: space-between;
-            /* align-items: center; */
-
-            .group {
-                display: flex;
-                flex-direction: column;
-
-                >label {
-                    font-weight: 300;
-                    padding-block-end: .5rem;
-                }
-
-                >input {
-                    border-radius: .2rem;
-                    padding: .75rem;
-                    font-size: 1.2rem;
-                    color: black;
-                    background-color: grey;
-                }
-
-                >input::placeholder {
-                    color: lightgrey;
-                }
-            }
-
-        }
-
-        .submit {
-            border-radius: .2rem;
-            padding: .75rem;
-            font-size: 1.2rem;
-
-            background-color: var(--primary-clr);
-            border: 2px solid var(--tertiary-clr);
-            color: var(--secondary-clr);
-            min-width: calc(0.5 * 20dvh);
-             transition: all 500ms ease;
-        }
-
-        .submit:hover {
-            box-shadow: 0 2px 0 var(--secondary-clr);
-            scale: 1.08;
-            transition: all 200ms ease;
-        }
-    }
-
-
-    .register_hero_image {
-
-        display: flex;
-        flex: 6;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        margin: 1rem;
-        border-radius: .75rem;
-
-        >img {
-            width: 100%;
-            height: 10-dvh;
-            object-fit: cover;
-            background-repeat: no-repeat;
-            opacity: .75;
-            border-radius: .5rem;
-        }
-    }
-}
-
 
 /* ====================================
             RESPONSIVE DESIGN
@@ -745,62 +512,11 @@ section:nth-child(odd) {
         }
     }
 
-    /* ===== hero ===== */
-    .hero {
-        flex-direction: column;
-        overflow-x: hidden;
-    }
-
-    .hero_content {
-        justify-content: center;
-    }
-
-    .hero_image {
-        gap: .5rem;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .hero_image>img {
-        position: initial;
-        /* top: auto;
-        right: auto; */
-
-        width: 50dvw;
-        height: 50%;
-    }
-
     /* ===== donate section ===== */
 
     .why_donate {
         padding-block: 3rem;
     }
-
-    /* ===== station section ===== */
-
-    .stations_section {
-        padding-block: 3rem;
-    }
-
-    .stations_wrapper {
-        flex-direction: column;
-
-        .subtitle {
-            font-size: 1.75rem;
-        }
-
-        .stations_map {
-            padding-inline-start: 0;
-
-            .map {
-                min-width: clamp(80dvw, 100%, 100dvw);
-
-            }
-        }
-    }
-
 
     /* register page */
 
@@ -817,9 +533,6 @@ section:nth-child(odd) {
             flex: 1;
         }
 
-        .register_hero_image{
-            scale: .8;
-        }
     }
 
 }
@@ -832,27 +545,8 @@ section:nth-child(odd) {
         overflow-x: hidden;
 
 
-        .login_hero_image {
-            display: none;
-        }
-
         .login_content {
             padding-inline: .5rem;
-        }
-    }
-
-
-
-    /* ===== contact section ===== */
-
-    .contact_wrapper {
-        flex-direction: column;
-        flex: 1;
-
-        .contact_form,
-        .contact_image {
-            flex: 1;
-            width: 100%;
         }
     }
 
@@ -890,35 +584,5 @@ section:nth-child(odd) {
                 flex-direction: column;
             }
         }
-
-        .register_hero_image {
-            display: none;
-        }
     }
-
-
-
-}
-
-
-@media screen and (max-width: 440px) {
-
-    /* ===== hero ===== */
-
-    .hero {
-        min-height: 100dvh !important;
-        overflow-y: hidden;
-        align-items: center;
-    }
-
-    .hero_content {
-        justify-content: center;
-    }
-
-    .hero_image {
-        display: none;
-        visibility: hiddens;
-    }
-
-
 }

@@ -1,0 +1,172 @@
+/* ====================================
+REGISTER PAGE
+=======================================*/
+
+.register {
+	display: flex;
+	justify-content: space-between;
+	columns: 2;
+	height: 100%;
+}
+
+.register_content {
+	flex: 6;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 2rem;
+	padding-inline: 2rem;
+	margin-block: 3rem;
+
+	.register_title {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+
+		.main_register_title,
+		.main_register_subtitle {
+			color: var(--secondary-clr);
+		}
+
+		.main_register_title {
+			font-size: 5rem;
+		}
+
+		.main_register_title::first-letter,
+		span {
+			color: var(--tertiary-clr);
+		}
+	}
+
+	.register_page_title {
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	/* Style the form-toggle div */
+	.form-toggle {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		margin: 10px;
+
+		/* Style the radio inputs */
+		input[type=radio] {
+			display: none;
+		}
+
+		/* Style the labels */
+		label {
+			margin: 10px;
+			color: white;
+			font-size: 20px;
+			font-weight: bold;
+			padding: 10px 20px;
+			cursor: pointer;
+			transition: transform 0.3s;
+		}
+
+		/* Add some hover effects to the labels */
+		label:hover {
+			transform: scale(1.1);
+		}
+
+		/* Change the color and size of the checked label */
+		input[type=radio]:checked + label {
+			color: red;
+			background-color: white;
+			font-size: 25px;
+		}
+	}
+
+}
+
+.register_form {
+	min-width: 35dvw;
+	padding-inline: 2rem;
+	padding-block: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: .75rem;
+	border-radius: .75rem;
+	border-block: 2px solid var(--tertiary-clr);
+
+	>div {
+		display: flex;
+		flex: 1 0 0;
+		gap: .5rem;
+		justify-content: space-around;
+
+		.group {
+			display: flex;
+			flex-direction: column;
+
+			>label {
+				font-weight: 300;
+				padding-block-end: .5rem;
+			}
+
+			>input {
+				border-radius: .2rem;
+				padding: .75rem;
+				font-size: 1.2rem;
+				color: black;
+				background-color: grey;
+			}
+
+			>input::placeholder {
+				color: lightgrey;
+			}
+
+			select {
+				width: 200px;
+				height: 30px;
+				border: 1px solid red;
+				border-radius: 5px;
+				padding: 5px;
+			}
+		}
+	}
+
+	.age {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		label {
+			align-self: center;
+		}
+
+		input {
+			text-align: center;
+			width: 90px;
+		}
+	}
+
+	.selects {
+		label {
+			align-self: center;
+		}
+	}
+
+	.submit {
+		border-radius: .2rem;
+		padding: .75rem;
+		font-size: 1.2rem;
+		margin: 15px;
+		background-color: var(--primary-clr);
+		border: 2px solid var(--tertiary-clr);
+		color: var(--secondary-clr);
+		min-width: calc(0.5 * 20dvh);
+		transition: all 500ms ease;
+	}
+
+	.submit:hover {
+		box-shadow: 0 2px 0 var(--secondary-clr);
+		transition: all 200ms ease;
+	}
+}

@@ -11,7 +11,7 @@ class TCFilter(FlaskForm):
     country = SelectField('Country', coerce=int, validators=[DataRequired()])
     city = SelectField('City', coerce=int, validators=[DataRequired()])
     center = SelectField('Center', coerce=int, validators=[DataRequired()])
-    search = SubmitField('Search')
+    search = SubmitField('Show Blood Bags')
 
     def __init__(self, *args, **kwargs):
         """Initialize choices"""

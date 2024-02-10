@@ -1,10 +1,14 @@
 {% extends 'layout.html' %}
+{% block style %}
+		<link rel="stylesheet" href="../static/styles/login.css">		
+{% endblock style %}
+
 {% block main %}
 <div class="login">
   <div class="login_content">
     <div class="login_title">
       <h1 class="main_login_title">HAYAT<span>.</span></h1>
-      <h3 class="main_login_subtitle">donate blood. save lives</h3>
+      <h3 class="main_login_subtitle">Donate blood, Save lives</h3>
     </div>
     <!-- Render flashed messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -79,7 +83,7 @@
       document.querySelectorAll('.login_form').forEach(function(form) {
         form.style.display = 'none';
       });
-      document.getElementById(this.value + '-login-form').style.display = 'block';
+      document.getElementById(this.value + '-login-form').style.display = 'flex';
     });
   });
 </script>

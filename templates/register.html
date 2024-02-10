@@ -1,10 +1,14 @@
 {% extends 'layout.html' %}
+{% block style %}
+		<link rel="stylesheet" href="../static/styles/register.css">		
+{% endblock style %}
+
 {% block main %}
 		<div class="register">
 			<div class="register_content">
 				<div class="register_title">
 					<h1 class="main_register_title">HAYAT<span>.</span></h1>
-					<h3 class="main_register_subtitle">donate blood. save lives</h3>
+					<h3 class="main_register_subtitle">Donate blood, Save lives.</h3>
 				</div>
 
 				<!-- Render flashed messages -->
@@ -82,7 +86,7 @@
 						</div>
 					</div>
 
-					<div>
+					<div class="age">
 						<div class="group">
 							{{ donor_form.age.label }}
 							{{ donor_form.age(size=20) }}
@@ -92,7 +96,7 @@
 						</div>
 					</div>
 
-					<div>
+					<div class="selects">
 						<div class="group">
 							{{ donor_form.gender.label }}
 							{{ donor_form.gender(size=20) }}
@@ -166,7 +170,7 @@
 						</div>
 					</div>
 
-					<div>
+					<div class="selects">
 						<div class="group">
 							{{ tc_form.country.label }}
 							{{ tc_form.country() }}
@@ -176,9 +180,7 @@
 						</div>
 						<div class="group">
 							{{ tc_form.city.label }}
-							<select name="city" id="city">
-								<option value="">Select City</option>
-							</select>
+							{{ tc_form.city() }}
 							{% for error in tc_form.city.errors %}
 							<span style="color: red;">{{ error }}</span>
 							{% endfor %}
@@ -197,7 +199,7 @@
             document.querySelectorAll('.register_form').forEach(function(form) {
                 form.style.display = 'none';
             });
-            document.getElementById(this.value + '-register-form').style.display = 'block';
+            document.getElementById(this.value + '-register-form').style.display = 'flex';
         });
     });
 </script>

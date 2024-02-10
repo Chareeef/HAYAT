@@ -58,7 +58,7 @@ select {
 
 input[type=submit] {
   grid-column: span 2;
-  width: 100px;
+  width: 150px;
   height: 40px;
   background-color: red;
   color: white;
