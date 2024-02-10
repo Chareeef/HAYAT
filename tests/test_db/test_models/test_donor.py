@@ -46,8 +46,6 @@ class TestDonor(unittest.TestCase):
 
     def test_donor_attributes(self):
         """Test donor instances attributes"""
-        self.assertEqual(self.jane.id, 1)
-        self.assertEqual(self.joe.id, 2)
 
         self.assertEqual(self.jane.username, 'jane94')
         self.assertEqual(self.joe.username, 'joe79')

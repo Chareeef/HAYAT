@@ -385,14 +385,14 @@ class TestStorageGet(unittest.TestCase):
 
     def test_get_with_donor(self):
         """Test get() method with 'Donor'"""
-        donor = self.storage.get('Donor', 1)
+        donor = self.storage.get('Donor', self.ych.id)
 
         self.assertEqual(donor, self.ych)
 
     def test_get_with_transfusion_center(self):
         """Test get() method with 'TransfusionCenter'"""
-        sahraoui = self.storage.get('TransfusionCenter', 1)
-        sahraoui_tc = self.storage.get('TC', 1)
+        sahraoui = self.storage.get('TransfusionCenter', self.sah.id)
+        sahraoui_tc = self.storage.get('TC', self.sah.id)
 
         self.assertEqual(sahraoui, self.sah)
         self.assertEqual(sahraoui_tc, self.sah)

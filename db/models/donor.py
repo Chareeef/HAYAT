@@ -3,6 +3,7 @@
 from db.models.base import BaseModel, Base
 from db.models.donors_centers import donors_centers
 from flask_login import UserMixin
+import shortuuid
 from sqlalchemy import Column, Enum, Integer, String
 from sqlalchemy.orm import relationship
 
@@ -11,6 +12,7 @@ class Donor(BaseModel, Base, UserMixin):
     """Class for donors table"""
     __tablename__ = 'donors'
 
+    id = Column(String(50), primary_key=True, default=shortuuid.uuid)
     username = Column(String(50), nullable=False, unique=True)
     email = Column(String(50), nullable=False, unique=True)
     password_hash = Column(String(80), nullable=False)

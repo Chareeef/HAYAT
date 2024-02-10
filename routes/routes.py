@@ -216,7 +216,7 @@ def login():
 @login_required
 def center_dashboard():
     """Render Transfusion Center dashboard"""
-    pass
+    return str(current_user)
 
 
 @app.route('/donor_dashboard', strict_slashes=False)

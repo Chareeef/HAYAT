@@ -53,9 +53,6 @@ class TestTransfusionCenter(unittest.TestCase):
 
     def test_TC_attributes(self):
         """Test TransfusionCenter instances attributes"""
-        self.assertEqual(self.anb_tc.id, 1)
-        self.assertEqual(self.err_tc.id, 2)
-
         self.assertEqual(self.anb_tc.name, 'Annaba TC')
         self.assertEqual(self.err_tc.name, 'Errachidia TC')
 
