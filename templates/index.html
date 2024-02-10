@@ -54,7 +54,7 @@
 						<div class="blood_category">{{ bag.blood_category }}</div>
 						<div class="quantity">{{ bag.quantity }} Bags in stock.</div>
 						<div class="situation">
-							<p>{{ bag.situation }}</p>
+							<p style="color: {{ colors[bag.situation] }};">{{ bag.situation }}</p>
 						</div>
 						<div class="updated_at">
 							<p>Updated at : {{ bag.updated_at.strftime('%Y/%m/%d') }}</p>
