@@ -159,7 +159,7 @@ TYPOGRAPHY
 		gap: 1rem;
 
 
-		.log_btn, .register_btn {
+		.header_btn {
 			padding: .2rem;
 			background-color: var(--primary-clr);
 			color: var(--secondary-clr);
@@ -172,19 +172,10 @@ TYPOGRAPHY
 			transition: all 500ms ease;
 		}
 
-		.log_btn:hover {
+		.header_btn:hover {
 			scale: 1.1;
 			transition: all 200ms ease;
 		}
-
-		.register_btn:hover {
-			scale: 1.1;
-			transition: all 200ms ease;
-		}
-	}
-
-	.toggle_btn {
-		display: none;
 	}
 
 	/* ====================================
