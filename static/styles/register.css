@@ -159,8 +159,8 @@ REGISTER PAGE
 		font-size: 1.2rem;
 		margin: 15px;
 		background-color: var(--primary-clr);
-		border: 2px solid var(--tertiary-clr);
 		color: var(--secondary-clr);
+		border: 2px solid var(--tertiary-clr);
 		min-width: calc(0.5 * 20dvh);
 		transition: all 500ms ease;
 	}
