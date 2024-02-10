@@ -102,7 +102,7 @@ def register():
                            center_id=tc.id)
             bag.save()
 
-        flash('Registration successful! Welcome !', 'info')
+        flash('Registration successful ! Welcome !', 'info')
         return redirect(url_for('login'))
 
     donor_form = DonorRegistrationForm()
@@ -144,7 +144,7 @@ def register():
         donor = Donor(**donor_dict)
         donor.save()
 
-        flash(f'Registration successful! Welcome, {full_name}!', 'info')
+        flash(f'Registration successful  ! Welcome, {full_name}!', 'info')
         return redirect(url_for('login'))
 
     return render_template(

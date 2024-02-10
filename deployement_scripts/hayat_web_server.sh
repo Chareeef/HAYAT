@@ -20,7 +20,7 @@ server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	server_name _;
+	server_name %s;
 
 	add_header ServedBy %s;
 
@@ -36,7 +36,7 @@ server {
 		proxy_pass http://localhost:8001;
 	}
 }
-" "$(hostname)" | sudo tee /etc/nginx/sites-available/default >/dev/null
+" "$(hostname)" "$(hostname)" | sudo tee /etc/nginx/sites-available/default >/dev/null
 
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 

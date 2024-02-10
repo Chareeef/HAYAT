@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Set Nginx load balancer for HAYAT website
+# Set HAProxy load balancer for HAYAT website
 
 last_update=$(stat -c %Y /var/lib/apt/periodic/update-success-stamp 2>/dev/null || stat -c %Y /var/cache/apt/pkgcache.bin 2>/dev/null)
 
@@ -9,55 +9,31 @@ update_threshold=$((24 * 60 * 60))  # 24 hours in seconds
 if [ "$((current_time - last_update))" -gt "$update_threshold" ]; then
     sudo apt update
 fi
-
-if ! dpkg -l | grep -q nginx; then
-    sudo apt install nginx -y
+# Install HAProxy from PPA repository
+if ! dpkg -l | grep -q haproxy; then
+    sudo add-apt-repository ppa:vbernat/haproxy-2.6 -y
+    sudo apt update
+    sudo apt install haproxy=2.6.* -y
 fi
 
+# Create a backup of the original HAProxy configuration file
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bk
+
+# Write the new HAProxy configuration file
 printf "# Load balancer configuration for HAYAT website
 
-upstream hayat_servers {
-        server web-01.hayat-blood-donation.tech;
-        server web-02.hayat-blood-donation.tech;
-}
+frontend http_front
+    bind *:80
+    bind *:443 ssl crt /home/youssef/ssl/hayat-blood-donation_tech_chain.crt
+    redirect scheme https code 301 if ! { ssl_fc } # Redirect HTTP to HTTPS
+    default_backend http_back
 
-server {
-        listen 443 ssl default_server;
-        listen [::]:443 ssl default_server;
+backend http_back
+    balance roundrobin
+    cookie SERVERID insert indirect nocache
+    server web-01 web-01.hayat-blood-donation.tech:80 check cookie web-01
+    server web-02 web-02.hayat-blood-donation.tech:80 check cookie web-02
+" | sudo tee /etc/haproxy/haproxy.cfg >/dev/null
 
-        server_name hayat-blood-donation.tech www.hayat-blood-donation.tech;
-
-        ssl_certificate /home/youssef/ssl/hayat-blood-donation_tech_chain.crt;
-
-        ssl_certificate_key /home/youssef/server_keys/server.key;
-
-        location /api {
-                proxy_pass http://web-01.hayat-blood-donation.tech;
-        }
-
-        location /register {
-                proxy_pass http://web-01.hayat-blood-donation.tech;
-        }
-
-        location / {
-                proxy_pass http://hayat_servers;
-        }
-
-        location /static {
-                proxy_pass http://hayat_servers;
-        }
-}
-
-server {
-        listen 80;
-        listen [::]:80;
-
-        server_name hayat-blood-donation.tech www.hayat-blood-donation.tech;
-
-        return 301 https:/\$server_name\$request_uri;
-}
-" | sudo tee /etc/nginx/sites-available/default >/dev/null
-
-sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-
-sudo systemctl restart nginx
+# Restart HAProxy service
+sudo systemctl restart haproxy

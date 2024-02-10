@@ -18,10 +18,18 @@
 				{% endif %}
 				{% endwith %}
 
+
+        <!-- Radio buttons to toggle between forms -->
+        <div class="form-toggle">
+            <input type="radio" id="donor-form" name="register-form" value="donor" checked>
+            <label for="donor-form">Register as Donor</label>
+            <input type="radio" id="tc-form" name="register-form" value="tc">
+            <label for="tc-form">Register as Transfusion Center</label>
+        </div>
+
 				<!-- Registration forms -->
 				<!-- Register as Donor -->
-				<h1 class="register_page_title">Register as Donor</h1>
-				<form class="register_form" method="POST">
+        <form class="register_form" id="donor-register-form" method="POST">
 					{{ donor_form.hidden_tag() }} <!-- Include CSRF token -->
 					<div>
 						<div class="group">
@@ -101,12 +109,11 @@
 						</div>
 					</div>
 
-					<button class="submit" type="submit">Register as Donor<i class="bi bi-arrow-right-circle"></i></button>
+					<button class="submit" type="submit">Register as Donor <i class="bi bi-arrow-right-circle"></i></button>
 				</form>
 
 				<!-- Register as Transfusion Center -->
-				<h1 class="register_page_title">Register as Transfusion Center</h1>
-				<form class="register_form" method="POST">
+        <form class="register_form" id="tc-register-form" method="POST" style="display: none;">
 					{{ tc_form.hidden_tag() }} <!-- Include CSRF token -->
 					<div>
 						<div class="group">
@@ -178,8 +185,20 @@
 						</div>
 					</div>
 
-					<button class="submit" type="submit">Register as Transfusion Center<i class="bi bi-arrow-right-circle"></i></button>
+					<button class="submit" type="submit">Register as Transfusion Center <i class="bi bi-arrow-right-circle"></i></button>
 				</form>
 			</div>
 		</div>
 {% endblock main %}
+{% block script %}
+<script>
+    document.querySelectorAll('input[name="register-form"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.querySelectorAll('.register_form').forEach(function(form) {
+                form.style.display = 'none';
+            });
+            document.getElementById(this.value + '-register-form').style.display = 'block';
+        });
+    });
+</script>
+{% endblock script %}
