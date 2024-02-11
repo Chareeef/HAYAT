@@ -216,13 +216,23 @@ def login():
 @login_required
 def center_dashboard():
     """Render Transfusion Center dashboard"""
-    return str(current_user)
+    center = current_user
+    bags = current_user.blood_bags
+    city = storage.get('City', center.city_id)
+    country = storage.get('Country', city.countr_id)
+
+    return render_template('center_dashboard.html',
+                           title='TC Dashboard',
+                           center=center,
+                           bags=bags,
+                           city=city,
+                           countr_id=countr_id)
 
 
-@app.route('/donor_dashboard', strict_slashes=False)
+@app.route('/donor_profile', strict_slashes=False)
 @login_required
-def donor_dashboard():
-    """Render Donor dashboard"""
+def donor_profile():
+    """Render Donor Profile page"""
     pass
 
 

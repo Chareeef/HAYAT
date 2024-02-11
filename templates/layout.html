@@ -45,7 +45,11 @@
 			<a href="{{ url_for('home') }}" class="logo">Hayat.</a>
 			<div class="buttons">
     		{% if current_user.is_authenticated %}
-				<a href="{{ url_for('center_dashboard') }}"><button class="header_btn" type="button">Dash Board</button></a>
+				{% if current_user.city_id %}
+				<a href="{{ url_for('center_dashboard') }}"><button class="header_btn" type="button">Dashboard</button></a>
+				{% else %}
+				<a href="{{ url_for('donor_profile') }}"><button class="header_btn" type="button">Profile</button></a>
+				{% endif %}
 				<a href="{{ url_for('logout') }}"><button class="header_btn" type="button">Logout</button></a>
 				{% else %}
 				<a href="{{ url_for('login') }}"><button class="header_btn" type="button">Login</button></a>

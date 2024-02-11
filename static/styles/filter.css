@@ -9,17 +9,24 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 20px;
   border: 2px solid red;
   padding: 10px;
 }
 
-h3 {
-  color: red;
-  text-align: center;
+/* Filter section styles */
+
+.filter_header {
+  background-color: #ffcccc; /* Light red background */
+  color: #c00; /* Dark red text color */
+  padding: 10px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners */
+  text-align: center; /* Center-align the text */
+  margin-bottom: 10px; /* Add some space between headers */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add a subtle shadow */
 }
 
-/* Filter section styles */
 .filter {
   display: flex;
   flex-direction: column;
@@ -73,6 +80,18 @@ input[type=submit]:hover {
 }
 
 /* Blood Bags Section styles */
+
+.bags_header {
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text color */
+  padding: 12px; /* Padding around the text */
+  border-radius: 6px; /* Rounded corners */
+  margin: 15px; /* Add some space between headers */
+  border: 2px solid #f5c6cb; /* Border */
+  font-size: 1.2em; /* Larger font size */
+  font-weight: bold; /* Bold font weight */
+}
+
 section.section_bags {
   display: flex;
   flex-direction: column;

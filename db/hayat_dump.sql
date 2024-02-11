@@ -33,7 +33,7 @@ CREATE TABLE `blood_bags` (
   PRIMARY KEY (`id`),
   KEY `center_id` (`center_id`),
   CONSTRAINT `blood_bags_ibfk_1` FOREIGN KEY (`center_id`) REFERENCES `transfusion_centers` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `blood_bags` (
 
 LOCK TABLES `blood_bags` WRITE;
 /*!40000 ALTER TABLE `blood_bags` DISABLE KEYS */;
+INSERT INTO `blood_bags` VALUES ('A+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',1,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('A-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',2,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('B+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',3,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('B-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',4,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('AB+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',5,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('AB-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',6,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('O+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',7,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('O-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',8,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('A+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',9,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('A-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',10,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('B+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',11,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('B-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',12,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('AB+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',13,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('AB-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',14,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('O+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',15,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('O-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',16,'2024-02-11 01:45:08','2024-02-11 01:45:08');
 /*!40000 ALTER TABLE `blood_bags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,6 +134,7 @@ CREATE TABLE `donors` (
 
 LOCK TABLES `donors` WRITE;
 /*!40000 ALTER TABLE `donors` DISABLE KEYS */;
+INSERT INTO `donors` VALUES ('P72bUkTbJTmKbhYa5nPDf4','Chareeef','youssef.charif.h@gmail.com','$2b$12$MyYwOHF8l1MX1mHgQDv1suGSfGvjTWy9KT.YT8a6DFujOjNI4n7dG',NULL,'Youssef Charif Hamidi',21,'Male','AB+','2024-02-10 22:45:29','2024-02-10 22:45:29');
 /*!40000 ALTER TABLE `donors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,6 +195,7 @@ CREATE TABLE `transfusion_centers` (
 
 LOCK TABLES `transfusion_centers` WRITE;
 /*!40000 ALTER TABLE `transfusion_centers` DISABLE KEYS */;
+INSERT INTO `transfusion_centers` VALUES ('3Fu5HaWknvzHxgHqgwxFmL','Annaba TC','annabatc@ex.com','$2b$12$CEmw3FbAJC/04CNoIayzOez3gtCjz7KoFuqCy/ZJ1fy.yjol/AGay',NULL,NULL,10,'2024-02-10 22:55:40','2024-02-10 22:55:40'),('WbFLwTCaNYWygWShXbdXDW','Sahraoui TC','sahraoui@gmail.com','$2b$12$wdob02D5wEXaT6CejNLEeeFzDo2KMW1BmfVgU4stsepsadSSWgzwa',NULL,NULL,506,'2024-02-11 01:45:08','2024-02-11 01:45:08');
 /*!40000 ALTER TABLE `transfusion_centers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -205,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-10 22:19:16
+-- Dump completed on 2024-02-11  9:43:10

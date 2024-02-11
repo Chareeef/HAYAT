@@ -20,10 +20,10 @@ login_manager.login_message_category = 'info'
 @login_manager.user_loader
 def user_loader(user_id):
     """Load the current user"""
-    user = storage.session.query(Donor).get(int(user_id))
+    user = storage.session.query(Donor).get(user_id)
 
     if not user:
-        user = storage.session.query(TC).get(int(user_id))
+        user = storage.session.query(TC).get(user_id)
 
     return user
 

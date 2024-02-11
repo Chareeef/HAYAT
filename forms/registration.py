@@ -9,7 +9,6 @@ from db import storage
 
 
 class TCRegistrationForm(FlaskForm):
-    """Registration form for Transfusion Center"""
     name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField(
@@ -26,11 +25,12 @@ class TCRegistrationForm(FlaskForm):
     submit = SubmitField('Register')
 
     def __init__(self, *args, **kwargs):
-        """Initialize choices"""
+        """Initialize choiced"""
         super(TCRegistrationForm, self).__init__(*args, **kwargs)
         self.country.choices = [(0, '---')] + [(country.id, country.name)
                                                for country in storage.all('Country')]
-        self.city.choices = [(0, 'Select Country First')]
+        self.city.choices = [(city.id, city.name)
+                             for city in storage.all('City')]
 
     def validate_email(self, email):
         """Check if the email is not already taken"""
@@ -51,7 +51,6 @@ class TCRegistrationForm(FlaskForm):
 
 
 class DonorRegistrationForm(FlaskForm):
-    """Registration form for Donor"""
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField(

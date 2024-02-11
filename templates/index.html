@@ -19,7 +19,7 @@
 			</div>
 
 			<!-- Filter section -->
-			<h3>Transfusion Center Filter</h3>
+			<h3 class="filter_header">Transfusion Center Filter</h3>
 			<section>
 				<div class="filter">
 					<form method="POST" action="">
@@ -46,7 +46,8 @@
 
 			{% if center %}
 			<!-- Blood Bags Section -->
-			<h3>{{ center.name }}'s Blood Bags :</h3>
+			<h3 class="bags_header">{{ center.name }}'s Blood Bags :</h3>
+
 			<section class="section_bags">
 				<div class="blood_bags">
 					{% for bag in center.blood_bags %}
