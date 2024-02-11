@@ -1,68 +1,79 @@
 {% extends 'layout.html' %}
 {% block style %}
-		<link rel="stylesheet" href="../static/styles/filter.css">		
+<link rel="stylesheet" href="../static/styles/filter.css">		
 {% endblock style %}
 
 {% block main %}
+<main>
+	<!-- Render flashed messages -->
+	<div>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+		{% for category, message in messages %}
+		<div class="alert alert-{{ category }}">
+			{{ message }}
+		</div>
+		{% endfor  %}
+		{% endif %}
+		{% endwith %}
+	</div>
 
-			<!-- Render flashed messages -->
-			<div>
-				{% with messages = get_flashed_messages(with_categories=true) %}
-				{% if messages %}
-				{% for category, message in messages %}
-				<div class="alert alert-{{ category }}">
-					{{ message }}
+	<!-- Filter section -->
+	<h3 class="filter_header">Transfusion Center Filter</h3>
+	<section>
+		<div class="filter">
+			<form method="POST" action="">
+				{{ tc_filter.hidden_tag() }}
+				<div>
+					<label for="country">Country</label>
+					{{ tc_filter.country }}
 				</div>
-				{% endfor  %}
-				{% endif %}
-				{% endwith %}
-			</div>
-
-			<!-- Filter section -->
-			<h3 class="filter_header">Transfusion Center Filter</h3>
-			<section>
-				<div class="filter">
-					<form method="POST" action="">
-						{{ tc_filter.hidden_tag() }}
-						<div>
-							<label for="country">Country</label>
-							{{ tc_filter.country }}
-						</div>
-						<div>
-							<label for="city">City</label>
-							{{ tc_filter.city }}
-						</div>
-						<div>
-							<label for="center">Center</label>
-							{{ tc_filter.center }}
-						</div>
-
-						<div>
-							{{ tc_filter.search }}
-						</div>
-					</form>
+				<div>
+					<label for="city">City</label>
+					{{ tc_filter.city }}
 				</div>
-			</section>
-
-			{% if center %}
-			<!-- Blood Bags Section -->
-			<h3 class="bags_header">{{ center.name }}'s Blood Bags :</h3>
-
-			<section class="section_bags">
-				<div class="blood_bags">
-					{% for bag in center.blood_bags %}
-					<article class="bag">
-						<div class="blood_category">{{ bag.blood_category }}</div>
-						<div class="quantity">{{ bag.quantity }} Bags in stock.</div>
-						<div class="situation">
-							<p style="color: {{ colors[bag.situation] }};">{{ bag.situation }}</p>
-						</div>
-						<div class="updated_at">
-							<p>Updated at : {{ bag.updated_at.strftime('%a %d/%m/%Y') }}</p>
-						</div>
-					</article>
-					{% endfor %}
+				<div>
+					<label for="center">Center</label>
+					{{ tc_filter.center }}
 				</div>
-			<section>
+
+				<div>
+					{{ tc_filter.search }}
+				</div>
+			</form>
+		</div>
+	</section>
+
+	{% if center %}
+	<!-- Blood Bags Section -->
+	<h3 class="bags_header">{{ center.name }}'s Blood Bags :</h3>
+
+	<section class="section_bags">
+		<div class="blood_bags">
+			{% for bag in center.blood_bags %}
+			<article class="bag">
+				<div class="blood_category">{{ bag.blood_category }}</div>
+				<div class="quantity">{{ bag.quantity }} Bags in stock.</div>
+				<div class="situation">
+					<p style="color: {{ colors[bag.situation] }};">{{ bag.situation }}</p>
+				</div>
+				<div class="updated_at">
+					<p>Updated at : {{ bag.updated_at.strftime('%a %d/%m/%Y') }}</p>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+		<section>
 			{% endif %}
+</main>
+
+<!-- Why Donate Blood -->
+<section class="why_donate" id="donate">
+	<h2 class="title">Why Donate Blood?</h2>
+	<p class="text">
+	Blood donation is a noble cause that helps save lives.
+	</br>
+	Your contribution can make a significant impact on	those in need.
+	</p>
+</section>
 {% endblock main %}

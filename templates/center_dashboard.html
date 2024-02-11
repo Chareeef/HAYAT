@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block style %}
+<link rel="stylesheet" href="../static/styles/center_dashboard.css">
+{% endblock style %}
+
+{% block main %}
+	<!-- Render flashed messages -->
+<main class="container">
+	<aside class="sidebar">
+		<h2 class="sidebar-heading">{{ center.name }} Information</h2>
+		<ul class="profile-info-list">
+			<li class="profile-info-item"><strong>City:</strong> {{ city.name }}</li>
+			<li class="profile-info-item"><strong>Country:</strong> {{ country.name }}</li>
+			<li class="profile-info-item"><strong>Email:</strong> {{ center.email }}</li>
+			{% if center.phone_number %}
+			<li class="profile-info-item"><strong>Phone Number:</strong> {{ center.phone_number }}</li>
+			{% endif %}
+		</ul>
+	</aside>
+
+	<div class="content">
+
+		<div>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			{% for category, message in messages %}
+			<div class="alert alert-{{ category }}">
+				{{ message }}
+			</div>
+			{% endfor  %}
+			{% endif %}
+			{% endwith %}
+		</div>
+
+		<h1 class="stats-title">Blood Bags Statistics :</h1>
+
+		<div class="blood-bags">
+			{% for bag in bags %}
+			<article class="blood-bag">
+				<h2 class="blood-category">{{ bag.blood_category }}</h2>
+				<p class="quantity">Quantity: {{ bag.quantity }}</p>
+				<p class="situation">Situation: {{ bag.situation }}</p>
+			</article>
+			{% if loop.index % 4 == 0 %}
+		</div><div class="blood-bags">
+			{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</main>
+{% endblock main %}

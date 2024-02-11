@@ -121,7 +121,7 @@ def register():
                            center_id=tc.id)
             bag.save()
 
-        flash('Registration successful ! Welcome !', 'info')
+        flash('Successfully registered ! Welcome !', 'success')
         return redirect(url_for('login'))
 
     donor_form = DonorRegistrationForm()
@@ -163,7 +163,7 @@ def register():
         donor = Donor(**donor_dict)
         donor.save()
 
-        flash(f'Registration successful  ! Welcome, {full_name}!', 'info')
+        flash(f'Registration successful ! Welcome, {full_name}!', 'success')
         return redirect(url_for('login'))
 
     return render_template(
@@ -190,8 +190,8 @@ def login():
 
         if tc and bcrypt.check_password_hash(tc.password_hash, password):
             login_user(tc)
-            flash('Logged in successfully !', 'info')
-            return redirect(url_for('home'))
+            flash('Logged in successfully !', 'success')
+            return redirect(url_for('center_dashboard'))
         else:
             flash('Invalid email or password. Please try again.', 'danger')
 
@@ -203,7 +203,7 @@ def login():
         if donor and bcrypt.check_password_hash(
                 donor.password_hash, donor_form.password.data):
             login_user(donor)
-            flash('Logged in successfully !', 'info')
+            flash('Logged in successfully !', 'success')
             return redirect(url_for('home'))
         else:
             flash('Invalid username or password. Please try again.', 'danger')
@@ -219,14 +219,14 @@ def center_dashboard():
     center = current_user
     bags = current_user.blood_bags
     city = storage.get('City', center.city_id)
-    country = storage.get('Country', city.countr_id)
+    country = storage.get('Country', city.country_id)
 
     return render_template('center_dashboard.html',
                            title='TC Dashboard',
                            center=center,
                            bags=bags,
                            city=city,
-                           countr_id=countr_id)
+                           country=country)
 
 
 @app.route('/donor_profile', strict_slashes=False)
@@ -241,4 +241,5 @@ def donor_profile():
 def logout():
     """ Logout """
     logout_user()
+    flash('Successfully logged out.', 'info')
     return redirect(url_for('home'))
