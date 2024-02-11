@@ -6,6 +6,20 @@
 {% block main %}
 <main class="container">
 	<h1 class="stats-title">Update Blood Bags Statistics :</h1>
+
+	<!-- Render flashed messages -->
+	<div>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+		{% for category, message in messages %}
+		<div class="alert alert-{{ category }}">
+			{{ message }}
+		</div>
+		{% endfor  %}
+		{% endif %}
+		{% endwith %}
+	</div>
+
 	<div class="blood-bags">
 		{% for bag in bags %}
 		<article class="blood-bag">

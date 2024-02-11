@@ -4,6 +4,18 @@
 {% endblock style %}
 
 {% block main %}
+<!-- Render flashed messages -->
+<div class="flash">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	{% for category, message in messages %}
+	<div class="alert alert-{{ category }}">
+		{{ message }}
+	</div>
+	{% endfor  %}
+	{% endif %}
+	{% endwith %}
+</div>
 <main class="container">
 	<aside class="sidebar">
 		<h2 class="sidebar-heading">{{ center.name }} Information</h2>
@@ -19,18 +31,6 @@
 
 	<div class="content">
 
-		<!-- Render flashed messages -->
-		<div>
-			{% with messages = get_flashed_messages(with_categories=true) %}
-			{% if messages %}
-			{% for category, message in messages %}
-			<div class="alert alert-{{ category }}">
-				{{ message }}
-			</div>
-			{% endfor  %}
-			{% endif %}
-			{% endwith %}
-		</div>
 
 		<h1 class="stats-title">Blood Bags Statistics :</h1>
 		<a href="{{ url_for('update_blood_bags') }}"><button class="update-button">Update Blood Bags</button></a>
@@ -42,7 +42,7 @@
 				<p class="quantity"><strong>Quantity:</strong> {{ bag.quantity }} Bags</p>
 				<p class="situation"><strong>Situation:</strong> {{ bag.situation }}</p>
 				<div class="updated_at">
-					<p>Updated at : {{ bag.updated_at.strftime('%a %d/%m/%Y') }}</p>
+					<p>Last Update : {{ bag.updated_at.strftime('%a %d/%m/%Y at %H:%M') }}</p>
 				</div>
 			</article>
 			{% if loop.index % 4 == 0 %}

@@ -37,6 +37,7 @@ def update_blood_bags(bag_id=None):
         bag.situation = dict(request.form).get('situation')
         bag.quantity = dict(request.form).get('quantity')
         bag.save()
+        flash('Successfully updated !', 'succes')
 
     bags = current_user.blood_bags
 

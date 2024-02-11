@@ -32,7 +32,7 @@ html {
 			background: var(--main-bg);
 			color: var(--secondary-clr);
 			font-family: var(--ff);
-
+			position: relative;
 			margin-block-start: 4.375rem;
 		}
 	}
