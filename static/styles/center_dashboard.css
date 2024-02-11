@@ -78,6 +78,32 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.blood-category {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  text-align: center;
+  padding: 5px;
+}
+
+.quantity {
+  font-size: 18px;
+  color: black;
+  margin-top: 10px;
+}
+
+.situation {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.updated_at {
+  font-size: 14px;
+  color: gray;
+  margin-top: 10px;
+}
+
 .blood-bag:nth-child(odd) {
     background-color: #ffdddd;
 }

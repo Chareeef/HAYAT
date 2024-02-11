@@ -33,7 +33,12 @@ def close_db(error):
     """ Close Storage """
     storage.close()
 
-from routes.routes import *
+from routes.home import *
+from routes.get_objects import *
+from routes.register import *
+from routes.login import *
+from routes.center_dashboard import *
+from routes.donor_dashboard import *
 
 
 if __name__ == '__main__':
