@@ -229,6 +229,13 @@ def center_dashboard():
                            country=country)
 
 
+@app.route('/update_bags', methods=['GET', 'PUT'], strict_slashes=False)
+@login_required
+def update_bags():
+    """Update the Blood Bags statistics for the logged in TC"""
+    return str(current_user)
+
+
 @app.route('/donor_profile', strict_slashes=False)
 @login_required
 def donor_profile():

@@ -35,6 +35,7 @@ main {
 /* Blood Bags Statistics */
 
 .content {
+    position: relative;
     flex-grow: 1;
     padding: 20px;
 }
@@ -43,8 +44,22 @@ main {
     font-size: 24px;
     color: #000000;
     margin-bottom: 20px;
+    margin-top: 10px;
     padding-left: 20px;
     border-left: 4px solid #f00;
+}
+
+.update-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f00;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .blood-bags {
