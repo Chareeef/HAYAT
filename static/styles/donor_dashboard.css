@@ -1,0 +1,105 @@
+/* Main styles */
+main {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Info bar styles */
+.info-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #ffcccc; /* Light red background */
+    color: #c00; /* Dark red text color */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bar-title h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.donor-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.donor-info p {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.donor-info p:first-child {
+    font-weight: bold;
+}
+
+/* Add some hover effect */
+.info-bar:hover {
+    background-color: #255580;
+    transition: background-color 0.3s ease;
+}
+
+/* Followed transfusion centers list styles */
+.transfusion-centers h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.transfusion-centers ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.transfusion-centers li {
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.center-header {
+    background-color: #F0F0F0; /* Light gray background color */
+    color: #ff0000; /* Red color */
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Center infos styles */
+.center-infos {
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.center-infos p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333333; /* Dark gray text color */
+    line-height: 1.6; /* Increased line height for better readability */
+}
+
+.center-infos p strong {
+    font-weight: bold;
+    color: #ff0000; /* Red color */
+}
+
+.no-centers {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+}
+
+.no-centers p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+}

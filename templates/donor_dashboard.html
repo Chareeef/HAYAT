@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+{% block style %}
+<link rel="stylesheet" href="../static/styles/donor_dashboard.css">
+<link rel="stylesheet" href="../static/styles/blood_bags.css">
+{% endblock style %}
+
+{% block main %}
+<!-- Render flashed messages -->
+<div class="flash">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	{% for category, message in messages %}
+	<div class="alert alert-{{ category }}">
+		{{ message }}
+	</div>
+	{% endfor  %}
+	{% endif %}
+	{% endwith %}
+</div>
+
+<main>
+	<!-- Info bar -->
+	<div class="info-bar">
+
+		<div class="bar-title">
+			<h1>Donor : {{ donor.full_name }}</h2>
+		</div>
+
+		<div class="donor-info">
+			<p><strong>Username :</strong> {{ donor.username }}</p>
+			<p><strong>Email :</strong> {{ donor.email }}</p>
+			<p><strong>Age :</strong> {{ donor.age }}</p>
+			{% if donor.phone_number %}
+			<p><strong>Phone Number:</strong> {{ donor.phone_number }}</p>
+			{% endif %}
+			{% if donor.gender %}
+			<p><strong>Gender :</strong> {{ donor.gender }}</p>
+			{% endif %}
+			{% if donor.blood_category %}
+			<p><strong>Blood Category :</strong> {{ donor.blood_category }}</p>
+			{% endif %}
+		</div>
+	</div>
+
+	<!-- Followed transfusion centers list -->
+	<div class="transfusion-centers">
+		<h2>Followed Transfusion Centers :</h2>
+		{% if donor.followed_centers %}
+		<ul>
+			{% for center in donor.followed_centers %}
+			<li>
+				<div class="center-header">
+					<h3>{{ center.name }} Center</h3>
+				</div>
+				<div class="center-infos">
+					<p><strong>City:</strong> {{ center.city.name }}</p>
+					<p><strong>Country:</strong> {{ center.city.country.name }}</p>
+					<p><strong>Email :</strong> {{ center.email }}</p>
+					{% if center.phone_number %}
+					<p><strong>Phone Number:</strong> {{ center.phone_number }}</p>
+					{% endif %}
+				</div>
+
+				<!-- Blood bags grid with statistics -->
+				<div class="stats-title">
+					<h2>Blood Bags Statistics :</h2>
+				</div>
+
+				<div class="blood-bags">
+					{% for bag in center.blood_bags %}
+					<article class="blood-bag">
+						<h2 class="blood-category">{{ bag.blood_category }}</h2>
+						<p class="quantity"><strong>Number of Bags:</strong> {{ bag.quantity }}</p>
+						<p class="situation"><strong>Situation:</strong> <span class="{{ bag.situation.lower().replace(' ', '-') }}">{{ bag.situation }}</span></p>
+						<div class="updated-at">
+							<p>Last Update : {{ bag.updated_at.strftime('%a %d/%m/%Y at %H:%M') }}</p>
+						</div>
+					</article>
+					{% if loop.index % 4 == 0 %}
+				</div><div class="blood-bags">
+					{% endif %}
+					{% endfor %}
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<div class="no-centers">
+			<p>You didn't follow any Transfusion Center yet.</p>
+		</div>
+		{% endif %}
+	</div>
+</main>
+{% endblock main %}

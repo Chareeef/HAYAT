@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block style %}
 <link rel="stylesheet" href="../static/styles/filter.css">		
+<link rel="stylesheet" href="../static/styles/blood_bags.css">		
 {% endblock style %}
 
 {% block main %}
@@ -49,21 +50,22 @@
 	<h3 class="bags_header">{{ center.name }}'s Blood Bags :</h3>
 
 	<section class="section_bags">
-		<div class="blood_bags">
+		<div class="blood-bags">
 			{% for bag in center.blood_bags %}
-			<article class="bag">
-				<div class="blood_category">{{ bag.blood_category }}</div>
-				<div class="quantity">{{ bag.quantity }} Bags in stock.</div>
-				<div class="situation">
-					<p style="color: {{ colors[bag.situation] }};">{{ bag.situation }}</p>
-				</div>
-				<div class="updated_at">
-					<p>Updated at : {{ bag.updated_at.strftime('%a %d/%m/%Y') }}</p>
+			<article class="blood-bag">
+				<h2 class="blood-category">{{ bag.blood_category }}</h2>
+				<p class="quantity"><strong>Number of Bags:</strong> {{ bag.quantity }}</p>
+				<p class="situation"><strong>Situation:</strong> <span class="{{ bag.situation.lower().replace(' ', '-') }}">{{ bag.situation }}</span></p>
+				<div class="updated-at">
+					<p>Last Update : {{ bag.updated_at.strftime('%a %d/%m/%Y at %H:%M') }}</p>
 				</div>
 			</article>
+			{% if loop.index % 4 == 0 %}
+		</div><div class="blood-bags">
+			{% endif %}
 			{% endfor %}
 		</div>
-		<section>
+	<section>
 			{% endif %}
 </main>
 

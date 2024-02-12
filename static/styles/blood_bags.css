@@ -1,0 +1,113 @@
+/* Blood Bags Statistics */
+
+.content {
+    position: relative;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.stats-title {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 4px solid #f00;
+}
+
+.update-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f00;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.blood-bags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blood-bag {
+    flex: 0 0 calc(50% - 20px);
+    background-color: #fff;
+    border: 2px solid #f00;
+    padding: 20px;
+    margin: 10px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blood-category {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    text-align: center;
+    padding: 5px;
+}
+
+.quantity {
+    font-size: 18px;
+    color: black;
+    margin-top: 10px;
+}
+
+.situation {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #000;
+
+    >span {
+        color: #fff;
+        font-weight: bold;
+        padding: 5px;
+        border: 1px solid #000;
+        border-radius: 5px;
+    }
+
+    >.stable {
+        background-color: #2E8B57;
+    }
+
+    >.soon-shortage {
+        background-color: #BDB76B;
+    }
+
+    >.critic {
+        background-color: #800000;
+    }
+}
+
+.updated-at {
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
+}
+
+.blood-bag:nth-child(odd) {
+    background-color: #ffdddd;
+}
+
+.blood-bag:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.blood-bag:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f00;
+    transform: translateX(-50%);
+}
