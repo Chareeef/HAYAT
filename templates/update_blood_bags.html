@@ -5,10 +5,11 @@
 
 {% block main %}
 <main class="container">
+
 	<h1 class="stats-title">Update Blood Bags Statistics :</h1>
 
 	<!-- Render flashed messages -->
-	<div>
+	<div class="flash">
 		{% with messages = get_flashed_messages(with_categories=true) %}
 		{% if messages %}
 		{% for category, message in messages %}
