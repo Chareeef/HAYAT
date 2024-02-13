@@ -1,41 +1,41 @@
 :root {
-	--primary-clr: #B22222;
-	--secondary-clr: white;
-	--tertiary-clr: crimson;
+    --primary-clr: #B22222;
+    --secondary-clr: white;
+    --tertiary-clr: crimson;
 
-	--primary-bg: white;
-	--secondary-bg: rgb(230, 230, 230);
-	--tertiary-bg: rgb(22, 22, 22);
+    --primary-bg: white;
+    --secondary-bg: rgb(230, 230, 230);
+    --tertiary-bg: rgb(22, 22, 22);
 
-	--main-bg: linear-gradient(to right, var(--primary-clr), var(--tertiary-bg));
+    --main-bg: linear-gradient(to right, var(--primary-clr), var(--tertiary-bg));
 
-	--ff: 'Inter', sans-serif;
+    --ff: 'Inter', sans-serif;
 }
 
 
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	border: none;
-	outline: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
 }
 
 html {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	* {
-		body {
-			background: var(--main-bg);
-			color: var(--secondary-clr);
-			font-family: var(--ff);
-			position: relative;
-			margin-block-start: 4.375rem;
-		}
-	}
+    * {
+        body {
+            background: var(--main-bg);
+            color: var(--secondary-clr);
+            font-family: var(--ff);
+            position: relative;
+            margin-block-start: 4.375rem;
+        }
+    }
 
 }
 
@@ -43,442 +43,452 @@ html {
 FLASH MESSAGES
 =======================================*/
 
-.flash {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-/* ====================================
-TYPOGRAPHY
-=======================================*/
-
-	.title {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--primary-clr);
-	}
-
-	.subtitle {
-		font-size: 1.2rem;
-		font-weight: 500;
-		color: var(--primary-clr);
-	}
-
-	.text {
-		font-size: 1rem;
-		font-weight: 300;
-		color: var(--secondary-clr);
-	}
-
-	.alt-text {
-		font-size: 1rem;
-		font-weight: 300;
-		color: var(--primary-clr);
-	}
-
-	ul {
-		list-style: none;
-	}
-
-	a {
-		text-decoration: none;
-		color: var(--secondary-clr);
-	}
-
-	/* ====================================
-	CUSTOM SCROLLBAR
-	=======================================*/
-
-	::-webkit-scrollbar {
-		width: .5rem;
-	}
-
-	::-webkit-scrollbar-thumb {
-		background-color: var(--tertiary-clr);
-		border-radius: 3.125rem;
-	}
-
-	::-webkit-scrollbar-thumb:hover {
-		background-color: var(--primary-clr);
-	}
-
-	::-webkit-scrollbar-button {
-		display: none;
-	}
-
-	::-webkit-scrollbar-track-piece {
-		background-color: var(--tertiary-bg);
-	}
-
-	/* ====================================
-	HEADER
-	=======================================*/
-
-	header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 999;
-
-		width: 100%;
-		height: 50px;
-		padding: 20px 120px;
-
-		background-color: var(--primary-bg);
-		filter: blur(50%);
-	}
-
-	.logo {
-		font-size: 2rem;
-		color: var(--primary-clr);
-		font-weight: 700;
-	}
-
-	.menu {
-		display: flex;
-		gap: 1rem;
-
-
-		.menu_item {
-			color: var(--primary-clr);
-			font-size: 1.2rem;
-			cursor: pointer;
-			transition: all 200ms ease linear;
-		}
-
-		.menu_item:hover {
-			transform: translateY(-5px);
-			color: var(--secondary-clr);
-			text-shadow: 0 0 10px var(--primary-clr);
-			transition: all 200ms ease;
-		}
-
-		.menu_item.active {
-			color: var(--secondary-clr);
-			text-shadow: 0 0px 10px var(--tertiary-bg);
-		}
-	}
-
-	.buttons {
-		display: flex;
-		gap: 1rem;
-
-
-		.header_btn {
-			padding: .2rem;
-			background-color: var(--primary-clr);
-			color: var(--secondary-clr);
-			border: 2px solid var(--tertiary-clr);
-			border-radius: .375rem;
-			width: 10dvw;
-			font-size: 1.2rem;
-			cursor: pointer;
-			transition: all 500ms ease;
-		}
-
-		.header_btn:hover {
-			scale: 1.1;
-			transition: all 200ms ease;
-		}
-	}
-
-	/* ====================================
-	ALL SECTIONS
-	=======================================*/
-
-	section {
-		/* min-height: 100dvh; */
-		display: flex;
-		align-items: center;
-		padding-inline: 3.125rem;
-	}
-
-	section:nth-child(odd) {
-		background: var(--primary-bg);
-	}
-
-	/* ====================================
-	WHY DONATE SECTION
-	=======================================*/
-
-	.why_donate {
-		padding-block: 6rem;
-		gap: 2rem;
-
-		.title {
-			margin-top: -20px;
-			color: var(--tertiary-clr);
-
-		}
-
-		.text {
-			color: var(--primary-clr);
-			font-weight: bold;
-		}
-	}
-
-	/* ====================================
-	BACK TO TOP BUTTON
-	=======================================*/
-
-
-	#backToTopBtn {
-		display: none;
-		position: fixed;
-		bottom: 1.25rem;
-		right: 1.25rem;
-		z-index: 99;
-		color: var(--tertiary-clr);
-		cursor: pointer;
-		font-size: 2rem;
-		background: none;
-		transition: all 500ms ease;
-
-	}
-
-	#backToTopBtn:hover {
-		color: var(--secondary-clr);
-		transform: translateY(-10px);
-		transition: all 200ms ease;
-	}
-
-
-
-	/* ====================================
-	FOOTER SECTION
-	=======================================*/
-
-	.footer {
-		width: 100%;
-		max-height: 21rem;
-		background-color: var(--tertiary-bg);
-		padding-block: 2rem;
-		padding-inline: 3.125rem;
-
-	}
-
-	.footer_wrapper {
-		display: flex;
-		flex: 1 0 0;
-		justify-content: space-between;
-		gap: 3rem;
-	}
-
-	.footer_about {
-		flex: 5;
-
-		.title {
-			color: var(--secondary-clr);
-			padding-block-end: 1rem;
-
-			>span {
-				font-weight: 100;
-				background: linear-gradient(to right, var(--primary-clr), transparent);
-				border-inline-start: 1.5px solid var(--tertiary-clr);
-			}
-		}
-
-		.text {
-			line-height: 2rem;
-		}
-	}
-
-	.footer_links {
-		flex: 3;
-		display: flex;
-		flex-direction: column;
-		gap: .5rem;
-		transition: all 500ms ease;
-
-		.title {
-			padding-block-end: .5rem;
-		}
-
-		.footer_link:hover {
-			transform: translateX(10px);
-			color: var(--tertiary-clr);
-			transition: all 200ms ease;
-		}
-	}
-
-
-	.footer_socials {
-		flex: 4;
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		text-align: center;
-
-		>div {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 1rem;
-		}
-	}
-
-	.footer>hr {
-		height: 2px;
-		margin-block: 1rem;
-		background-color: var(--primary-bg);
-	}
-
-	.copyright {
-		display: flex;
-		justify-content: center;
-		font-size: 1remm;
-		color: white;
-		gap: 3rem;
-		p {
-			width: 100%;
-			text-align: center;
-			margin: 5px;
-			i {
-				height: 20px;
-				width: 20px;
-			}
-		}
-
-	}
-
-	/* ====================================
-	RESPONSIVE DESIGN
-	=======================================*/
-
-	@media screen and (max-width: 992px) {
-
-		/* header */
-
-		.menu,
-		.login_btn {
-			display: none;
-		}
-
-		header {
-			padding: 20px;
-			display: flex;
-
-			align-items: center;
-			gap: .75rem;
-
-		}
-
-		.toggle_btn {
-			display: inherit;
-			font-size: 1.5rem;
-			cursor: pointer;
-			padding: .25rem;
-			border-radius: 5px;
-			color: var(--tertiary-clr);
-		}
-
-		header.responsive {
-			height: 50dvh;
-			flex-direction: column;
-		}
-
-		.responsive {
-			.menu {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: .5rem;
-			}
-
-			.login_btn {
-				display: block;
-				width: 20dvw;
-			}
-
-			.toggle_btn {
-				position: absolute;
-				top: 20.5rem;
-				right: 1.25rem;
-				font-size: 1.5rem;
-				cursor: pointer;
-				padding: .25rem;
-				border-radius: 5px;
-				color: var(--tertiary-clr);
-			}
-		}
-
-		/* ===== donate section ===== */
-
-		.why_donate {
-			padding-block: 3rem;
-		}
-
-		/* register page */
-
-		.register {
-			display: flex;
-			flex-direction: column;
-			margin-inline: 0;
-			padding-inline: 0;
-
-			.register_form {
-				padding-inline: 0rem;
-				flex-direction: column;
-				gap: .75rem;
-				flex: 1;
-			}
-
-		}
-
-	}
-
-	@media screen and (max-width: 787px) {
-
-		/* ===== login page ===== */
-
-		.login {
-			overflow-x: hidden;
-
-
-			.login_content {
-				padding-inline: .5rem;
-			}
-		}
-
-
-		/* ===== footer ===== */
-
-		.footer {
-			min-height: calc(100dvh - 50px);
-			contain: content;
-		}
-
-		.footer_wrapper {
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
-			flex: 1;
-		}
-
-
-		/* register page */
-
-		.register {
-			display: flex;
-			flex-direction: column;
-			margin-inline: 0;
-			padding-inline: 0;
-
-			.register_form {
-				min-width: 100%;
-				padding-inline: 0rem;
-				flex-direction: column;
-				gap: .75rem;
-
-				>div {
-					flex-direction: column;
-				}
-			}
-		}
-	}
+    .flash {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ====================================
+    TYPOGRAPHY
+    =======================================*/
+
+    .title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-clr);
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--primary-clr);
+    }
+
+    .text {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--secondary-clr);
+    }
+
+    .alt-text {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--primary-clr);
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--secondary-clr);
+    }
+
+    /* ====================================
+    CUSTOM SCROLLBAR
+    =======================================*/
+
+    ::-webkit-scrollbar {
+        width: .5rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--tertiary-clr);
+        border-radius: 3.125rem;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--primary-clr);
+    }
+
+    ::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: var(--tertiary-bg);
+    }
+
+    /* ====================================
+    HEADER
+    =======================================*/
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+
+        width: 100%;
+        height: 50px;
+        padding: 20px 120px;
+
+        background-color: var(--primary-bg);
+        filter: blur(50%);
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-container img {
+        width: 50px; /* Adjust the width of your logo as needed */
+        margin-right: 10px; /* Adjust the spacing between the logo and the link */
+    }
+
+    .logo {
+        font-size: 2rem;
+        color: var(--primary-clr);
+        font-weight: 700;
+    }
+
+    .menu {
+        display: flex;
+        gap: 1rem;
+
+
+        .menu_item {
+            color: var(--primary-clr);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 200ms ease linear;
+        }
+
+        .menu_item:hover {
+            transform: translateY(-5px);
+            color: var(--secondary-clr);
+            text-shadow: 0 0 10px var(--primary-clr);
+            transition: all 200ms ease;
+        }
+
+        .menu_item.active {
+            color: var(--secondary-clr);
+            text-shadow: 0 0px 10px var(--tertiary-bg);
+        }
+    }
+
+    .buttons {
+        display: flex;
+        gap: 1rem;
+
+
+        .header_btn {
+            padding: .2rem;
+            background-color: var(--primary-clr);
+            color: var(--secondary-clr);
+            border: 2px solid var(--tertiary-clr);
+            border-radius: .375rem;
+            width: 10dvw;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 500ms ease;
+        }
+
+        .header_btn:hover {
+            scale: 1.1;
+            transition: all 200ms ease;
+        }
+    }
+
+    /* ====================================
+    ALL SECTIONS
+    =======================================*/
+
+    section {
+        /* min-height: 100dvh; */
+        display: flex;
+        align-items: center;
+        padding-inline: 3.125rem;
+    }
+
+    section:nth-child(odd) {
+        background: var(--primary-bg);
+    }
+
+    /* ====================================
+    WHY DONATE SECTION
+    =======================================*/
+
+    .why_donate {
+        padding-block: 6rem;
+        gap: 2rem;
+
+        .title {
+            margin-top: -20px;
+            color: var(--tertiary-clr);
+
+        }
+
+        .text {
+            color: var(--primary-clr);
+            font-weight: bold;
+        }
+    }
+
+    /* ====================================
+    BACK TO TOP BUTTON
+    =======================================*/
+
+
+    #backToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 1.25rem;
+        right: 1.25rem;
+        z-index: 99;
+        color: var(--tertiary-clr);
+        cursor: pointer;
+        font-size: 2rem;
+        background: none;
+        transition: all 500ms ease;
+
+    }
+
+    #backToTopBtn:hover {
+        color: var(--secondary-clr);
+        transform: translateY(-10px);
+        transition: all 200ms ease;
+    }
+
+
+
+    /* ====================================
+    FOOTER SECTION
+    =======================================*/
+
+    .footer {
+        width: 100%;
+        max-height: 21rem;
+        background-color: var(--tertiary-bg);
+        padding-block: 2rem;
+        padding-inline: 3.125rem;
+
+    }
+
+    .footer_wrapper {
+        display: flex;
+        flex: 1 0 0;
+        justify-content: space-between;
+        gap: 3rem;
+    }
+
+    .footer_about {
+        flex: 5;
+
+        .title {
+            color: var(--secondary-clr);
+            padding-block-end: 1rem;
+
+            >span {
+                font-weight: 100;
+                background: linear-gradient(to right, var(--primary-clr), transparent);
+                border-inline-start: 1.5px solid var(--tertiary-clr);
+            }
+        }
+
+        .text {
+            line-height: 2rem;
+        }
+    }
+
+    .footer_links {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        transition: all 500ms ease;
+
+        .title {
+            padding-block-end: .5rem;
+        }
+
+        .footer_link:hover {
+            transform: translateX(10px);
+            color: var(--tertiary-clr);
+            transition: all 200ms ease;
+        }
+    }
+
+
+    .footer_socials {
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+
+        >div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+
+    .footer>hr {
+        height: 2px;
+        margin-block: 1rem;
+        background-color: var(--primary-bg);
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: center;
+        font-size: 1remm;
+        color: white;
+        gap: 3rem;
+        p {
+            width: 100%;
+            text-align: center;
+            margin: 5px;
+            i {
+                height: 20px;
+                width: 20px;
+            }
+        }
+
+    }
+
+    /* ====================================
+    RESPONSIVE DESIGN
+    =======================================*/
+
+    @media screen and (max-width: 992px) {
+
+        /* header */
+
+        .menu,
+        .login_btn {
+            display: none;
+        }
+
+        header {
+            padding: 20px;
+            display: flex;
+
+            align-items: center;
+            gap: .75rem;
+
+        }
+
+        .toggle_btn {
+            display: inherit;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: .25rem;
+            border-radius: 5px;
+            color: var(--tertiary-clr);
+        }
+
+        header.responsive {
+            height: 50dvh;
+            flex-direction: column;
+        }
+
+        .responsive {
+            .menu {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: .5rem;
+            }
+
+            .login_btn {
+                display: block;
+                width: 20dvw;
+            }
+
+            .toggle_btn {
+                position: absolute;
+                top: 20.5rem;
+                right: 1.25rem;
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: .25rem;
+                border-radius: 5px;
+                color: var(--tertiary-clr);
+            }
+        }
+
+        /* ===== donate section ===== */
+
+        .why_donate {
+            padding-block: 3rem;
+        }
+
+        /* register page */
+
+        .register {
+            display: flex;
+            flex-direction: column;
+            margin-inline: 0;
+            padding-inline: 0;
+
+            .register_form {
+                padding-inline: 0rem;
+                flex-direction: column;
+                gap: .75rem;
+                flex: 1;
+            }
+
+        }
+
+    }
+
+    @media screen and (max-width: 787px) {
+
+        /* ===== login page ===== */
+
+        .login {
+            overflow-x: hidden;
+
+
+            .login_content {
+                padding-inline: .5rem;
+            }
+        }
+
+
+        /* ===== footer ===== */
+
+        .footer {
+            min-height: calc(100dvh - 50px);
+            contain: content;
+        }
+
+        .footer_wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+        }
+
+
+        /* register page */
+
+        .register {
+            display: flex;
+            flex-direction: column;
+            margin-inline: 0;
+            padding-inline: 0;
+
+            .register_form {
+                min-width: 100%;
+                padding-inline: 0rem;
+                flex-direction: column;
+                gap: .75rem;
+
+                >div {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
 }
