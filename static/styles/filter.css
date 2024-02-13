@@ -1,99 +1,100 @@
 /* General styles */
-body {
-  background-color: white;
-  font-family: Arial, sans-serif;
-}
-
 main {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  padding: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 10px;
 }
 
 /* Filter section styles */
 
 .filter_header {
-  background-color: #ffcccc; /* Light red background */
-  color: #c00; /* Dark red text color */
-  padding: 10px; /* Padding around the text */
-  border-radius: 5px; /* Rounded corners */
-  text-align: center; /* Center-align the text */
-  margin-bottom: 10px; /* Add some space between headers */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add a subtle shadow */
+    background-color: #ffcccc; /* Light red background */
+    color: #c00; /* Dark red text color */
+    padding: 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center-align the text */
+    margin-bottom: 10px; /* Add some space between headers */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add a subtle shadow */
 }
 
 .filter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: auto;
 }
 
 label {
-  color: red;
-  font-weight: bold;
-  display: block;
-  text-align: center;
-  margin: 5px;
+    color: red;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: 5px;
 }
 
 input {
-  width: 200px;
-  margin: 5px;
+    width: 200px;
+    margin: 5px;
 }
 
 select {
-  width: 200px;
-  height: 30px;
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 5px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 input[type=submit] {
-  grid-column: span 2;
-  width: 150px;
-  height: 40px;
-  background-color: red;
-  color: white;
-  border: none;
-  margin: 10px;
-  border-radius: 10px;
-  cursor: pointer;
+    grid-column: span 2;
+    width: 150px;
+    height: 40px;
+    background-color: red;
+    color: white;
+    border: none;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 input[type=submit]:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* Blood Bags Section styles */
 
-.bags_header {
-  background-color: #f8d7da; /* Light red background */
-  color: #721c24; /* Dark red text color */
-  padding: 12px; /* Padding around the text */
-  border-radius: 6px; /* Rounded corners */
-  margin: 15px; /* Add some space between headers */
-  border: 2px solid #f5c6cb; /* Border */
-  font-size: 1.2em; /* Larger font size */
-  font-weight: bold; /* Bold font weight */
+.center {
+    background-color: #f0f0f0;
+    border: 0.5px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-section.section_bags {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+.center-header {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text color */
+    padding: 12px; /* Padding around the text */
+    border-radius: 6px; /* Rounded corners */
+    margin: 15px; /* Add some space between headers */
+    border: 2px solid #f5c6cb; /* Border */
+    font-size: 1.2em; /* Larger font size */
+    font-weight: bold; /* Bold font weight */
+    width: 100%;
+    text-align: center;
 }

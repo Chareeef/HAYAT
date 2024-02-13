@@ -22,7 +22,8 @@ def center_dashboard():
                            center=center,
                            bags=bags,
                            city=city,
-                           country=country)
+                           country=country,
+                           nb_donors=len(center.donors))
 
 
 @app.route('/update_blood_bags/', strict_slashes=False)

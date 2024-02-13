@@ -7,12 +7,14 @@
 }
 
 .stats-title {
-    font-size: 24px;
+    /*font-size: 24px;*/
     color: #000000;
     margin-bottom: 20px;
     margin-top: 10px;
     padding-left: 20px;
     border-left: 4px solid #f00;
+    text-align: left;
+    width: 100%;
 }
 
 .update-button {
@@ -73,20 +75,20 @@
     }
 
     >.stable {
-        background-color: #2E8B57;
+        background-color: #29A329;
     }
 
     >.soon-shortage {
-        background-color: #BDB76B;
+        background-color: #FF8000;
     }
 
     >.critic {
-        background-color: #800000;
+        background-color: #FF3333;
     }
 }
 
 .updated-at {
-    font-size: 14px;
+    font-size: 12px;
     color: gray;
     margin-top: 10px;
 }

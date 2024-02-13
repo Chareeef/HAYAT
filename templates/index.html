@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block style %}
 <link rel="stylesheet" href="../static/styles/filter.css">		
+<link rel="stylesheet" href="../static/styles/follow_unfollow.css">		
 <link rel="stylesheet" href="../static/styles/blood_bags.css">		
 {% endblock style %}
 
@@ -20,7 +21,7 @@
 	</div>
 
 	<!-- Filter section -->
-	<h3 class="filter_header">Transfusion Center Filter</h3>
+	<h3 class="filter_header">Find Your Nearby Transfusion Center</h3>
 	<section>
 		<div class="filter">
 			<form method="POST" action="">
@@ -46,17 +47,29 @@
 	</section>
 
 	{% if center %}
-	<!-- Blood Bags Section -->
-	<h3 class="bags_header">{{ center.name }}'s Blood Bags :</h3>
-	{% if current_user.is_authenticated and current_user.username %}
-	{% if center not in current_user.followed_centers %}
-	<a href="{{ url_for('follow_center', center_id=center.id) }}"><button class="btn folllow">Follow</button></a>
-	{% else %}
-	<a href="{{ url_for('unfollow_center', center_id=center.id) }}"><button class="btn unfolllow">Unfollow</button></a>
-	{% endif %}
-	{% endif %}
+	<div class="center">
+		<!-- Blood Bags Section -->
+		<div class="center-header">
+			<h3>{{ center.name }}</h3>
+		</div>
+		{% if current_user.is_authenticated and current_user.username %}
+		<div class="form">
+		{% if center not in current_user.followed_centers %}
+		<form id="followForm" action="{{ url_for('follow_center', center_id=center.id) }}" method="POST">
+			<button type="submit" class="fl-btn follow">Follow</button>
+		</form>
+		{% else %}
+		<form id="unfollowForm" action="{{ url_for('unfollow_center', center_id=center.id) }}" method="POST">
+			<button type="submit" class="fl-btn unfollow">Unfollow</button>
+		</form>
+		{% endif %}
+		</div>
+		{% endif %}
 
-	<section class="section_bags">
+		<div class="stats-title">
+			<h2>Blood Bags Statistics :</h2>
+		</div>
+
 		<div class="blood-bags">
 			{% for bag in center.blood_bags %}
 			<article class="blood-bag">
@@ -72,8 +85,8 @@
 			{% endif %}
 			{% endfor %}
 		</div>
-	<section>
-			{% endif %}
+	</div>
+	{% endif %}
 </main>
 
 <!-- Why Donate Blood -->

@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block style %}
 <link rel="stylesheet" href="../static/styles/donor_dashboard.css">
+<link rel="stylesheet" href="../static/styles/follow_unfollow.css">		
 <link rel="stylesheet" href="../static/styles/blood_bags.css">
 {% endblock style %}
 
@@ -23,7 +24,7 @@
 	<div class="info-bar">
 
 		<div class="bar-title">
-			<h1>Donor : {{ donor.full_name }}</h2>
+			<h1>Donor : {{ donor.full_name }}</h1>
 		</div>
 
 		<div class="donor-info">
@@ -51,6 +52,11 @@
 			<li>
 				<div class="center-header">
 					<h3>{{ center.name }}</h3>
+				</div>
+				<div class="unfollow-form">
+					<form id="unfollowForm" action="{{ url_for('unfollow_center', center_id=center.id) }}" method="POST">
+						<button type="submit" class="fl-btn unfollow">Unfollow</button>
+					</form>
 				</div>
 				<div class="center-infos">
 					<p><strong>City:</strong> {{ center.city.name }}</p>
