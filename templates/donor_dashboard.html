@@ -2,6 +2,7 @@
 {% block style %}
 <link rel="stylesheet" href="../static/styles/donor_dashboard.css">
 <link rel="stylesheet" href="../static/styles/follow_unfollow.css">		
+<link rel="stylesheet" href="../static/styles/center_infos.css">
 <link rel="stylesheet" href="../static/styles/blood_bags.css">
 {% endblock style %}
 
@@ -59,8 +60,8 @@
 					</form>
 				</div>
 				<div class="center-infos">
-					<p><strong>City:</strong> {{ center.city.name }}</p>
 					<p><strong>Country:</strong> {{ center.city.country.name }}</p>
+					<p><strong>City:</strong> {{ center.city.name }}</p>
 					<p><strong>Email :</strong> {{ center.email }}</p>
 					{% if center.phone_number %}
 					<p><strong>Phone Number:</strong> {{ center.phone_number }}</p>
@@ -69,7 +70,7 @@
 
 				<!-- Blood bags grid with statistics -->
 				<div class="stats-title">
-					<h2>Blood Bags Statistics :</h2>
+					<h1>Blood Bags Statistics :</h1>
 				</div>
 
 				<div class="blood-bags">
@@ -78,7 +79,7 @@
 						<h2 class="blood-category">{{ bag.blood_category }}</h2>
 						<p class="quantity"><strong>Number of Bags:</strong> {{ bag.quantity }}</p>
 						<p class="situation"><strong>Situation:</strong> <span class="{{ bag.situation.lower().replace(' ', '-') }}">{{ bag.situation }}</span></p>
-						<div class="updated-at">
+						<div class="big-updated-at">
 							<p>Last Update : {{ bag.updated_at.strftime('%a %d/%m/%Y at %H:%M GMT') }}</p>
 						</div>
 					</article>

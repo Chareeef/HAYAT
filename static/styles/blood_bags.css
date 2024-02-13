@@ -62,7 +62,7 @@
 }
 
 .situation {
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 10px;
     color: #000;
 
@@ -88,7 +88,13 @@
 }
 
 .updated-at {
-    font-size: 12px;
+    font-size: 13px;
+    color: gray;
+    margin-top: 10px;
+}
+
+.big-updated-at {
+    font-size: 16px;
     color: gray;
     margin-top: 10px;
 }
