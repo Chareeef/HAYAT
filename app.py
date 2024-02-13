@@ -39,6 +39,7 @@ from routes.register import *
 from routes.login import *
 from routes.center_dashboard import *
 from routes.donor_dashboard import *
+from routes.follow_unfollow_center import *
 
 
 if __name__ == '__main__':

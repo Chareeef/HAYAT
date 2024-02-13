@@ -48,6 +48,13 @@
 	{% if center %}
 	<!-- Blood Bags Section -->
 	<h3 class="bags_header">{{ center.name }}'s Blood Bags :</h3>
+	{% if current_user.is_authenticated and current_user.username %}
+	{% if center not in current_user.followed_centers %}
+	<a href="{{ url_for('follow_center', center_id=center.id) }}"><button class="btn folllow">Follow</button></a>
+	{% else %}
+	<a href="{{ url_for('unfollow_center', center_id=center.id) }}"><button class="btn unfolllow">Unfollow</button></a>
+	{% endif %}
+	{% endif %}
 
 	<section class="section_bags">
 		<div class="blood-bags">
@@ -57,7 +64,7 @@
 				<p class="quantity"><strong>Number of Bags:</strong> {{ bag.quantity }}</p>
 				<p class="situation"><strong>Situation:</strong> <span class="{{ bag.situation.lower().replace(' ', '-') }}">{{ bag.situation }}</span></p>
 				<div class="updated-at">
-					<p>Last Update : {{ bag.updated_at.strftime('%a %d/%m/%Y at %H:%M') }}</p>
+					<p>Last Update : {{ bag.updated_at.strftime('%a %d/%m/%Y at %H:%M GMT') }}</p>
 				</div>
 			</article>
 			{% if loop.index % 4 == 0 %}
