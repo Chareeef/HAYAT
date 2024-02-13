@@ -15,7 +15,7 @@ class BloodBag(BaseModel, Base):
                       nullable=False)
     situation = Column(Enum('Stable', 'Soon Shortage', 'Critic'),
                        nullable=False)
-    center_id = Column(Integer, ForeignKey('transfusion_centers.id'),
+    center_id = Column(String(50), ForeignKey('transfusion_centers.id'),
                        nullable=False)
 
     def __repr__(self):

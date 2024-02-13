@@ -1,0 +1,42 @@
+/* Main styles */
+main {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Info bar styles */
+.info-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #ffcccc; /* Light red background */
+    color: #c00; /* Dark red text color */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bar-title h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.donor-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.donor-info p {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.donor-info p strong {
+    font-weight: bold;
+}
+

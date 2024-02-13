@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block style %}
+<link rel="stylesheet" href="../static/styles/update_blood_bags.css">
+{% endblock style %}
+
+{% block main %}
+<main class="container">
+
+	<h1 class="stats-title">Update Blood Bags Statistics :</h1>
+
+	<!-- Render flashed messages -->
+	<div class="flash">
+		{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+		{% for category, message in messages %}
+		<div class="alert alert-{{ category }}">
+			{{ message }}
+		</div>
+		{% endfor  %}
+		{% endif %}
+		{% endwith %}
+	</div>
+
+	<div class="blood-bags">
+		{% for bag in bags %}
+		<article class="blood-bag">
+			<h2 class="blood-category">{{ bag.blood_category }}</h2>
+			<form method="POST" action="/update_blood_bags/{{ bag.id }}">
+				<label for="quantity{{ bag.id }}">Quantity:</label>
+				<input type="number" id="quantity{{ bag.id }}" name="quantity" value="{{ bag.quantity }}" required>
+				<label for="situation{{ bag.id }}">Situation:</label>
+				<select id="situation{{ bag.id }}" name="situation" required>
+					<option value="Stable" {% if bag.situation == "Stable" %} selected {% endif %}>Stable</option>
+					<option value="Soon shortage" {% if bag.situation == "Soon Shortage" %} selected {% endif %}>Soon Shortage</option>
+					<option value="Critic" {% if bag.situation == "Critic" %} selected {% endif %}>Critic</option>
+				</select>
+				<button type="submit">Update</button>
+			</form>
+		</article>
+		{% if loop.index % 4 == 0 %}
+	</div><div class="blood-bags">
+		{% endif %}
+		{% endfor %}
+	</div>
+</main>
+{% endblock main %}

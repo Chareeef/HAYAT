@@ -20,10 +20,10 @@ login_manager.login_message_category = 'info'
 @login_manager.user_loader
 def user_loader(user_id):
     """Load the current user"""
-    user = storage.session.query(Donor).get(int(user_id))
+    user = storage.session.query(Donor).get(user_id)
 
     if not user:
-        user = storage.session.query(TC).get(int(user_id))
+        user = storage.session.query(TC).get(user_id)
 
     return user
 
@@ -33,7 +33,13 @@ def close_db(error):
     """ Close Storage """
     storage.close()
 
-from routes.routes import *
+from routes.home import *
+from routes.get_objects import *
+from routes.register import *
+from routes.login import *
+from routes.center_dashboard import *
+from routes.donor_dashboard import *
+from routes.follow_unfollow_center import *
 
 
 if __name__ == '__main__':

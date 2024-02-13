@@ -1,0 +1,20 @@
+.fl-btn {
+  /* Common styles for both buttons */
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.follow {
+  /* Styles for the Follow button */
+  background-color: #2ecc71; /* Green color */
+  color: white;
+}
+
+.unfollow {
+  /* Styles for the Unfollow button */
+  background-color: #e74c3c;
+  color: white;
+}

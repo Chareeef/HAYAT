@@ -1,0 +1,85 @@
+/* Styles for elements inside the main block */
+.container {
+    padding: 20px;
+}
+
+.stats-title {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 4px solid #f00;
+}
+
+.blood-bag form {
+    margin-top: 20px;
+}
+
+.blood-bag form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+    font-weight: bold;
+}
+
+.blood-bag form input[type="number"],
+.blood-bag form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.blood-bag form button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f00; /* Red color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.blood-bags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blood-bag {
+    flex: 0 0 calc(50% - 20px);
+    background-color: #fff;
+    border: 2px solid #f00; /* Red color */
+    padding: 20px;
+    margin: 10px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blood-category {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  text-align: center;
+  padding: 5px;
+}
+
+.blood-bag:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.blood-bag:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f00; /* Red color */
+    transform: translateX(-50%);
+}

@@ -98,10 +98,10 @@ class TestBloodBag(unittest.TestCase):
         self.assertEqual(self.err_tc_bag_ab.situation, 'Critic')
         self.assertEqual(self.err_tc_bag_a.situation, 'Stable')
 
-        self.assertEqual(self.anb_tc_bag_ab.center_id, 1)
-        self.assertEqual(self.anb_tc_bag_o.center_id, 1)
-        self.assertEqual(self.err_tc_bag_ab.center_id, 2)
-        self.assertEqual(self.err_tc_bag_a.center_id, 2)
+        self.assertEqual(self.anb_tc_bag_ab.center_id, self.anb_tc.id)
+        self.assertEqual(self.anb_tc_bag_o.center_id, self.anb_tc.id)
+        self.assertEqual(self.err_tc_bag_ab.center_id, self.err_tc.id)
+        self.assertEqual(self.err_tc_bag_a.center_id, self.err_tc.id)
 
         self.assertIs(type(self.anb_tc.created_at), datetime)
         self.assertIs(type(self.anb_tc.updated_at), datetime)

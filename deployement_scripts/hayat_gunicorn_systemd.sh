@@ -56,7 +56,7 @@ WantedBy=multi-user.target
 " "$(whoami)" "$(whoami)" "$(whoami)" | sudo tee /etc/systemd/system/HAYAT-API.service >/dev/null
 
 sudo systemctl daemon-reload
-sudo systemctl start HAYAT-web
-sudo systemctl start HAYAT-API
+sudo systemctl restart HAYAT-web
+sudo systemctl restart HAYAT-API
 sudo systemctl enable HAYAT-web
 sudo systemctl enable HAYAT-API

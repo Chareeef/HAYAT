@@ -1,0 +1,70 @@
+/* Followed transfusion centers list styles */
+.transfusion-centers h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.transfusion-centers ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.transfusion-centers li {
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    border: 0.5px solid #000;
+    padding: 10px;
+}
+
+.unfollow-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.center-header {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text color */
+    padding: 12px; /* Padding around the text */
+    border-radius: 6px; /* Rounded corners */
+    margin: 15px; /* Add some space between headers */
+    border: 2px solid #f5c6cb; /* Border */
+    font-size: 1.2em; /* Larger font size */
+    font-weight: bold; /* Bold font weight */
+    text-align: center;
+}
+
+/* Center infos styles */
+.center-infos {
+    width: 100%;
+    align-text: left;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.center-infos p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333333; /* Dark gray text color */
+    line-height: 1.6; /* Increased line height for better readability */
+}
+
+.center-infos p strong {
+    font-weight: bold;
+    color: #ff0000; /* Red color */
+}
+
+.no-centers {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+}
+
+.no-centers p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+}

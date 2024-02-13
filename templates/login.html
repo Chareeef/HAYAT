@@ -4,77 +4,89 @@
 {% endblock style %}
 
 {% block main %}
-<div class="login">
-  <div class="login_content">
-    <div class="login_title">
-      <h1 class="main_login_title">HAYAT<span>.</span></h1>
-      <h3 class="main_login_subtitle">Donate blood, Save lives</h3>
-    </div>
-    <!-- Render flashed messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    {% for category, message in messages %}
-    <div class="alert alert-{{ category }}">
-      {{ message }}
-    </div>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
+<main>
+	<div class="login">
+		<div class="login_content">
+			<div class="login_title">
+				<h1 class="main_login_title">HAYAT<span>.</span></h1>
+				<h3 class="main_login_subtitle">Donate blood, Save lives</h3>
+			</div>
+			<!-- Render flashed messages -->
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			{% for category, message in messages %}
+			<div class="alert alert-{{ category }}">
+				{{ message }}
+			</div>
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
 
-    <!-- Radio buttons to toggle between forms -->
-    <div class="form-toggle">
-      <input type="radio" id="donor-form" name="login-form" value="donor" checked>
-      <label for="donor-form">Login as Donor</label>
-      <input type="radio" id="tc-form" name="login-form" value="tc">
-      <label for="tc-form">Login as Transfusion Center</label>
-    </div>
+			<!-- Radio buttons to toggle between forms -->
+			<div class="form-toggle">
+				<input type="radio" id="donor-form" name="login-form" value="donor" checked>
+				<label for="donor-form">Login as Donor</label>
+				<input type="radio" id="tc-form" name="login-form" value="tc">
+				<label for="tc-form">Login as Transfusion Center</label>
+			</div>
 
-    <!-- Login forms -->
-    <!-- Login as Donor -->
-    <form class="login_form" id="donor-login-form" method="POST">
-      {{ donor_form.hidden_tag() }} <!-- Include CSRF token -->
-      <div>
-        <div class="group">
-          {{ donor_form.username.label }}
-          {{ donor_form.username(size=20) }}
-          {% for error in donor_form.username.errors %}
-          <span style="color: red;">{{ error }}</span>
-          {% endfor %}
-        </div>
-        <div class="group">
-          {{ donor_form.password.label }}
-          {{ donor_form.password(size=20) }}
-          {% for error in donor_form.password.errors %}
-          <span style="color: red;">{{ error }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      <button class="submit" type="submit">Login as Donor <i class="bi bi-arrow-right-circle"></i></button>
-    </form>
+			<!-- Login forms -->
+			<!-- Login as Donor -->
+			<form class="login_form" id="donor-login-form" method="POST">
+				{{ donor_form.hidden_tag() }} <!-- Include CSRF token -->
+				<div>
+					<div class="group">
+						{{ donor_form.username.label }}
+						{{ donor_form.username(size=20) }}
+						{% for error in donor_form.username.errors %}
+						<span style="color: red;">{{ error }}</span>
+						{% endfor %}
+					</div>
+					<div class="group">
+						{{ donor_form.password.label }}
+						{{ donor_form.password(size=20) }}
+						{% for error in donor_form.password.errors %}
+						<span style="color: red;">{{ error }}</span>
+						{% endfor %}
+					</div>
+				</div>
+				<button class="submit" type="submit">Login as Donor <i class="bi bi-arrow-right-circle"></i></button>
+			</form>
 
-    <!-- Login as Transfusion Center -->
-    <form class="login_form" id="tc-login-form" method="POST" style="display: none;">
-      {{ tc_form.hidden_tag() }} <!-- Include CSRF token -->
-      <div>
-        <div class="group">
-          {{ tc_form.email.label }}
-          {{ tc_form.email(size=20) }}
-          {% for error in tc_form.email.errors %}
-          <span style="color: red;">{{ error }}</span>
-          {% endfor %}
-        </div>
-        <div class="group">
-          {{ tc_form.password.label }}
-          {{ tc_form.password(size=20) }}
-          {% for error in tc_form.password.errors %}
-          <span style="color: red;">{{ error }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      <button class="submit" type="submit">Login as Transfusion Center <i class="bi bi-arrow-right-circle"></i></button>
-    </form>
-  </div>
-</div>
+			<!-- Login as Transfusion Center -->
+			<form class="login_form" id="tc-login-form" method="POST" style="display: none;">
+				{{ tc_form.hidden_tag() }} <!-- Include CSRF token -->
+				<div>
+					<div class="group">
+						{{ tc_form.email.label }}
+						{{ tc_form.email(size=20) }}
+						{% for error in tc_form.email.errors %}
+						<span style="color: red;">{{ error }}</span>
+						{% endfor %}
+					</div>
+					<div class="group">
+						{{ tc_form.password.label }}
+						{{ tc_form.password(size=20) }}
+						{% for error in tc_form.password.errors %}
+						<span style="color: red;">{{ error }}</span>
+						{% endfor %}
+					</div>
+				</div>
+				<button class="submit" type="submit">Login as Transfusion Center <i class="bi bi-arrow-right-circle"></i></button>
+			</form>
+		</div>
+	</div>
+</main>
+
+<!-- Why Donate Blood -->
+<section class="why_donate" id="donate">
+	<h2 class="title">Why Donate Blood?</h2>
+	<p class="text">
+	Blood donation is a noble cause that helps save lives.
+	</br>
+	Your contribution can make a significant impact on	those in need.
+	</p>
+</section>
 {% endblock main %}
 {% block script %}
 <script>

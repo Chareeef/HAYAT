@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+{% block style %}
+<link rel="stylesheet" href="../static/styles/center_dashboard.css">
+<link rel="stylesheet" href="../static/styles/blood_bags.css">
+{% endblock style %}
+
+{% block main %}
+<!-- Render flashed messages -->
+<div class="flash">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	{% for category, message in messages %}
+	<div class="alert alert-{{ category }}">
+		{{ message }}
+	</div>
+	{% endfor  %}
+	{% endif %}
+	{% endwith %}
+</div>
+
+<main>
+	<aside class="sidebar">
+		<h2 class="sidebar-heading">{{ center.name }} :</h2>
+		<table class="profile-info-table">
+			<tr>
+				<td class="profile-info-key">Country:</td>
+				<td class="profile-info-value">{{ country.name }}</td>
+			</tr>
+			<tr>
+				<td class="profile-info-key">City:</td>
+				<td class="profile-info-value">{{ city.name }}</td>
+			</tr>
+			<tr>
+				<td class="profile-info-key">Email:</td>
+				<td class="profile-info-value">{{ center.email }}</td>
+			</tr>
+			{% if center.phone_number %}
+			<tr>
+				<td class="profile-info-key">Phone Number:</td>
+				<td class="profile-info-value">{{ center.phone_number }}</td>
+			</tr>
+			{% endif %}
+			{% if center.location %} <!-- TODO : Replace map coordinates by location -->
+			<tr>
+				<td class="profile-info-key">Location:</td>
+				<td class="profile-info-value">{{ center.location }}</td>
+			</tr>
+			{% endif %}
+			<tr>
+				<td class="profile-info-key">Followed by:</td>
+				<td class="profile-info-value">{{ nb_donors }} Donor{% if nb_donors != 1 %}s{% endif %}</td>
+			</tr>
+		</table>
+	</aside>
+
+
+	<div class="content">
+
+		<h1 class="stats-title">Blood Bags Statistics :</h1>
+		<a href="{{ url_for('update_blood_bags') }}"><button class="update-button">Update Blood Bags</button></a>
+
+		<div class="blood-bags">
+			{% for bag in bags %}
+			<article class="blood-bag">
+				<h2 class="blood-category">{{ bag.blood_category }}</h2>
+				<p class="quantity"><strong>Number of Bags:</strong> {{ bag.quantity }}</p>
+				<p class="situation"><strong>Situation:</strong> <span class="{{ bag.situation.lower().replace(' ', '-') }}">{{ bag.situation }}</span></p>
+				<div class="updated-at">
+					<p>Last Update : {{ bag.updated_at.strftime('%a %d/%m/%Y at %H:%M GMT') }}</p>
+				</div>
+			</article>
+			{% if loop.index % 4 == 0 %}
+		</div><div class="blood-bags">
+			{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</main>
+{% endblock main %}

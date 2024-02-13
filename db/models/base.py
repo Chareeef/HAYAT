@@ -12,9 +12,9 @@ class BaseModel():
     """The base model of our database tables"""
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow())
-    updated_at = Column(DateTime(timezone=True), default=datetime.utcnow(),
-                        onupdate=datetime.utcnow())
+    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
+    updated_at = Column(DateTime(timezone=True), default=datetime.utcnow,
+            onupdate=datetime.utcnow)
 
     if getenv('HAYAT_DB') == 'hayat_test_db':
         __counter = 1
