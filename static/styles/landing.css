@@ -57,7 +57,7 @@
 
 
 .features_section {
-    padding-block: 3rem;
+    padding-block: 6rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -112,7 +112,7 @@
 }
 
 .landing_about_section {
-    padding-block: 3rem;
+    padding-block: 6rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
