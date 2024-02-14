@@ -29,6 +29,7 @@
     }
 
     .text {
+        font-size: 18px;
         line-height: 2rem;
     }
 }
@@ -39,6 +40,7 @@
     flex-direction: column;
     gap: .5rem;
     transition: all 500ms ease;
+    font-size: 18px;
 
     .title {
         padding-block-end: .5rem;
