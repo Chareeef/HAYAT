@@ -2,7 +2,7 @@
 main {
     overflow-x: hidden;
     width: 100dvw;
-    margin-top: -10px;
+    margin-top: -20px;
 }
 
 .landing_hero {
@@ -75,7 +75,7 @@ main {
 
     .feature_wrapper{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         gap: 3rem;
     }
 
@@ -89,12 +89,13 @@ main {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        padding-inline: 2rem;
         gap: 1rem;
 
         .feature_image {
             width: 21.75rem;
             height: 15.75rem;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
             border-radius: .25rem;
         }
