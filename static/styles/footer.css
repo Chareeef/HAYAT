@@ -1,0 +1,128 @@
+/* footer style */
+.footer {
+    width: 100%;
+    background-color: var(--tertiary-bg);
+    padding-block: 2rem;
+    padding-inline: 3.125rem;
+    margin-bottom: 0px;
+}
+
+.footer_wrapper {
+    display: flex;
+    flex: 1 0 0;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.footer_about {
+    flex: 5;
+
+    .title {
+        color: var(--secondary-clr);
+        padding-block-end: 1rem;
+
+        >span {
+            font-weight: 100;
+            background: linear-gradient(to right, var(--primary-clr), transparent);
+            border-inline-start: 1.5px solid var(--tertiary-clr);
+        }
+    }
+
+    .text {
+        line-height: 2rem;
+    }
+}
+
+.footer_links {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    transition: all 500ms ease;
+
+    .title {
+        padding-block-end: .5rem;
+    }
+
+    .footer_link:hover {
+        transform: translateX(10px);
+        color: var(--tertiary-clr);
+        transition: all 200ms ease;
+    }
+}
+
+
+.footer-socials {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        padding-block-end: .5rem;
+    }
+
+
+    /* Style the name and links divs */
+    .links {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 5px;
+        margin: 0px;
+    }
+
+    /* Add some space between the name and links divs */
+    .name {
+        margin-right: 10px;
+        margin-bottom: -10px;
+        padding : 0px;
+    }
+
+    /* Style the paragraph element inside the name div */
+    .name p {
+        font-size: 18px;
+    }
+
+    /* Style the anchor elements inside the links div */
+    .links a {
+        margin: 2.5px;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Style the icons using the Bootstrap Icons classes */
+    .bi {
+        font-size: 18px;
+    }
+
+    /* Add some hover effects */
+    .links a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+}
+
+.footer>hr {
+    height: 2px;
+    margin-block: 1rem;
+    background-color: var(--primary-bg);
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    font-size: 1remm;
+    color: white;
+    gap: 3rem;
+    p {
+        width: 100%;
+        text-align: center;
+        margin: 5px;
+        i {
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+}

@@ -32,6 +32,8 @@
 
 		<!-- css -->
 		<link rel="stylesheet" href="../static/styles/main.css">
+		<link rel="stylesheet" href="../static/styles/header.css">
+		<link rel="stylesheet" href="../static/styles/footer.css">
 		{% block style %}
 		{% endblock style %}
 
@@ -81,15 +83,47 @@
 				</div>
 				<div class="footer_links">
 					<h3 class="title">Important Links</h3>
+					<a href="{{ url_for('home') }}" class="footer_link">Home</a>
 					<a href="{{ url_for('about') }}" class="footer_link">About The Project</a>
+					<a href="{{ url_for('login') }}" class="footer_link">Login</a>
+					<a href="{{ url_for('register') }}" class="footer_link">Register</a>
 				</div>
-				<div class="footer_socials">
+				<div class="footer-socials">
 					<h3 class="title">Our Socials</h3>
-					<div>
-						<i class="bi bi-twitter-x"></i>
-						<i class="bi bi-envelope-at"></i>
-					</div>
+					<div class="socials">
+						<div>
+							<div class="name">
+								<p>Youssef Charif Hamidi :</p>
+							</div>
+							<div class="links">
+								<a target="_blank" href="https://www.linkedin.com/in/youssef-charif-hamidi"><i class="bi bi-linkedin"></i></a>
+								<a target="_blank" href="https://github.com/Chareeef"><i class="bi bi-github"></i></a>
+								<a target="_blank" href="https://twitter.com/youssefcharifh1"><i class="bi bi-twitter-x"></i></a>
+							</div>
+						</div>
 
+						<div>
+							<div class="name">
+								<p>Kenansa Meseret Nigusie :</p>
+							</div>
+							<div class="links">
+								<a target="_blank" href="https://www.linkedin.com/in/kenc0de/"><i class="bi bi-linkedin"></i></a>
+								<a target="_blank" href="https://github.com/Kenc0de"><i class="bi bi-github"></i></a>
+								<a target="_blank" href="https://twitter.com/KENC0DE"><i class="bi bi-twitter-x"></i></a>
+							</div>
+						</div>
+
+						<div>
+							<div class="name">
+								<p>Blain Muema :</p>
+							</div>
+							<div class="links">
+								<a target="_blank" href="https://www.linkedin.com/in/blain-muema"><i class="bi bi-linkedin"></i></a>
+								<a target="_blank" href="https://github.com/octocatblain"><i class="bi bi-github"></i></a>
+								<a target="_blank" href="https://twitter.com/birdblain"><i class="bi bi-twitter-x"></i></a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<hr>
