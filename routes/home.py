@@ -16,12 +16,6 @@ def home():
     tc_filter = TCFilter()
     center = None
 
-    colors = {
-        'Stable': 'green',
-        'Soon Shortage': 'orange',
-        'Critic': 'red'
-    }
-
     if request.method == 'POST':
         center_id = dict(request.form).get('center')
         center = storage.get('TransfusionCenter', center_id)
@@ -29,5 +23,11 @@ def home():
     return render_template('index.html',
                            title='Home',
                            tc_filter=tc_filter,
-                           colors=colors,
                            center=center)
+
+
+@app.route('/about', strict_slashes=False)
+def about():
+    """Render the landing page"""
+    return render_template('landing_page.html',
+                           title='About')

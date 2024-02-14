@@ -1,0 +1,228 @@
+/* Main styles */
+main {
+    overflow-x: hidden;
+    width: 100dvw;
+    margin-top: -20px;
+}
+
+.landing_hero {
+    /* height: calc(100dvh - 50px); */
+    height: 100dvh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://images.pexels.com/photos/5340276/pexels-photo-5340276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 4rem;
+
+    >.hero_title {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        flex: 6;
+
+        >.title {
+
+            font-size: 6rem;
+            font-weight: 500;
+            color: white;
+
+            >span {
+                color: crimson;
+            }
+        }
+
+        >.title::first-letter {
+            color: crimson;
+        }
+
+        >.subtitle {
+            color: white;
+            font-size: 1.5rem;
+            font-variant-caps: all-small-caps;
+        }
+    }
+
+    .hero_content {
+        flex: 6;
+        text-align: center;
+
+        >.text {
+            font-size: 1rem;
+            line-height: 2;
+        }
+    }
+}
+
+
+.features_section {
+    padding-block: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    .section_title {
+        font-size: 4rem;
+        font-weight: 200;
+        text-align: center;
+    }
+
+    .feature_wrapper{
+        display: flex;
+        justify-content: space-around;
+        gap: 3rem;
+    }
+
+    .feature {
+        width: 25rem;
+        height: 31.25rem;
+        padding: 1rem;
+        box-shadow: 0 0 10px black;
+        border-radius: .5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 2rem;
+        gap: 1rem;
+
+        .feature_image {
+            width: 21.75rem;
+            height: 15.75rem;
+            object-fit: contain;
+            object-position: center;
+            border-radius: .25rem;
+        }
+
+
+
+        .feature_title {
+            color: whitesmoke;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .feature_desc {
+            line-height: 1.5;
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+
+    .feature:hover .feature_image {
+        scale: 1.05;
+    }
+}
+
+.landing_about_section {
+    padding-block: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: black;
+
+    .landing_about_content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+
+        >.about_description {
+            padding-inline: 2rem;
+            flex: 6;
+
+            >.about_section_title {
+                font-size: 2rem;
+                font-weight: 700;
+                color: darkred;
+            }
+
+            >.text {
+                color: black;
+                line-height: 1, 5;
+                font-size: 1.25rem;
+            }
+        }
+
+        .team_profiles {
+            flex: 6;
+
+            .team_profile_title {
+                font-size: 2rem;
+                font-weight: 700;
+                color: darkred;
+            }
+
+            .team_members {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                padding-inline: 4rem;
+
+                .team_member {
+                    border-bottom: 1px solid crimson;
+
+                    .team_member_name {
+                        font-weight: 700;
+
+                        >span {
+                            font-weight: 400;
+                        }
+                    }
+
+                    >li {
+                        list-style: circle;
+                        color: black;
+                        /* padding-inline-start: 3rem; */
+
+                        >a {
+                            color: black;
+                            transition: all 200ms ease;
+                        }
+                    }
+
+                    >li:hover a {
+                        text-decoration: underline;
+                        color: crimson;
+                        transition: all 200ms ease;
+                    }
+                }
+            }
+        }
+    }
+
+    >hr {
+        background-color: darkred;
+        height: 2px;
+        border: 2px solid red;
+    }
+
+    .github_repo {
+        line-height: 2;
+        text-align: center;
+
+        >.text {
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        .github_link {
+            color: darkred;
+            font-weight: 900;
+
+            >.bi {
+                font-size: 1rem;
+            }
+        }
+
+        .github_link:hover {
+            text-decoration: underline !important;
+        }
+    }
+}
