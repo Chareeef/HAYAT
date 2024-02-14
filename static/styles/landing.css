@@ -1,0 +1,112 @@
+.landing_hero {
+    /* height: calc(100dvh - 50px); */
+    height: 100dvh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://images.pexels.com/photos/5340276/pexels-photo-5340276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center;
+    background-position: center;
+    background-size: cover;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 4rem;
+    margin-block-start: -1.5rem;
+
+    >.hero_title {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        flex: 6;
+
+        >.title {
+
+            font-size: 6rem;
+            font-weight: 500;
+            color: white;
+
+            >span {
+                color: crimson;
+            }
+        }
+
+        >.title::first-letter {
+            color: crimson;
+        }
+
+        >.subtitle {
+            color: white;
+            font-size: 1.5rem;
+            font-variant-caps: all-small-caps;
+        }
+    }
+
+    .hero_content {
+        flex: 6;
+        text-align: center;
+
+        >.text {
+            font-size: 1rem;
+            line-height: 2;
+        }
+    }
+}
+
+
+.features_section {
+    padding-block: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+
+    .section_title{
+        font-size: 4rem;
+        font-weight: 200;
+        text-align: center;
+    }
+
+    .feature {
+        width: 25rem;
+        height: 31.25rem;
+        padding: 1rem;
+        box-shadow: 0 0 10px black;
+        border-radius: .5rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        .feature_image {
+            width: 21.75rem;
+            height: 15.75rem;
+            object-fit: cover;
+            object-position: center;
+            border-radius: .25rem;
+        }
+
+        
+
+        .feature_title {
+            color: whitesmoke;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .feature_desc {
+            line-height: 1.5;
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+
+    .feature:hover .feature_image{
+        scale: 1.05;
+    }
+}
