@@ -1,155 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
+{% block style %}
+<!-- css -->
+<link rel="stylesheet" href="../static/styles/main.css">
+<link rel="stylesheet" href="../static/styles/landing.css">
+{% endblock style %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon-16x16.png">
-    <link rel="manifest" href="../static/images/site.webmanifest">
+{% block main %}
 
-    <!-- HAYAT social media icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- css -->
-    <link rel="stylesheet" href="../static/styles/main.css">
-    <link rel="stylesheet" href="../static/styles/landing.css">
-</head>
-
-<body>
-    <!-- header -->
-    <header id="header">
-        <div class="logo-container">
-            <a href="{{ url_for('home') }}"><img src="../static/images/HAYAT.jpeg" alt="HAYAT Logo"></a>
-            <a href="{{ url_for('home') }}" class="logo">Hayat.</a>
+<main>
+    <hero class="landing_hero">
+        <div class="hero_title">
+            <h1 class="title">Hayat<span>.</span></h1>
+            <h3 class="subtitle">donate blood. save lives.</h3>
         </div>
-        <!-- <div class="buttons">
-            {% if current_user.is_authenticated %}
-            {% if current_user.city_id %}
-            <a href="{{ url_for('center_dashboard') }}"><button class="header_btn" type="button">Dashboard</button></a>
-            {% else %}
-            <a href="{{ url_for('donor_dashboard') }}"><button class="header_btn" type="button">Profile</button></a>
-            {% endif %}
-            <a href="{{ url_for('logout') }}"><button class="header_btn" type="button">Logout</button></a>
-            {% else %}
-            <a href="{{ url_for('register') }}"><button class="header_btn" type="button">Register</button></a>
-            <a href="{{ url_for('login') }}"><button class="header_btn" type="button">Login</button></a>
-            {% endif %}
-        </div> -->
-    </header>
+        <div class="hero_content">
+            <p class="text">
+                HAYAT revolutionizes the blood donation experience with
+                cutting-edge technology. <br>Discover real-time updates and streamline operations for transfusion
+                centers. <br>Join us in making a life-saving impact, one donation at a time."
+            </p>
+        </div>
+    </hero>
 
-    <main>
-        <hero class="landing_hero">
-            <div class="hero_title">
-                <h1 class="title">Hayat<span>.</span></h1>
-                <h3 class="subtitle">donate blood. save lives.</h3>
-            </div>
-            <div class="hero_content">
-                <p class="text">
-                    HAYAT revolutionizes the blood donation experience with
-                    cutting-edge technology. <br>Discover real-time updates and streamline operations for transfusion
-                    centers. <br>Join us in making a life-saving impact, one donation at a time."
-                </p>
-            </div>
-        </hero>
+    <section class="features_section">
 
-        <section class="features_section">
+        <h2 class="section_title">Our <br>Key <br>Features</h2>
+        <div class="feature">
+            <img class="feature_image" src="../static/images/nairobi_center.png" alt="Feature 1 Icon">
+            <h3 class="feature_title">Real-Time Donor Updates</h3>
+            <p class="feature_desc">Stay informed with instant notifications on donation events, blood availability,
+                and urgent needs.</p>
+        </div>
+        <div class="feature">
+            <img class="feature_image" src="../static/images/blood_bags.png" alt="Feature 2 Icon">
+            <h3 class="feature_title">Efficient Transfusion Center Management</h3>
+            <p class="feature_desc">Optimize operations with streamlined processes, inventory management, and
+                appointment scheduling.</p>
+        </div>
+        <div class="feature">
+            <img class="feature_image"
+                src="https://images.pexels.com/photos/6146692/pexels-photo-6146692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Feature 3 Icon">
+            <h3 class="feature_title">Community Engagement</h3>
+            <p class="feature_desc">Build a strong network of donors and recipients, fostering a sense of community
+                and support.</p>
+        </div>
+    </section>
 
-            <h2 class="section_title">Our <br>Key <br>Features</h2>
-            <div class="feature">
-                <img class="feature_image" src="../static/images/nairobi_center.png" alt="Feature 1 Icon">
-                <h3 class="feature_title">Real-Time Donor Updates</h3>
-                <p class="feature_desc">Stay informed with instant notifications on donation events, blood availability,
-                    and urgent needs.</p>
+    <section class="landing_about_section">
+        <div class="landing_about_content">
+            <div class="about_description">
+                <h2 class="about_section_title">About HAYAT.</h2>
+                <p class="text">At HAYAT, our journey began with a shared passion for leveraging technology to make
+                    a
+                    tangible
+                    difference in people's lives. Inspired by personal experiences witnessing the critical need for
+                    efficient blood donation processes, our team embarked on a mission to revolutionize the way
+                    blood
+                    donations are managed.</p>
+                <p class="text">Each member of our team brings a unique perspective and skill set to the table,
+                    united
+                    by the common
+                    goal of creating a platform that empowers donors and saves lives. What started as a spark of
+                    inspiration evolved into a collaborative effort fueled by dedication and innovation.</p>
+                <p class="text">This project is not just an assignment; it's a reflection of our commitment to
+                    making a
+                    meaningful
+                    impact. Developed as a Portfolio Project for <em>ALX Africa SE Program</em>, HAYAT embodies our
+                    dedication to
+                    excellence in both technology and social responsibility.</p>
             </div>
-            <div class="feature">
-                <img class="feature_image" src="../static/images/blood_bags.png" alt="Feature 2 Icon">
-                <h3 class="feature_title">Efficient Transfusion Center Management</h3>
-                <p class="feature_desc">Optimize operations with streamlined processes, inventory management, and
-                    appointment scheduling.</p>
-            </div>
-            <div class="feature">
-                <img class="feature_image"
-                    src="https://images.pexels.com/photos/6146692/pexels-photo-6146692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="Feature 3 Icon">
-                <h3 class="feature_title">Community Engagement</h3>
-                <p class="feature_desc">Build a strong network of donors and recipients, fostering a sense of community
-                    and support.</p>
-            </div>
-        </section>
+            <div class="team_profiles">
+                <h3 class="team_profile_title">Our Team</h3>
+                <div class="team_members">
+                    <ul class="team_member">
+                        <p class="team_member_name">Youssef Charif <span>&mdash; Backend Developer</span></p>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/youssef-charif-hamidi">LinkedIn</a>
+                        </li>
+                        <li><a target="_blank" href="https://github.com/Chareeef">GitHub</a></li>
+                        <li><a target="_blank" href="https://twitter.com/">Twitter</a></li>
+                    </ul>
 
-        <section class="landing_about_section">
-            <div class="landing_about_content">
-                <div class="about_description">
-                    <h2 class="about_section_title">About HAYAT.</h2>
-                    <p class="text">At HAYAT, our journey began with a shared passion for leveraging technology to make
-                        a
-                        tangible
-                        difference in people's lives. Inspired by personal experiences witnessing the critical need for
-                        efficient blood donation processes, our team embarked on a mission to revolutionize the way
-                        blood
-                        donations are managed.</p>
-                    <p class="text">Each member of our team brings a unique perspective and skill set to the table,
-                        united
-                        by the common
-                        goal of creating a platform that empowers donors and saves lives. What started as a spark of
-                        inspiration evolved into a collaborative effort fueled by dedication and innovation.</p>
-                    <p class="text">This project is not just an assignment; it's a reflection of our commitment to
-                        making a
-                        meaningful
-                        impact. Developed as a Portfolio Project for <em>ALX Africa SE Program</em>, HAYAT embodies our
-                        dedication to
-                        excellence in both technology and social responsibility.</p>
-                </div>
-                <div class="team_profiles">
-                    <h3 class="team_profile_title">Our Team</h3>
-                    <div class="team_members">
-                        <ul class="team_member">
-                            <p class="team_member_name">Youssef Charif <span>&mdash; Backend Developer</span></p>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/youssef-charif-hamidi">LinkedIn</a>
-                            </li>
-                            <li><a target="_blank" href="https://github.com/Chareeef">GitHub</a></li>
-                            <li><a target="_blank" href="https://twitter.com/">Twitter</a></li>
-                        </ul>
-
-                        <ul class="team_member">
-                            <p class="team_member_name">Kenansa Meseret <span>&mdash; Backend Developer</span></p>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/">LinkedIn</a></li>
-                            <li><a target="_blank" href="https://github.com/KENC0DE">GitHub</a></li>
-                            <li><a target="_blank" href="https://twitter.com/KENC0DE">Twitter</a></li>
-                        </ul>
-                        <ul class="team_member">
-                            <p class="team_member_name">Blain Muema <span>&mdash; Frontend Developer</span></p>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/blain-muema">LinkedIn</a></li>
-                            <li><a target="_blank" href="https://github.com/octocatblain">GitHub</a></li>
-                            <li><a target="_blank" href="https://twitter.com/birdblain">Twitter</a></li>
-                        </ul>
-                    </div>
+                    <ul class="team_member">
+                        <p class="team_member_name">Kenansa Meseret <span>&mdash; Backend Developer</span></p>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/">LinkedIn</a></li>
+                        <li><a target="_blank" href="https://github.com/KENC0DE">GitHub</a></li>
+                        <li><a target="_blank" href="https://twitter.com/KENC0DE">Twitter</a></li>
+                    </ul>
+                    <ul class="team_member">
+                        <p class="team_member_name">Blain Muema <span>&mdash; Frontend Developer</span></p>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/blain-muema">LinkedIn</a></li>
+                        <li><a target="_blank" href="https://github.com/octocatblain">GitHub</a></li>
+                        <li><a target="_blank" href="https://twitter.com/birdblain">Twitter</a></li>
+                    </ul>
                 </div>
             </div>
-            <hr>
-            <div class="github_repo">
-                <p class="text">Explore our project repository on GitHub:</p>
-                <a class="github_link" href="https://github.com/Chareeef/HAYAT">HAYAT GitHub Repository <i class="bi bi-arrow-up-right-circle"></i></a>
-            </div>
-        </section>
+        </div>
+        <hr>
+        <div class="github_repo">
+            <p class="text">Explore our project repository on GitHub:</p>
+            <a class="github_link" href="https://github.com/Chareeef/HAYAT">HAYAT GitHub Repository <i
+                    class="bi bi-arrow-up-right-circle"></i></a>
+        </div>
+    </section>
 
 
-    </main>
-
-
-</body>
-
-</html>
+</main>
+{% endblock main %}
