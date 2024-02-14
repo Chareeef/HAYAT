@@ -63,7 +63,7 @@
     align-items: center;
     gap: 2rem;
 
-    .section_title{
+    .section_title {
         font-size: 4rem;
         font-weight: 200;
         text-align: center;
@@ -90,7 +90,7 @@
             border-radius: .25rem;
         }
 
-        
+
 
         .feature_title {
             color: whitesmoke;
@@ -106,7 +106,116 @@
         }
     }
 
-    .feature:hover .feature_image{
+    .feature:hover .feature_image {
         scale: 1.05;
     }
+}
+
+.landing_about_section {
+    padding-block: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: black;
+
+    .landing_about_content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+
+        >.about_description {
+            padding-inline: 2rem;
+            flex: 6;
+
+            >.about_section_title {
+                font-size: 2rem;
+                font-weight: 700;
+                color: darkred;
+            }
+
+            >.text {
+                color: black;
+                line-height: 1, 5;
+                font-size: 1.25rem;
+            }
+        }
+
+        .team_profiles {
+            flex: 6;
+
+            .team_profile_title {
+                font-size: 2rem;
+                font-weight: 700;
+                color: darkred;
+            }
+
+            .team_members {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                padding-inline: 4rem;
+
+                .team_member {
+                    border-bottom: 1px solid crimson;
+
+                    .team_member_name {
+                        font-weight: 700;
+
+                        >span {
+                            font-weight: 400;
+                        }
+                    }
+
+                    >li {
+                        list-style: circle;
+                        color: black;
+                        /* padding-inline-start: 3rem; */
+
+                        >a {
+                            color: black;
+                            transition: all 200ms ease;
+                        }
+                    }
+
+                    >li:hover a {
+                        text-decoration: underline;
+                        color: crimson;
+                        transition: all 200ms ease;
+                    }
+                }
+            }
+        }
+    }
+
+    >hr {
+        background-color: darkred;
+        height: 2px;
+        border: 2px solid red;
+    }
+
+    .github_repo {
+        line-height: 2;
+        text-align: center;
+
+        >.text {
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        .github_link {
+            color: darkred;
+            font-weight: 900;
+
+            >.bi{
+                font-size: 1rem;
+            }
+        }
+
+        .github_link:hover {
+            text-decoration: underline !important;
+        }
+    }
+
+
+
 }
