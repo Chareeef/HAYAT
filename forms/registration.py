@@ -9,19 +9,19 @@ from db import storage
 
 
 class TCRegistrationForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    name = StringField('Name *', validators=[DataRequired()])
+    email = StringField('Email *', validators=[DataRequired(), Email()])
     password = PasswordField(
-        'Password', validators=[
+        'Password *', validators=[
             DataRequired(), Length(
                 min=6)])
     confirm_password = PasswordField(
-        'Confirm Password', validators=[
+        'Confirm Password *', validators=[
             DataRequired(), EqualTo('password')])
     phone_number = StringField('Phone Number')
     map_coordinates = StringField('Map Coordinates')
-    country = SelectField('Country', coerce=int, validators=[DataRequired()])
-    city = SelectField('City', coerce=int, validators=[DataRequired()])
+    country = SelectField('Country *', coerce=int, validators=[DataRequired()])
+    city = SelectField('City *', coerce=int, validators=[DataRequired()])
     submit = SubmitField('Register')
 
     def __init__(self, *args, **kwargs):
@@ -51,18 +51,18 @@ class TCRegistrationForm(FlaskForm):
 
 
 class DonorRegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    username = StringField('Username *', validators=[DataRequired()])
+    email = StringField('Email *', validators=[DataRequired(), Email()])
     password = PasswordField(
-        'Password', validators=[
+        'Password *', validators=[
             DataRequired(), Length(
                 min=6)])
     confirm_password = PasswordField(
-        'Confirm Password', validators=[
+        'Confirm Password *', validators=[
             DataRequired(), EqualTo('password')])
     phone_number = StringField('Phone Number')
-    full_name = StringField('Full Name', validators=[DataRequired()])
-    age = IntegerField('Age', validators=[DataRequired(), NumberRange(min=18)])
+    full_name = StringField('Full Name *', validators=[DataRequired()])
+    age = IntegerField('Age *', validators=[DataRequired(), NumberRange(min=18)])
     gender = SelectField('Gender', choices=[None, 'Male', 'Female'])
     blood_category = SelectField(
         'Blood Category',
