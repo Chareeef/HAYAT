@@ -53,8 +53,68 @@ main {
         text-align: center;
 
         >.text {
-            font-size: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
             line-height: 2;
+        }
+
+        >.cta_text {
+            font-size: 1.5rem;
+            padding-block-start: 2rem;
+            text-transform: capitalize;
+        }
+
+        .cta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding-block-start: 2rem;
+
+            .button {
+                padding: 10px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                gap: 1rem;
+                color: white;
+                border-radius: .5rem;
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .donor_btn {
+                width: 225px;
+                background-color: crimson;
+                border: none;
+            }
+
+            .donor_btn:hover {
+                border: 1px solid crimson;
+                background: transparent;
+                color: crimson;
+            }
+
+            .donor_btn:hover .bi {
+                scale: 1.5;
+            }
+
+            .tc_btn {
+                width: 250px;
+                border: 1px solid crimson;
+                background: transparent;
+                color: crimson;
+            }
+
+            .tc_btn:hover {
+                background-color: crimson;
+                color: white;
+            }
+
+            .tc_btn:hover .bi {
+                scale: 1.5;
+            }
         }
     }
 }
@@ -73,7 +133,7 @@ main {
         text-align: center;
     }
 
-    .feature_wrapper{
+    .feature_wrapper {
         display: flex;
         justify-content: space-around;
         gap: 3rem;
@@ -177,13 +237,23 @@ main {
                     }
 
                     >li {
-                        list-style: circle;
+                        display: flex;
+                        justify-content: flex-start;
+                        gap: 1rem;
                         color: black;
-                        /* padding-inline-start: 3rem; */
+                        cursor: pointer;
+                        padding-block-end: .5rem;
+
 
                         >a {
                             color: black;
                             transition: all 200ms ease;
+                            font-weight: 600;
+
+                            >span{
+                                font-style: italic;
+                                font-weight: 300;
+                            }
                         }
                     }
 
