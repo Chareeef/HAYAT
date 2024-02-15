@@ -135,8 +135,10 @@ main {
 
     .feature_wrapper {
         display: flex;
+        align-items: center;
         justify-content: space-around;
-        gap: 3rem;
+        flex-wrap: wrap;
+        gap: 2rem;
     }
 
     .feature {
@@ -268,9 +270,8 @@ main {
     }
 
     >hr {
-        background-color: darkred;
-        height: 2px;
-        border: 2px solid red;
+        width: 75px;
+        border-bottom: 1px solid crimson;
     }
 
     .github_repo {
