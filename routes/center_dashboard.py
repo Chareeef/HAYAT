@@ -27,7 +27,8 @@ def center_dashboard():
 
 
 @app.route('/update_blood_bags/', strict_slashes=False)
-@app.route('/update_blood_bags/<int:bag_id>', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/update_blood_bags/<int:bag_id>',
+           methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def update_blood_bags(bag_id=None):
     """Update the Blood Bags statistics for the logged in TC"""

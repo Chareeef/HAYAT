@@ -1,11 +1,10 @@
-/* ====================================
-LOGIN PAGE
-=======================================*/
+/* Login page styles */
 
 .login {
 	display: flex;
 	justify-content: space-between;
 	columns: 2;
+        background: var(--main-bg);
 	height: 100%;
 }
 

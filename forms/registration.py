@@ -62,7 +62,8 @@ class DonorRegistrationForm(FlaskForm):
             DataRequired(), EqualTo('password')])
     phone_number = StringField('Phone Number')
     full_name = StringField('Full Name *', validators=[DataRequired()])
-    age = IntegerField('Age *', validators=[DataRequired(), NumberRange(min=18)])
+    age = IntegerField(
+        'Age *', validators=[DataRequired(), NumberRange(min=18)])
     gender = SelectField('Gender', choices=[None, 'Male', 'Female'])
     blood_category = SelectField(
         'Blood Category',

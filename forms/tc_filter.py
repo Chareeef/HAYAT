@@ -16,7 +16,8 @@ class TCFilter(FlaskForm):
     def __init__(self, *args, **kwargs):
         """Initialize choices"""
         super(TCFilter, self).__init__(*args, **kwargs)
-        self.country.choices = [(0, 'Select Country')] + [(country.id, country.name)
-                                               for country in storage.all('Country')]
+        self.country.choices = [(0,
+                                 'Select Country')] + [(country.id,
+                                                        country.name) for country in storage.all('Country')]
         self.city.choices = [(0, 'Select City')]
         self.center.choices = [(0, 'Select Center')]

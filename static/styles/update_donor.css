@@ -1,0 +1,80 @@
+/* Style for Update Donor infos page */
+
+main {
+    padding: 20px;
+}
+
+.title {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 4px solid #f00;
+}
+
+.container {
+    display: flex;
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+form {
+    width: 50%;
+}
+
+legend {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+label {
+    width: 200px;
+    margin: 10px 5px;
+}
+
+input, select {
+    width: 250px;
+    padding: 0 2.5px;
+    border: 0.5px solid crimson;
+    border-radius: 3px;
+}
+
+input[type="number"], select {
+    width: 75px;
+    text-align: center;
+    margin-left: 87.5px;
+}
+
+div.submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    width: 200px;
+    font-size: 16px;
+    background-color: #f00; /* Red color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error {
+    width: 250px;
+    margin-left: 220px;
+    margin-top: -5px;
+    color: crimson;
+}
+
+hr {
+    margin-right: 10px;
+    height: 300px;
+    width: 1px;
+    background-color: crimson;
+}
