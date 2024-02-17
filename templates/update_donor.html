@@ -130,6 +130,24 @@
 			</div>
 
 		</form>
+
+		<div class="delete-div">
+			<p class="delete-text">Delete your Account :</p>
+			<button class="delete-btn" onclick="confirmDelete()">Delete Account</button>
+			<form id="deleteForm" action="{{ url_for('delete_account') }}" method="post" style="display: none;">
+				<button type="submit">Confirm Delete</button>
+			</form>
+		</div>
 	</div>
 </main>
 {% endblock main %}
+
+{% block script %}
+<script>
+	function confirmDelete() {
+		if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+			document.getElementById('deleteForm').submit();
+		}
+	}
+</script>
+{% endblock script %}

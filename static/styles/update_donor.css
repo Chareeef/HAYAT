@@ -20,6 +20,8 @@ main {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     background-color: #fff;
     color: #000;
     padding: 20px;
@@ -27,10 +29,10 @@ main {
 }
 
 form {
-    width: 50%;
+    width: 45%;
 }
 
-legend {
+legend, .delete-text {
     font-size: 22px;
     font-weight: bold;
 }
@@ -79,10 +81,28 @@ input[type="submit"] {
 }
 
 hr {
-    margin-left: -10px;
-    margin-right: 20px;
     height: 250px;
     width: 1px;
     align-self: center;
     background-color: crimson;
+}
+
+.delete-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.delete-btn {
+    width: 200px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: crimson;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #f00;
+    border-radius: 8px;
 }

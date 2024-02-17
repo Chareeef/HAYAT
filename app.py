@@ -34,7 +34,7 @@ def close_db(error):
     storage.close()
 
 from routes.home import *
-from routes.get_objects import *
+from routes.helpers import *
 from routes.register import *
 from routes.login import *
 from routes.center_dashboard import *
