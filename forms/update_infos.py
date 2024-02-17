@@ -102,17 +102,17 @@ class DonorUpdateInfos(FlaskForm):
 class ChangePassword(FlaskForm):
     """Fom for changing password"""
     actual_password = PasswordField(
-        'Actual Password *', validators=[
+        'Actual Password :', validators=[
             DataRequired(), Length(
                 min=6)])
 
     new_password = PasswordField(
-        'New Password *', validators=[
+        'New Password :', validators=[
             DataRequired(), Length(
                 min=6)])
 
     confirm_password = PasswordField(
-        'Confirm Password *', validators=[
+        'Confirm Password :', validators=[
             DataRequired(), EqualTo('new_password')])
 
     submit = SubmitField('Change Password')
