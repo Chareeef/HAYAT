@@ -138,8 +138,10 @@ main {
 
     .feature_wrapper {
         display: flex;
+        align-items: center;
         justify-content: space-around;
-        gap: 3rem;
+        flex-wrap: wrap;
+        gap: 2rem;
     }
 
     .feature {
