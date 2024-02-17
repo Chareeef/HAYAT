@@ -1,4 +1,4 @@
-/* Style for Update Donor infos page */
+/* Style for Update Transfusion Center infos page */
 main {
     padding: 20px;
 }
@@ -47,10 +47,16 @@ input, select {
     border-radius: 3px;
 }
 
-input[type="number"], select {
+input[type="number"] {
     width: 75px;
     text-align: center;
     margin-left: 87.5px;
+}
+
+select {
+    width: 125px;
+    text-align: center;
+    margin-left: 62.5px;
 }
 
 div.submit {

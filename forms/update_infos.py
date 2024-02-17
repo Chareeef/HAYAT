@@ -10,41 +10,33 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length, NumberRange
 from db import storage
 
 
-# class TCUpdateForm(FlaskForm):
-#     name = StringField('Name *', validators=[DataRequired()])
-#     email = StringField('Email *', validators=[DataRequired(), Email()])
-#     phone_number = StringField('Phone Number')
-#     map_coordinates = StringField('Map Coordinates')
-#     country = SelectField('Country *', coerce=int, validators=[DataRequired()])
-#     city = SelectField('City *', coerce=int, validators=[DataRequired()])
-#     submit = SubmitField('Update Informations')
-#
-#     def __init__(self, *args, **kwargs):
-#         """Initialize choiced"""
-#         super(TCRegistrationForm, self).__init__(*args, **kwargs)
-#         self.country.choices = [(0, '---')] + [(country.id, country.name)
-#                                                for country in storage.all('Country')]
-#         self.city.choices = [(city.id, city.name)
-#                              for city in storage.all('City')]
-#
-#     def validate_email(self, email):
-#         """Check if the email is not already taken"""
-#
-#         tc = storage.session.query(TC).filter_by(email=email.data).first()
-#
-#         if tc:
-#             raise ValidationError('This email is already used.')
-#
-#     def validate_phone_number(self, phone_number):
-#         """Check if the phone number is not already taken"""
-#         if not phone_number.data:
-#             return
-#
-#         tc = storage.session.query(TC).filter_by(
-#             phone_number=phone_number.data).first()
-#
-#         if tc:
-#             raise ValidationError('This phone number is already used.')
+class TCUpdateInfos(FlaskForm):
+    name = StringField('Center Name :', validators=[DataRequired()])
+    email = StringField('Email :', validators=[DataRequired(), Email()])
+    phone_number = StringField('Phone Number :')
+    map_coordinates = StringField('Location :')
+    country = SelectField('Country :', coerce=int, validators=[DataRequired()])
+    city = SelectField('City :', coerce=int, validators=[DataRequired()])
+    submit = SubmitField('Update Informations')
+
+    def validate_email(self, email):
+        """Check if the email is not already taken"""
+
+        tc = storage.session.query(TC).filter_by(email=email.data).first()
+
+        if tc and tc != current_user:
+            raise ValidationError('This email is already used.')
+
+    def validate_phone_number(self, phone_number):
+        """Check if the phone number is not already taken"""
+        if not phone_number.data:
+            return
+
+        tc = storage.session.query(TC).filter_by(
+            phone_number=phone_number.data).first()
+
+        if tc and tc != current_user:
+            raise ValidationError('This phone number is already used.')
 
 
 class DonorUpdateInfos(FlaskForm):
@@ -99,7 +91,7 @@ class DonorUpdateInfos(FlaskForm):
             raise ValidationError('This phone number is already used.')
 
 
-class ChangePassword(FlaskForm):
+class ChangePasswordForm(FlaskForm):
     """Fom for changing password"""
     actual_password = PasswordField(
         'Actual Password :', validators=[

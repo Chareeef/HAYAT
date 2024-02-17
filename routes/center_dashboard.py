@@ -1,11 +1,12 @@
 #!/ usr/bin/python3
 """
-Our Project Flask Routes
+Our Flask Routes for Transfusion Center Dashboard
 """
-from app import app
+from app import app, bcrypt
 from db import storage
 from flask import flash, render_template, redirect, request, url_for
 from flask_login import current_user, login_required
+from forms.update_infos import TCUpdateInfos, ChangePasswordForm
 
 
 @app.route('/center_dashboard', strict_slashes=False)
@@ -48,3 +49,58 @@ def update_blood_bags(bag_id=None):
                            title='Update Blood Bags',
                            center=center,
                            bags=bags)
+
+
+@app.route('/update_center', methods=['GET', 'POST'], strict_slashes=False)
+@login_required
+def update_center():
+    """Render the form for updating transfusion center informations"""
+    update_infos = TCUpdateInfos()
+    change_pwd = ChangePasswordForm()
+
+    center = current_user
+    current_city = center.city
+    current_country = current_city.country
+
+    update_infos.country.choices = [(country.id, country.name)
+                                    for country in storage.all('Country')]
+
+    update_infos.city.choices = [(city.id, city.name) for city in storage.all('City')]
+
+    if 'email' in dict(request.form) and update_infos.validate_on_submit():
+        center.name = update_infos.name.data
+        center.email = update_infos.email.data
+        center.city_id = update_infos.city.data
+
+        phone_number = update_infos.phone_number.data
+        if phone_number == '':
+            phone_number = None
+        center.phone_number = phone_number
+
+        map_coordinates = update_infos.map_coordinates.data
+        if map_coordinates == '':
+            map_coordinates = None
+        center.map_coordinates = map_coordinates
+
+        storage.commit()
+
+        flash('Profile updated successfully !', 'success')
+        return redirect(url_for('center_dashboard'))
+
+    elif 'new_password' in dict(request.form) and change_pwd.validate_on_submit():
+        new_hash = bcrypt.generate_password_hash(
+            change_pwd.new_password.data).decode('utf-8')
+        current_user.password_hash = new_hash
+
+        storage.commit()
+
+        flash('Password changed successfully !', 'success')
+        return redirect(url_for('center_dashboard'))
+
+    return render_template('update_center.html',
+                           title='Update Infos',
+                           update_infos=update_infos,
+                           change_pwd=change_pwd,
+                           current_country=current_country,
+                           current_city=current_city,
+                           center=center)

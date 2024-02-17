@@ -6,7 +6,7 @@ from app import app, bcrypt
 from db import storage
 from flask import flash, render_template, redirect, request, url_for
 from flask_login import current_user, login_required
-from forms.update_infos import DonorUpdateInfos, ChangePassword
+from forms.update_infos import DonorUpdateInfos, ChangePasswordForm
 
 
 @app.route('/donor_dashboard', strict_slashes=False)
@@ -23,7 +23,7 @@ def donor_dashboard():
 def update_donor():
     """Render the form for updating Donor informations"""
     update_infos = DonorUpdateInfos()
-    change_pwd = ChangePassword()
+    change_pwd = ChangePasswordForm()
 
     donor = current_user
     blood_categories = ['None', 'A+', 'A-', 'B+', 'B-',
@@ -53,6 +53,7 @@ def update_donor():
 
         storage.commit()
 
+        flash('Profile updated successfully !', 'success')
         return redirect(url_for('donor_dashboard'))
 
     elif 'new_password' in dict(request.form) and change_pwd.validate_on_submit():
@@ -62,6 +63,7 @@ def update_donor():
 
         storage.commit()
 
+        flash('Password changed successfully !', 'success')
         return redirect(url_for('donor_dashboard'))
 
     return render_template('update_donor.html',

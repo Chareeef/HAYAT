@@ -7,7 +7,7 @@ $(document).ready(function() {
         type: 'GET',
         success: function(response) {
           var cities = response.cities;
-          var options = '<option value="">Select City</option>';
+          var options = '<option value="0">Select City</option>';
           for (var i = 0; i < cities.length; i++) {
             options += '<option value="' + cities[i].id + '">' + cities[i].name + '</option>';
           }
@@ -15,7 +15,7 @@ $(document).ready(function() {
         }
       });
     } else {
-      $('#city').html('<option value="">Select City</option>');
+      $('#city').html('<option value="0">Select City</option>');
     }
   });
 });
