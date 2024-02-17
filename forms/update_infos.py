@@ -14,7 +14,7 @@ class TCUpdateInfos(FlaskForm):
     name = StringField('Center Name :', validators=[DataRequired()])
     email = StringField('Email :', validators=[DataRequired(), Email()])
     phone_number = StringField('Phone Number :')
-    map_coordinates = StringField('Location :')
+    location = StringField('Location :')
     country = SelectField('Country :', coerce=int, validators=[DataRequired()])
     city = SelectField('City :', coerce=int, validators=[DataRequired()])
     submit = SubmitField('Update Informations')

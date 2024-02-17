@@ -23,6 +23,7 @@ def register():
         name = tc_form.name.data.strip()
         email = tc_form.email.data.strip()
         phone_number = tc_form.phone_number.data.strip()
+        location = tc_form.location.data.strip()
         password = tc_form.password.data.strip()
         country_id = tc_form.country.data
         city_id = tc_form.city.data
@@ -33,11 +34,15 @@ def register():
         if phone_number == '':
             phone_number = None
 
+        if location == '':
+            location = None
+
         # Create a dictionary with tc data
         tc_dict = {
             'name': name,
             'email': email,
             'phone_number': phone_number,
+            'location': location,
             'password_hash': hashed_pw,
             'city_id': city_id
         }

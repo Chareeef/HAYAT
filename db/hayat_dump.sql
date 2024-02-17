@@ -177,7 +177,7 @@ CREATE TABLE `transfusion_centers` (
   `email` varchar(50) NOT NULL,
   `password_hash` varchar(80) NOT NULL,
   `phone_number` varchar(20) DEFAULT NULL,
-  `map_coordinates` varchar(80) DEFAULT NULL,
+  `location` varchar(80) DEFAULT NULL,
   `city_id` int NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,

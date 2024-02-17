@@ -56,13 +56,13 @@
 			</div>
 
 			<div>
-				{{ update_infos.map_coordinates.label() }}
-				{% if center.map_coordinates %}
-				{{ update_infos.map_coordinates(value=center.map_coordinates) }}
+				{{ update_infos.location.label() }}
+				{% if center.location %}
+				{{ update_infos.location(value=center.location) }}
 				{% else %}
-				{{ update_infos.map_coordinates(placeholder='(optional, e.g: Google Maps link)') }}
+				{{ update_infos.location(placeholder='(optional, e.g: Google Maps link)') }}
 				{% endif %}
-				{% for error in update_infos.map_coordinates.errors %}
+				{% for error in update_infos.location.errors %}
 				<div class="error">{{ error }}</div>
 				{% endfor %}
 			</div>

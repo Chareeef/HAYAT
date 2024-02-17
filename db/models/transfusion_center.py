@@ -17,7 +17,7 @@ class TransfusionCenter(BaseModel, Base, UserMixin):
     email = Column(String(50), nullable=False, unique=True)
     password_hash = Column(String(80), nullable=False)
     phone_number = Column(String(20), unique=True)
-    map_coordinates = Column(String(80))
+    location = Column(String(80))
     city_id = Column(Integer, ForeignKey('cities.id'), nullable=False)
     blood_bags = relationship('BloodBag', backref='center',
                               cascade='all, delete-orphan')

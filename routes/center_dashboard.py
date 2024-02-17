@@ -77,10 +77,10 @@ def update_center():
             phone_number = None
         center.phone_number = phone_number
 
-        map_coordinates = update_infos.map_coordinates.data
-        if map_coordinates == '':
-            map_coordinates = None
-        center.map_coordinates = map_coordinates
+        location = update_infos.location.data
+        if location == '':
+            location = None
+        center.location = location
 
         storage.commit()
 
