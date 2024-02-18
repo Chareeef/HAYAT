@@ -9,6 +9,7 @@ from db import storage
 
 
 class TCRegistrationForm(FlaskForm):
+    """Transfusion Center Registration form"""
     name = StringField('Name *', validators=[DataRequired()])
     email = StringField('Email *', validators=[DataRequired(), Email()])
     password = PasswordField(
@@ -51,6 +52,7 @@ class TCRegistrationForm(FlaskForm):
 
 
 class DonorRegistrationForm(FlaskForm):
+    """Donor Registration form"""
     username = StringField('Username *', validators=[DataRequired()])
     email = StringField('Email *', validators=[DataRequired(), Email()])
     password = PasswordField(
@@ -64,19 +66,23 @@ class DonorRegistrationForm(FlaskForm):
     full_name = StringField('Full Name *', validators=[DataRequired()])
     age = IntegerField(
         'Age *', validators=[DataRequired(), NumberRange(min=18)])
-    gender = SelectField('Gender', choices=[None, 'Male', 'Female'])
+    gender = SelectField('Gender',
+                         choices=[
+                             (None, 'None'), ('Male', 'Male'), ('Female', 'Female')],
+                         default=None)
     blood_category = SelectField(
         'Blood Category',
         choices=[
-            None,
-            'A+',
-            'A-',
-            'B+',
-            'B-',
-            'AB+',
-            'AB-',
-            'O+',
-            'O-'])
+            (None, 'None'),
+            ('A+', 'A+'),
+            ('A-', 'A-'),
+            ('B+', 'B+'),
+            ('B-', 'B-'),
+            ('AB+', 'AB+'),
+            ('AB-', 'AB-'),
+            ('O+', 'O+'),
+            ('O-', 'O-')],
+        default=None)
     submit = SubmitField('Register')
 
     def validate_email(self, email):

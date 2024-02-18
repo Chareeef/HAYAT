@@ -9,6 +9,7 @@
 
 .footer_wrapper {
     display: flex;
+    flex-wrap: wrap;
     flex: 1 0 0;
     justify-content: space-between;
     gap: 3rem;

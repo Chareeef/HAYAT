@@ -1,7 +1,5 @@
 #!/ usr/bin/python3
-"""
-Our Project Flask Routes
-"""
+"""The Login Route"""
 from app import app, bcrypt
 from db import storage
 from db.models.donor import Donor
@@ -15,6 +13,7 @@ from forms.login import DonorLoginForm, TCLoginForm
 def login():
     """Login page for both Donor and Transfusion Center"""
     if current_user.is_authenticated:
+        flash('Logout first.', 'info')
         return redirect(url_for('home'))
 
     tc_form = TCLoginForm()
