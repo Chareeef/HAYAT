@@ -36,14 +36,13 @@ header {
     display: flex;
     gap: 1rem;
 
-
     .header_btn {
         padding: .2rem;
         background-color: var(--primary-clr);
         color: var(--secondary-clr);
         border: 2px solid var(--tertiary-clr);
         border-radius: .375rem;
-        width: 10dvw;
+        width: 12.5vw;
         font-size: 1.2rem;
         cursor: pointer;
         transition: all 500ms ease;

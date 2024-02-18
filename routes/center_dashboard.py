@@ -65,7 +65,8 @@ def update_center():
     update_infos.country.choices = [(country.id, country.name)
                                     for country in storage.all('Country')]
 
-    update_infos.city.choices = [(city.id, city.name) for city in storage.all('City')]
+    update_infos.city.choices = [(city.id, city.name)
+                                 for city in storage.all('City')]
 
     if 'email' in dict(request.form) and update_infos.validate_on_submit():
         center.name = update_infos.name.data

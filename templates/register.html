@@ -100,14 +100,22 @@
 					<div class="selects">
 						<div class="group">
 							{{ donor_form.gender.label }}
-							{{ donor_form.gender(size=20) }}
+							<select name="gender" id="gender" size="20">
+								{% for value, label in donor_form.gender.choices %}
+								<option value="{{ value }}" {% if value == None %}selected{% endif %}>{{ label }}</option>
+								{% endfor %}
+							</select>
 							{% for error in donor_form.gender.errors %}
 							<span style="color: red;">{{ error }}</span>
 							{% endfor %}
 						</div>
 						<div class="group">
 							{{ donor_form.blood_category.label }}
-							{{ donor_form.blood_category(size=20) }}
+							<select name="blood_category" id="blood_category" size="20">
+								{% for value, label in donor_form.blood_category.choices %}
+								<option value="{{ value }}" {% if value == None %}selected{% endif %}>{{ label }}</option>
+								{% endfor %}
+							</select>
 							{% for error in donor_form.blood_category.errors %}
 							<span style="color: red;">{{ error }}</span>
 							{% endfor %}
