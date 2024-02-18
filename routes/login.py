@@ -29,6 +29,11 @@ def login():
         if tc and bcrypt.check_password_hash(tc.password_hash, password):
             login_user(tc)
             flash('Logged in successfully !', 'success')
+
+            next_page = request.args.get('next')
+            if next_page:
+                return redirect(next_page)
+
             return redirect(url_for('center_dashboard'))
         else:
             flash('Invalid email or password. Please try again.', 'danger')
@@ -42,6 +47,11 @@ def login():
                 donor.password_hash, donor_form.password.data):
             login_user(donor)
             flash('Logged in successfully !', 'success')
+
+            next_page = request.args.get('next')
+            if next_page:
+                return redirect(next_page)
+
             return redirect(url_for('home'))
         else:
             flash('Invalid username or password. Please try again.', 'danger')
