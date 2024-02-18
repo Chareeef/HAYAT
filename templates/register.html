@@ -164,7 +164,7 @@
 						</div>
 						<div class="group">
 							{{ tc_form.location.label }}
-							{{ tc_form.location(size=20 placeholder='(optional, e.g: Google Maps Link)') }}
+							{{ tc_form.location(size=20, placeholder='(optional, e.g: Google Maps Link)') }}
 							{% for error in tc_form.location.errors %}
 							<span style="color: red;">{{ error }}</span>
 							{% endfor %}

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Linux (x86_64)
 --
--- Host: localhost    Database: hayat_prod_db
+-- Host: localhost    Database: hayat_dev_db
 -- ------------------------------------------------------
 -- Server version	8.0.36-0ubuntu0.20.04.1
 
@@ -33,7 +33,7 @@ CREATE TABLE `blood_bags` (
   PRIMARY KEY (`id`),
   KEY `center_id` (`center_id`),
   CONSTRAINT `blood_bags_ibfk_1` FOREIGN KEY (`center_id`) REFERENCES `transfusion_centers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `blood_bags` (
 
 LOCK TABLES `blood_bags` WRITE;
 /*!40000 ALTER TABLE `blood_bags` DISABLE KEYS */;
-INSERT INTO `blood_bags` VALUES ('A+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',1,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('A-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',2,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('B+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',3,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('B-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',4,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('AB+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',5,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('AB-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',6,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('O+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',7,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('O-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',8,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('A+',53,'Stable','WbFLwTCaNYWygWShXbdXDW',9,'2024-02-11 01:45:08','2024-02-12 10:29:09'),('A-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',10,'2024-02-11 01:45:08','2024-02-12 00:29:28'),('B+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',11,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('B-',17,'Soon Shortage','WbFLwTCaNYWygWShXbdXDW',12,'2024-02-11 01:45:08','2024-02-11 23:58:41'),('AB+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',13,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('AB-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',14,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('O+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',15,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('O-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',16,'2024-02-11 01:45:08','2024-02-11 01:45:08');
+INSERT INTO `blood_bags` VALUES ('A+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',1,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('A-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',2,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('B+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',3,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('B-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',4,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('AB+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',5,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('AB-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',6,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('O+',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',7,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('O-',30,'Stable','3Fu5HaWknvzHxgHqgwxFmL',8,'2024-02-10 22:55:41','2024-02-10 22:55:41'),('A+',53,'Stable','WbFLwTCaNYWygWShXbdXDW',9,'2024-02-11 01:45:08','2024-02-12 10:29:09'),('A-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',10,'2024-02-11 01:45:08','2024-02-12 00:29:28'),('B+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',11,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('B-',17,'Soon Shortage','WbFLwTCaNYWygWShXbdXDW',12,'2024-02-11 01:45:08','2024-02-11 23:58:41'),('AB+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',13,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('AB-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',14,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('O+',30,'Stable','WbFLwTCaNYWygWShXbdXDW',15,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('O-',30,'Stable','WbFLwTCaNYWygWShXbdXDW',16,'2024-02-11 01:45:08','2024-02-11 01:45:08'),('A+',30,'Stable','akgQxfJFmx79gTnjWNTApL',17,'2024-02-17 23:13:49','2024-02-17 23:13:49'),('A-',30,'Stable','akgQxfJFmx79gTnjWNTApL',18,'2024-02-17 23:13:49','2024-02-17 23:13:49'),('B+',30,'Stable','akgQxfJFmx79gTnjWNTApL',19,'2024-02-17 23:13:49','2024-02-17 23:13:49'),('B-',30,'Stable','akgQxfJFmx79gTnjWNTApL',20,'2024-02-17 23:13:49','2024-02-17 23:13:49'),('AB+',30,'Stable','akgQxfJFmx79gTnjWNTApL',21,'2024-02-17 23:13:49','2024-02-17 23:13:49'),('AB-',30,'Stable','akgQxfJFmx79gTnjWNTApL',22,'2024-02-17 23:13:49','2024-02-17 23:13:49'),('O+',30,'Stable','akgQxfJFmx79gTnjWNTApL',23,'2024-02-17 23:13:49','2024-02-17 23:13:49'),('O-',30,'Stable','akgQxfJFmx79gTnjWNTApL',24,'2024-02-17 23:13:49','2024-02-17 23:13:49');
 /*!40000 ALTER TABLE `blood_bags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `transfusion_centers` (
   `email` varchar(50) NOT NULL,
   `password_hash` varchar(80) NOT NULL,
   `phone_number` varchar(20) DEFAULT NULL,
-  `location` varchar(80) DEFAULT NULL,
+  `location` varchar(500) DEFAULT NULL,
   `city_id` int NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -195,7 +195,7 @@ CREATE TABLE `transfusion_centers` (
 
 LOCK TABLES `transfusion_centers` WRITE;
 /*!40000 ALTER TABLE `transfusion_centers` DISABLE KEYS */;
-INSERT INTO `transfusion_centers` VALUES ('3Fu5HaWknvzHxgHqgwxFmL','Annaba TC','annabatc@ex.com','$2b$12$CEmw3FbAJC/04CNoIayzOez3gtCjz7KoFuqCy/ZJ1fy.yjol/AGay',NULL,NULL,10,'2024-02-10 22:55:40','2024-02-10 22:55:40'),('WbFLwTCaNYWygWShXbdXDW','Sahraoui TC','sahraoui@gmail.com','$2b$12$wdob02D5wEXaT6CejNLEeeFzDo2KMW1BmfVgU4stsepsadSSWgzwa',NULL,NULL,506,'2024-02-11 01:45:08','2024-02-11 01:45:08');
+INSERT INTO `transfusion_centers` VALUES ('3Fu5HaWknvzHxgHqgwxFmL','Annaba TC','annabatc@ex.com','$2b$12$CEmw3FbAJC/04CNoIayzOez3gtCjz7KoFuqCy/ZJ1fy.yjol/AGay',NULL,NULL,10,'2024-02-10 22:55:40','2024-02-10 22:55:40'),('akgQxfJFmx79gTnjWNTApL','Algiers TC','Alg@ex.com','$2b$12$yrstDXU/cAVt3BgFpYqYb.La9jKtT/jsIz6BFx5dgpI69yXQZq7U.','0467899876','https://maps.google.com',20,'2024-02-17 23:13:49','2024-02-17 23:13:49'),('WbFLwTCaNYWygWShXbdXDW','Sahraoui TC','sahraoui@gmail.com','$2b$12$wdob02D5wEXaT6CejNLEeeFzDo2KMW1BmfVgU4stsepsadSSWgzwa',NULL,NULL,506,'2024-02-11 01:45:08','2024-02-11 01:45:08');
 /*!40000 ALTER TABLE `transfusion_centers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -208,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-12 19:33:46
+-- Dump completed on 2024-02-18  0:07:50

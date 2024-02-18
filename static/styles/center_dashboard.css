@@ -43,6 +43,11 @@ main {
     width: 70%;
 }
 
+.location {
+    font-size: 20px;
+    color: red;
+}
+
 /* Settings button */
 
 .update {

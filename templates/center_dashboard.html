@@ -40,10 +40,10 @@
 				<td class="profile-info-value">{{ center.phone_number }}</td>
 			</tr>
 			{% endif %}
-			{% if center.location %} <!-- TODO : Replace map coordinates by location -->
+			{% if center.location %}
 			<tr>
 				<td class="profile-info-key">Location:</td>
-				<td class="profile-info-value">{{ center.location }}</td>
+				<td class="profile-info-value"><a target="_blank" href="{{ center.location }}"><i class="location fas fa-map-marker-alt"></i></a></td>
 			</tr>
 			{% endif %}
 			<tr>

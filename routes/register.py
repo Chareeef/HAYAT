@@ -6,7 +6,7 @@ from app import app, bcrypt
 from db.models.blood_bag import BloodBag
 from db.models.donor import Donor
 from db.models.transfusion_center import TransfusionCenter
-from flask import flash, render_template, redirect, url_for
+from flask import flash, render_template, redirect, request, url_for
 from flask_login import current_user
 from forms.registration import DonorRegistrationForm, TCRegistrationForm
 
@@ -18,7 +18,7 @@ def register():
         return redirect(url_for('home'))
 
     tc_form = TCRegistrationForm()
-    if tc_form.validate_on_submit():
+    if 'location' in dict(request.form) and tc_form.validate_on_submit():
         # If tc_form data is valid, process it
         name = tc_form.name.data.strip()
         email = tc_form.email.data.strip()
@@ -64,7 +64,7 @@ def register():
         return redirect(url_for('login'))
 
     donor_form = DonorRegistrationForm()
-    if donor_form.validate_on_submit():
+    if 'username' in dict(request.form) and donor_form.validate_on_submit():
         # If donor_form data is valid, process it
         username = donor_form.username.data.strip()
         full_name = donor_form.full_name.data.strip()
