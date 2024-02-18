@@ -74,6 +74,9 @@
 			{% if center.phone_number %}
 			<p><strong>Phone Number:</strong> {{ center.phone_number }}</p>
 			{% endif %}
+			{% if center.location %}
+			<p><strong>Location:</strong> <a target="_blank" href="{{ center.location }}"><i class="location fas fa-map-marker-alt"></i></a></p>
+			{% endif %}
 		</div>
 		<div class="stats-title">
 			<h2>Blood Bags Statistics :</h2>
