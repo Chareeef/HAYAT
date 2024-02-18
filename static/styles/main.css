@@ -33,7 +33,7 @@ html {
             color: var(--secondary-clr);
             font-family: var(--ff);
             position: relative;
-            margin-block-start: 4.375rem;
+            margin-block-start: 95px;
         }
     }
 }
@@ -109,20 +109,6 @@ FLASH MESSAGES
     ::-webkit-scrollbar-track-piece {
         background-color: var(--tertiary-bg);
     }
-    /* ====================================
-    ALL SECTIONS
-    =======================================*/
-
-    section {
-        /* min-height: 100dvh; */
-        display: flex;
-        align-items: center;
-        padding-inline: 3.125rem;
-    }
-
-    section:nth-child(odd) {
-        background: var(--primary-bg);
-    }
 
     /* ====================================
     WHY DONATE SECTION
@@ -131,6 +117,10 @@ FLASH MESSAGES
     .why_donate {
         padding-block: 6rem;
         gap: 2rem;
+        display: flex;
+        align-items: center;
+        padding-inline: 3.125rem;
+        background: var(--primary-bg);
 
         .title {
             margin-top: -20px;

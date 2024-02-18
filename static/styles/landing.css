@@ -1,13 +1,15 @@
 /* Main styles */
+body {
+    margin-block-start: 75px;
+}
+
 main {
     overflow-x: hidden;
-    width: 100dvw;
-    margin-top: -20px;
+    background-color: #ffffff;
+    color: #ffffff;
 }
 
 .landing_hero {
-    /* height: calc(100dvh - 50px); */
-    height: 100dvh;
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://images.pexels.com/photos/5340276/pexels-photo-5340276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-position: center;
@@ -124,6 +126,7 @@ main {
     padding-block: 6rem;
     display: flex;
     flex-direction: column;
+    background: var(--main-bg);
     align-items: center;
     gap: 2rem;
 
@@ -270,6 +273,7 @@ main {
     }
 
     >hr {
+        align-self: center;
         width: 75px;
         border-bottom: 1px solid crimson;
     }

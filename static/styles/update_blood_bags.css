@@ -24,6 +24,7 @@
 
 .blood-bag form input[type="number"],
 .blood-bag form select {
+    height: 35px;
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;

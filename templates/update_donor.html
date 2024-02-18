@@ -1,0 +1,153 @@
+{% extends 'layout.html' %}
+{% block style %}
+<link rel="stylesheet" href="../static/styles/update_donor.css">
+{% endblock style %}
+
+{% block main %}
+<main>
+	<a href="{{ url_for('donor_dashboard') }}" class="back bi bi-arrow-left-circle"></a>
+	<h1 class="title">Update Informations :</h1>
+
+	<!-- Render flashed messages -->
+	<div class="flash">
+		{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+		{% for category, message in messages %}
+		<div class="alert alert-{{ category }}">
+			{{ message }}
+		</div>
+		{% endfor  %}
+		{% endif %}
+		{% endwith %}
+	</div>
+
+	<!-- Update infos form -->
+	<div class="container">
+		<form method="POST">
+			{{ update_infos.hidden_tag() }} <!-- Include CSRF token -->
+			<legend>General infos :</legend>
+
+			<div>
+				{{ update_infos.username.label() }}
+				{{ update_infos.username(value=donor.username) }}
+				{% for error in update_infos.username.errors %}
+				<div class="error">{{ error }}</div>
+				{% endfor %}
+			</div>
+
+			<div>
+				{{ update_infos.email.label() }}
+				{{ update_infos.email(value=donor.email) }}
+				{% for error in update_infos.email.errors %}
+				<div class="error">{{ error }}</div>
+				{% endfor %}
+			</div>
+
+			<div>
+				{{ update_infos.full_name.label() }}
+				{{ update_infos.full_name(value=donor.full_name) }}
+				{% for error in update_infos.full_name.errors %}
+				<div class="error">{{ error }}</div>
+				{% endfor %}
+			</div>
+
+			<div>
+				{{ update_infos.phone_number.label() }}
+				{% if donor.phone_number %}
+				{{ update_infos.phone_number(value=donor.phone_number) }}
+				{% else %}
+				{{ update_infos.phone_number(placeholder='(optional)') }}
+				{% endif %}
+				{% for error in update_infos.phone_number.errors %}
+				<div class="error">{{ error }}</div>
+				{% endfor %}
+			</div>
+
+			<div>
+				{{ update_infos.age.label() }}
+				{{ update_infos.age(value=donor.age) }}
+				{% for error in update_infos.age.errors %}
+				<div class="error">{{ error }}</div>
+				{% endfor %}
+			</div>
+
+			<div>
+				{{ update_infos.gender.label() }}
+				<select id="gender" name="gender">
+					{% for g in genders %}
+					<option value="{{ g }}" {% if g == donor.gender %}selected{% endif %}>{{ g }}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div>
+				{{ update_infos.blood_category.label() }}
+				<select id="blood_category" name="blood_category">
+					{% for bc in blood_categories %}
+					<option value="{{ bc }}" {% if bc == donor.blood_category %}selected{% endif %}>{{ bc }}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="submit">
+				{{ update_infos.submit() }}
+			</div>
+
+		</form>
+
+		<hr>
+
+		<form method="POST">
+			{{ change_pwd.hidden_tag() }} <!-- Include CSRF token -->
+			<legend>Change Password :</legend>
+
+			<div>
+				{{ change_pwd.actual_password.label() }}
+				{{ change_pwd.actual_password() }}
+				{% for error in change_pwd.actual_password.errors %}
+				<div class="error">{{ error }}</div>
+				{% endfor %}
+			</div>
+
+			<div>
+				{{ change_pwd.new_password.label() }}
+				{{ change_pwd.new_password() }}
+				{% for error in change_pwd.new_password.errors %}
+				<div class="error">{{ error }}</div>
+				{% endfor %}
+			</div>
+
+			<div>
+				{{ change_pwd.confirm_password.label() }}
+				{{ change_pwd.confirm_password() }}
+				{% for error in change_pwd.confirm_password.errors %}
+				<div class="error">{{ error }}</div>
+				{% endfor %}
+			</div>
+
+			<div class="submit">
+				{{ change_pwd.submit() }}
+			</div>
+
+		</form>
+
+		<div class="delete-div">
+			<p class="delete-text">Delete your Account :</p>
+			<button class="delete-btn" onclick="confirmDelete()">Delete Account</button>
+			<form id="deleteForm" action="{{ url_for('delete_account') }}" method="post" style="display: none;">
+				<button type="submit">Confirm Delete</button>
+			</form>
+		</div>
+	</div>
+</main>
+{% endblock main %}
+
+{% block script %}
+<script>
+	function confirmDelete() {
+		if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+			document.getElementById('deleteForm').submit();
+		}
+	}
+</script>
+{% endblock script %}

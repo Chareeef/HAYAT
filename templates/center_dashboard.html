@@ -20,7 +20,7 @@
 
 <main>
 	<aside class="sidebar">
-		<h2 class="sidebar-heading">{{ center.name }} :</h2>
+		<h2 class="sidebar-heading">{{ center.name }}</h2>
 		<table class="profile-info-table">
 			<tr>
 				<td class="profile-info-key">Country:</td>
@@ -51,6 +51,9 @@
 				<td class="profile-info-value">{{ nb_donors }} Donor{% if nb_donors != 1 %}s{% endif %}</td>
 			</tr>
 		</table>
+		<div class="update">
+			<a href="{{ url_for('update_center') }}"><button class="update-btn">Profile Settings</button></a>
+		</div>
 	</aside>
 
 

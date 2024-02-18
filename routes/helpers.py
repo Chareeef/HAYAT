@@ -4,11 +4,13 @@ Our Project Flask Getter Routes
 """
 from app import app
 from db import storage
-from flask import jsonify
+from flask import flash, jsonify, redirect, url_for
+from flask_login import current_user, login_required
 
 
-@app.route('/get_cities/<int:country_id>')
+@app.route('/get_cities/<int:country_id>', strict_slashes=False)
 def get_cities(country_id):
+    """Get the list of the country's cities"""
     country = storage.get('Country', country_id)
 
     cities = []
@@ -20,8 +22,9 @@ def get_cities(country_id):
     return jsonify({'cities': cities})
 
 
-@app.route('/get_centers/<int:city_id>')
+@app.route('/get_centers/<int:city_id>', strict_slashes=False)
 def get_centers(city_id):
+    """Get the list of the city's transfusion centers"""
     city = storage.get('City', city_id)
 
     centers = []
@@ -33,8 +36,9 @@ def get_centers(city_id):
     return jsonify({'centers': centers})
 
 
-@app.route('/get_bags/<int:center_id>')
+@app.route('/get_bags/<int:center_id>', strict_slashes=False)
 def get_bags(center_id):
+    """Get the list of the transfusion center's blood bags"""
     center = storage.get('TransfusionCenter', center_id)
 
     bags = []
@@ -43,3 +47,13 @@ def get_bags(center_id):
         bags.sort(key=lambda bag: bag['blood_category'])
 
     return jsonify({'bags': bags})
+
+
+@app.route('/delete_account', methods=['POST'], strict_slashes=False)
+@login_required
+def delete_account():
+    """Delete the current user's account"""
+    current_user.delete()
+
+    flash('Account deleted successfully', 'success')
+    return redirect(url_for('home'))

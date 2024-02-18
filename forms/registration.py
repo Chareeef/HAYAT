@@ -19,7 +19,7 @@ class TCRegistrationForm(FlaskForm):
         'Confirm Password *', validators=[
             DataRequired(), EqualTo('password')])
     phone_number = StringField('Phone Number')
-    map_coordinates = StringField('Map Coordinates')
+    location = StringField('Location')
     country = SelectField('Country *', coerce=int, validators=[DataRequired()])
     city = SelectField('City *', coerce=int, validators=[DataRequired()])
     submit = SubmitField('Register')
@@ -62,7 +62,8 @@ class DonorRegistrationForm(FlaskForm):
             DataRequired(), EqualTo('password')])
     phone_number = StringField('Phone Number')
     full_name = StringField('Full Name *', validators=[DataRequired()])
-    age = IntegerField('Age *', validators=[DataRequired(), NumberRange(min=18)])
+    age = IntegerField(
+        'Age *', validators=[DataRequired(), NumberRange(min=18)])
     gender = SelectField('Gender', choices=[None, 'Male', 'Female'])
     blood_category = SelectField(
         'Blood Category',

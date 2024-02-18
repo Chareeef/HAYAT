@@ -1,4 +1,8 @@
 /* General styles */
+body {
+    background: var(--main-bg);
+}
+
 main {
     background-color: white;
     display: flex;
@@ -51,7 +55,7 @@ input {
 
 select {
     width: 200px;
-    height: 30px;
+    height: 35px;
     border: 1px solid red;
     border-radius: 5px;
     padding: 5px;

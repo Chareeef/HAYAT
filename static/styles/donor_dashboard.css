@@ -40,3 +40,19 @@ main {
     font-weight: bold;
 }
 
+/* Settings button */
+
+.update {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.update-btn {
+    width: 150px;
+    background-color: #c00;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+}

@@ -157,15 +157,15 @@
 					<div>
 						<div class="group">
 							{{ tc_form.phone_number.label }}
-							{{ tc_form.phone_number(size=20) }}
+							{{ tc_form.phone_number(size=20, placeholder='(optional)') }}
 							{% for error in tc_form.phone_number.errors %}
 							<span style="color: red;">{{ error }}</span>
 							{% endfor %}
 						</div>
 						<div class="group">
-							{{ tc_form.map_coordinates.label }}
-							{{ tc_form.map_coordinates(size=20) }}
-							{% for error in tc_form.map_coordinates.errors %}
+							{{ tc_form.location.label }}
+							{{ tc_form.location(size=20 placeholder='(optional, e.g: Google Maps Link)') }}
+							{% for error in tc_form.location.errors %}
 							<span style="color: red;">{{ error }}</span>
 							{% endfor %}
 						</div>

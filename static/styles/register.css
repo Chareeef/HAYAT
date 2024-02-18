@@ -1,11 +1,10 @@
-/* ====================================
-REGISTER PAGE
-=======================================*/
+/* Register page styles */
 
 .register {
 	display: flex;
 	justify-content: space-between;
 	columns: 2;
+        background: var(--main-bg);
 	height: 100%;
 }
 
@@ -124,7 +123,7 @@ REGISTER PAGE
 
 			select {
 				width: 200px;
-				height: 30px;
+				height: 35px;
 				border: 1px solid red;
 				border-radius: 5px;
 				padding: 5px;

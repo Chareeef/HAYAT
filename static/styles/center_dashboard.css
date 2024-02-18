@@ -42,3 +42,22 @@ main {
     border-bottom: 1px solid #ddd;
     width: 70%;
 }
+
+/* Settings button */
+
+.update {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.update-btn {
+    width: 150px;
+    background-color: #e9ecef;
+    color: #333;
+    padding: 10px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
