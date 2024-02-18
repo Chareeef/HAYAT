@@ -52,6 +52,10 @@ main {
     }
 
     .hero_content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         flex: 6;
         text-align: center;
 
@@ -59,6 +63,12 @@ main {
             font-size: 1.5rem;
             font-weight: bold;
             line-height: 2;
+        }
+
+        hr {
+            height: 0.1rem;
+            width: 10rem;
+            background-color: #fff;
         }
 
         .cta_text {
@@ -74,7 +84,7 @@ main {
             padding-block-start: 2rem;
 
             .button {
-                width: 20rem;
+                width: 25rem;
                 padding: 10px;
                 display: flex;
                 justify-content: space-around;
@@ -86,35 +96,17 @@ main {
                 font-size: 1.2rem;
                 font-weight: bold;
                 cursor: pointer;
-            }
-
-            .donor_btn {
                 background-color: crimson;
                 border: none;
             }
 
-            .donor_btn:hover {
+            .button:hover {
                 border: 1px solid crimson;
                 background: transparent;
                 color: crimson;
             }
 
-            .donor_btn:hover .bi {
-                scale: 1.5;
-            }
-
-            .tc_btn {
-                border: 1px solid crimson;
-                background: transparent;
-                color: crimson;
-            }
-
-            .tc_btn:hover {
-                background-color: crimson;
-                color: white;
-            }
-
-            .tc_btn:hover .bi {
+            .button:hover .bi {
                 scale: 1.5;
             }
         }
