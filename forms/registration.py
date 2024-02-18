@@ -29,8 +29,8 @@ class TCRegistrationForm(FlaskForm):
         super(TCRegistrationForm, self).__init__(*args, **kwargs)
         self.country.choices = [(0, '---')] + [(country.id, country.name)
                                                for country in storage.all('Country')]
-        self.city.choices = [(city.id, city.name)
-                             for city in storage.all('City')]
+        self.city.choices = [(0, '---')] + [(city.id, city.name)
+                                            for city in storage.all('City')]
 
     def validate_email(self, email):
         """Check if the email is not already taken"""

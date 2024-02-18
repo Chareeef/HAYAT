@@ -20,7 +20,7 @@ def login():
     tc_form = TCLoginForm()
     donor_form = DonorLoginForm()
 
-    if tc_form.validate_on_submit():
+    if 'email' in dict(request.form) and tc_form.validate_on_submit():
         email = tc_form.email.data.strip()
         password = tc_form.password.data
         tc = storage.session.query(
@@ -38,7 +38,7 @@ def login():
         else:
             flash('Invalid email or password. Please try again.', 'danger')
 
-    elif donor_form.validate_on_submit():
+    elif 'username' in dict(request.form) and donor_form.validate_on_submit():
         username = donor_form.username.data.strip()
         donor = storage.session.query(
             Donor).filter_by(username=username).first()
