@@ -1,44 +1,70 @@
-# HAYAT - Blood Donation Management System
+# Hayat - A Blood Donation Website
 
-## Overview
+Welcome to Hayat, a blood donation website developed by a dedicated team of software engineers! Visit our [deployed site](https://hayat-blood-donation.tech) to explore our platform and learn more about our journey in our final project [blog article](https://medium.com/@youssef.charif.h/hayat-a-blood-donation-website-f95c24c2b078?postPublishedType=initial).
 
-HAYAT is a revolutionary Blood Donation Management System designed to foster seamless communication between transfusion centers and potential blood donors. The platform centralizes the tracking of blood bag quantities, facilitating efficient donor alerts and optimizing the blood donation process.
+## Table of Contents
 
-## Features
+1. [Introduction](#introduction)
+2. [Team and Roles](#team-and-roles)
+3. [Main Purpose](#main-purpose)
+4. [Technologies Used](#technologies-used)
+5. [Usage](#usage)
+6. [Challenges Overcome](#challenges-overcome)
+7. [Team Contact](#team-contact)
+8. [Licensing](#licensing)
 
-- **Transfusion Center Monitoring:** Blood donors can effortlessly track the status of nearby transfusion centers, ensuring timely contributions when needed.
+## Introduction <a name="introduction"></a>
 
-- **Accurate Statistics:** Transfusion center teams can provide potential donors with precise and up-to-date statistics on blood bag inventory, improving the management of shortage periods.
+Hayat is a blood donation website aimed at streamlining the blood donation process and fostering transparency between blood donors and transfusion centers. Our platform provides an intuitive interface for both donors and transfusion centers to connect and contribute to life-saving efforts.
 
-- **User-Friendly Interface:** The HAYAT website prioritizes a user-friendly experience, making it easy for both transfusion center staff and blood donors to contribute to life-saving efforts.
+## Team and Roles <a name="team-and-roles"></a>
 
-## Technologies
+- **Youssef**: Database modeling, DevOps tasks, project management
+- **Blain**: Front-end development
+- **Ken**: Back-end development
 
-- **Flask:** A lightweight and versatile web framework for Python, facilitating rapid development and efficient deployment.
+## Main Purpose <a name="main-purpose"></a>
 
-- **SQLAlchemy:** A powerful and flexible ORM (Object-Relational Mapping) tool for interfacing with databases.
+The main purpose of Hayat is to bridge the gap between blood donors and transfusion centers, facilitating easy access to blood donation services and enhancing communication between stakeholders.
 
-- **MySQL:** A robust and scalable relational database management system for efficient data storage and retrieval.
+## Technologies Used <a name="technologies-used"></a>
 
-- **HTML/CSS + Jinja:** Frontend components structured with HTML/CSS, dynamically rendered using Jinja templating for a responsive and engaging user interface.
+- Flask
+- HTML/CSS/Jinja/JavaScript
+- MySQL/SQLAlchemy
+- Nginx
+- HAProxy
 
-- **Nginx:** A high-performance web server used for load balancing and efficient distribution of incoming traffic.
+## Usage <a name="usage"></a>
 
-## Getting Started
+Experience Hayat's functionalities firsthand by visiting [hayat-blood-donation.tech](https://hayat-blood-donation.tech). 
 
-1. **Access the Application:**
-   - The HAYAT platform is accessible through the domain [https://hayat-blood-donation.tech](https://hayat-blood-donation.tech).
+### For Donors:
+- Register as a donor
+- Search for registered transfusion centers
+- Follow specific transfusion centers to receive updates
 
-2. **Usage:**
-   - Explore the user-friendly interface to monitor transfusion center statuses.
-   - Transfusion center teams can efficiently manage and update blood bag statistics.
+### For Transfusion Centers:
+- Create accounts to provide contact information, location details, and blood inventory statistics
+- Receive donation requests and communicate with donors
 
-## Contributors
+## Challenges Overcome <a name="challenges-overcome"></a>
 
-- Youssef Charif Hamidi : [GitHub](https://github.com/Chareef) | [LinkedIn](https://linkedin.com/in/youssef-charif-hamidi) | [X](https://x.com/YoussefCharifH2)
-- Blain Muema : [GitHub](https://github.com/octocatblain) | [X](https://twitter.com/birdblain)
-- Kenansa Meseret : [GitHub](https://github.com/Kenc0de) | [X](https://twitter.com/KENC0DE)
+### User Session Management
+We encountered difficulties with user session management, especially with the round-robin load balancing mechanism. This resulted in users losing their logged-in sessions due to requests being routed to different servers. To solve this, we implemented sticky sessions on the load balancer, ensuring consistent user sessions across servers.
 
-## Conclusion
+### Unique ID Generation
+Another challenge was ensuring unique IDs for donors and transfusion centers. Initially, auto-incrementing integers caused conflicts, leading to incorrect user logins. We addressed this by using the shortuuid Python module to generate unique IDs, resolving the issue seamlessly.
 
-HAYAT stands as a testament to the power of technology in enhancing the blood donation process. By leveraging a robust tech stack, we've created a platform that not only empowers blood donors with real-time information but also enables transfusion centers to optimize their operations. As we move forward, this project represents a commitment to making a meaningful impact on healthcare accessibility and saving lives.
+## Team Contact <a name="team-contact"></a>
+
+- **Youssef Charif Hamidi** : [GitHub](https://github.com/Chareef) | [LinkedIn](https://linkedin.com/in/youssef-charif-hamidi) | [X](https://x.com/YoussefCharifH2)
+- **Blain Muema** : [GitHub](https://github.com/octocatblain) | [X](https://twitter.com/birdblain)
+- **Kenansa Meseret** : [GitHub](https://github.com/Kenc0de) | [X](https://twitter.com/KENC0DE)
+
+## Licensing <a name="licensing"></a>
+
+Hayat is licensed under the [MIT License](LICENSE), ensuring its availability for widespread use and modification.
+
+---
+**Note:** "Hayat" means "Life" in Arabic, symbolizing the project's mission to contribute to saving lives through blood donation.
