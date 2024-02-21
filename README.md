@@ -1,5 +1,8 @@
 # Hayat - A Blood Donation Website
 
+![Hayat Landing Page](https://github.com/Chareeef/HAYAT/assets/100241289/bcfe2d1b-7033-4203-b342-64617be11c15)
+
+
 Welcome to Hayat, a blood donation website developed by a dedicated team of software engineers! Visit our [deployed site](https://hayat-blood-donation.tech) to explore our platform and learn more about our journey in our final project [blog article](https://medium.com/@youssef.charif.h/hayat-a-blood-donation-website-f95c24c2b078?postPublishedType=initial).
 
 ## Table of Contents
@@ -40,13 +43,18 @@ The main purpose of Hayat is to bridge the gap between blood donors and transfus
 Experience Hayat's functionalities firsthand by visiting [hayat-blood-donation.tech](https://hayat-blood-donation.tech). 
 
 ### For Donors:
-- Register as a donor
-- Search for registered transfusion centers
-- Follow specific transfusion centers to receive updates
+- Search for registered transfusion centers by geographical filtering.
+- Follow specific transfusion centers to keep track of their blood bag statistics.
+
+![Transfusion Center Filter](https://github.com/Chareeef/HAYAT/assets/100241289/f5c1d66e-669e-4d45-a9f6-83244f731038)
+
 
 ### For Transfusion Centers:
-- Create accounts to provide contact information, location details, and blood inventory statistics
-- Receive donation requests and communicate with donors
+- Create accounts to provide contact information, location details.
+- Monitor blood inventory statistics.
+
+![Transfusion Center Dashboard](https://github.com/Chareeef/HAYAT/assets/100241289/aa58932f-1cb9-473c-b435-b9e70d248c96)
+
 
 ## Challenges Overcome <a name="challenges-overcome"></a>
 
