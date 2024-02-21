@@ -22,9 +22,9 @@ Hayat is a blood donation website aimed at streamlining the blood donation proce
 
 ## Team and Roles <a name="team-and-roles"></a>
 
-- **Youssef**: Database modeling, DevOps tasks, project management
-- **Blain**: Front-end development
-- **Ken**: Back-end development
+- **Youssef**: Database modeling and DevOps management.
+- **Ken**: Flask routes and API endpoints.
+- **Blain**: Front-end development.
 
 ## Main Purpose <a name="main-purpose"></a>
 
