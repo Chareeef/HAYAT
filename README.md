@@ -28,7 +28,13 @@ Hayat is a blood donation website aimed at streamlining the blood donation proce
 
 ## Main Purpose <a name="main-purpose"></a>
 
-The main purpose of Hayat is to bridge the gap between blood donors and transfusion centers, facilitating easy access to blood donation services and enhancing communication between stakeholders.
+Our project, Hayat, is driven by a fundamental mission: revolutionize the blood donation ecosystem by bridging the gap between Blood Donors and Transfusion Centers. Recognizing the critical role these stakeholders play in ensuring access to life-saving blood supplies, we set out to create a platform that fosters robust coordination and accessibility.
+
+At the heart of our endeavor lies the commitment to establish a user-friendly interface that caters to the unique needs of both Transfusion Centers and Donors. For Transfusion Centers, Hayat provides a platform to disseminate vital information such as contact details, location specifics, and real-time blood inventory statistics. By promoting transparency and accessibility, we empower Transfusion Centers to efficiently manage their resources and eventually receive blood donations right when they are needed the most.
+
+Simultaneously, Hayat offers Donors a seamless experience, allowing them to effortlessly locate registered Transfusion Centers in their respective African cities through an intuitive filtering system. With instant access to critical data, including center locations and blood inventory levels, Donors can make informed decisions about when and where to donate. Furthermore, our innovative "Follow" feature enables Donors to track specific Transfusion Centers, facilitating swift responses to urgent blood donation needs.
+
+In essence, Hayat project serves as a catalyst for positive change in the blood donation landscape, leveraging technology to hopefully save lives and promote community well-being across Africa.
 
 ## Technologies Used <a name="technologies-used"></a>
 
