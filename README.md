@@ -22,9 +22,9 @@ Hayat is a blood donation website aimed at streamlining the blood donation proce
 
 ## Team and Roles <a name="team-and-roles"></a>
 
-- **Youssef**: Database modeling and DevOps management.
-- **Ken**: Flask routes and API endpoints.
-- **Blain**: Front-end development.
+- **Youssef Charif Hamidi**: Database modeling and DevOps management.
+- **Kenansa Meseret Nigusie**: Flask routes and API endpoints building.
+- **Blain Muema**: Front-end development.
 
 ## Main Purpose <a name="main-purpose"></a>
 
@@ -79,7 +79,7 @@ Another challenge was ensuring unique IDs for donors and transfusion centers. In
 
 - **Youssef Charif Hamidi** : [GitHub](https://github.com/Chareef) | [LinkedIn](https://linkedin.com/in/youssef-charif-hamidi) | [X](https://x.com/YoussefCharifH2)
 - **Blain Muema** : [GitHub](https://github.com/octocatblain) | [LinkedIn](https://linkedin.com/in/blain-muema) | [X](https://twitter.com/birdblain)
-- **Kenansa Meseret** : [GitHub](https://github.com/Kenc0de) | | [LinkedIn](https://linkedin.com/in/kenc0de) [X](https://twitter.com/KENC0DE)
+- **Kenansa Meseret Nigusie** : [GitHub](https://github.com/Kenc0de) | [LinkedIn](https://linkedin.com/in/kenc0de) | [X](https://twitter.com/KENC0DE)
 
 ## Licensing <a name="licensing"></a>
 
